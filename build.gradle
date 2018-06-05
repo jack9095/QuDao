@@ -18,10 +18,26 @@ buildscript {
 allprojects {
     repositories {
         google()
+        //maven仓库
+        maven{
+            url "https://jitpack.io"
+        }
+        maven{
+            url "http://maven.aliyun.com/nexus/content/repositories/releases"
+        }
+        maven{
+            url "https://maven.google.com"
+        }
+
+        maven { url 'http://xcserver:8082/nexus/content/repositories/releases/' }
+
         jcenter()
+        //aar本地依赖
+        flatDir {
+            dirs 'libs'
+        }
     }
 }
-
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
