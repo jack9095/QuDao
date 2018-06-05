@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!--<com.fly.refreshlibrary.view.tab.SlidingTabLayout-->
+        <!--android:id="@+id/activity_tree_salon_tab"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="30dp"-->
+        <!--app:tl_indicator_width="30dp"-->
+        <!--app:tl_indicator_height="2dp"-->
+        <!--app:tl_indicator_color="#03c37d"-->
+        <!--app:tl_textBold="NONE"-->
+        <!--app:tl_textUnselectColor="#373737"-->
+        <!--app:tl_textSelectColor="#03c37d"-->
+        <!--app:tl_textsize="16sp"/>-->
+
+</RelativeLayout>
