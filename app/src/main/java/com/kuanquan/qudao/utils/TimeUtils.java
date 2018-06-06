@@ -12,9 +12,7 @@ import java.util.SimpleTimeZone;
 import java.util.TimeZone;
 
 /**
- * 
- * @author YQliang
- * 
+ *
  * @data 2016-5-10 日期工具类
  */
 public class TimeUtils {

@@ -2,8 +2,6 @@ package com.kuanquan.qudao.utils;
 
 import android.text.TextUtils;
 
-import com.example.fly.aaa.app.MyApplication;
-
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

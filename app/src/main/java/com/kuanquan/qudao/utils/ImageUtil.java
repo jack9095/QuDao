@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.example.fly.aaa.R;
+import com.kuanquan.qudao.R;
 
 /**
  * Created by able on 2018/4/17.

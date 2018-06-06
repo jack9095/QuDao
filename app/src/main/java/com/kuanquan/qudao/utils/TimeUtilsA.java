@@ -3,12 +3,6 @@ package com.kuanquan.qudao.utils;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-/**
- * description:
- * author: 崔国
- * date: 2017/11/16.
- */
-
 public class TimeUtilsA {
     /**
      * 日期工具类(未特别说明的均为系统默认时区下的时间)
