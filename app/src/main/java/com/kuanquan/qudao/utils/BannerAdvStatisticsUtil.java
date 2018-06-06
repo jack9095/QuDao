@@ -2,6 +2,8 @@ package com.kuanquan.qudao.utils;
 
 import android.text.TextUtils;
 
+import com.kuanquan.qudao.app.QuApplication;
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -24,7 +26,7 @@ public class BannerAdvStatisticsUtil {
 
     private BannerAdvStatisticsUtil() {
         super();
-        mACache = ACache.get(MyApplication.getAppContext(), "Banner_Statistics", false);
+        mACache = ACache.get(QuApplication.getAppContext(), "Banner_Statistics", false);
         mSimpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss" , Locale.CHINA);
         try {
             mMap = (HashMap<String, AdvInfo>) mACache.getAsObject(ADV_STATISTICS_KEY);

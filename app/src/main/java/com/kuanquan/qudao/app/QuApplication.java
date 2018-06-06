@@ -1,6 +1,8 @@
 package com.kuanquan.qudao.app;
 
 import android.app.Application;
+import android.content.Context;
+
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 
@@ -9,9 +11,15 @@ import com.orhanobut.logger.Logger;
  */
 public class QuApplication extends Application {
 
+    private static QuApplication mContext;
     @Override
     public void onCreate() {
         super.onCreate();
         Logger.addLogAdapter(new AndroidLogAdapter());
+        mContext = this;
+    }
+
+    public static QuApplication getAppContext(){
+        return mContext;
     }
 }
