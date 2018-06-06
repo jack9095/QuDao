@@ -5,9 +5,9 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.kuanquan.qudao.MainActivity">
+    tools:context="com.kuanquan.qudao.activity.MainActivity">
 
-    <TextView
+  <!--  <TextView
         android:id="@+id/message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,7 +16,17 @@
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:text="@string/title_home"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp" />
+
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
@@ -25,14 +35,15 @@
         android:layout_marginEnd="0dp"
         android:layout_marginStart="0dp"
         android:background="?android:attr/windowBackground"
-
-        app:itemIconTint="#ffffff"
-        app:itemTextColor="#ffffff"
         android:overScrollMode="never"
         android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/navigation" />
-    <!--app:itemBackground="#ff00ff"-->
+
+    <!--app:itemBackground="@color/colorPrimaryDark"
+        app:itemIconTint="#88b6cc"
+        app:itemTextColor="#cc86bc"-->
+
 </android.support.constraint.ConstraintLayout>
