@@ -2,9 +2,10 @@ package com.kuanquan.qudao.webview;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import com.example.fly.myapplication.R;
-import com.example.fly.myapplication.view.JavaScriptObject;
-import com.example.fly.myapplication.view.MyWebView;
+
+import com.kuanquan.qudao.R;
+import com.kuanquan.qudao.view.JavaScriptObject;
+import com.kuanquan.qudao.view.MyWebView;
 
 public class WebViewActivity extends AppCompatActivity implements JavaScriptObject.JsListener {
     MyWebView myWebView;

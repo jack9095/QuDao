@@ -1,9 +1,6 @@
 package com.kuanquan.qudao.view;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -12,13 +9,9 @@ import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-
-import com.example.fly.baselibrary.utils.base.DisplayUtil;
-import com.example.fly.myapplication.R;
-
+import com.kuanquan.qudao.R;
 
 /**
  * 浏览器Layout,封装以及初始化WebView
@@ -27,7 +20,6 @@ public class BrowserLayout extends LinearLayout {
 
     private Context mContext = null;
     private WebView mWebView = null;
-    private View mBrowserControllerView = null;
 
     private ProgressBar mProgressBar = null;
 
@@ -54,54 +46,6 @@ public class BrowserLayout extends LinearLayout {
 
         LayoutParams lps = new LayoutParams(LayoutParams.MATCH_PARENT, 0, 1);
         addView(mWebView, lps);
-
-        mBrowserControllerView = LayoutInflater.from(context).inflate(R.layout.layout_browser_controller, null);
-        ImageButton mGoBackBtn = mBrowserControllerView.findViewById(R.id.browser_controller_back); // 底部返回按钮
-        ImageButton mGoForwardBtn = mBrowserControllerView.findViewById(R.id.browser_controller_forward);  // 底部前进按钮
-        ImageButton mGoBrowserBtn = mBrowserControllerView.findViewById(R.id.browser_controller_go);   // 切换到浏览器
-        ImageButton mRefreshBtn = mBrowserControllerView.findViewById(R.id.browser_controller_refresh);  // 刷新
-
-        mGoBackBtn.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                if (canGoBack()) {
-                    goBack();
-                }
-            }
-        });
-
-        mGoForwardBtn.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                if (canGoForward()) {
-                    goForward();
-                }
-            }
-        });
-
-        mRefreshBtn.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                refresh(mLoadUrl);
-            }
-        });
-
-        mGoBrowserBtn.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                if (!TextUtils.isEmpty(mLoadUrl)) {
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse(mLoadUrl));
-                    mContext.startActivity(intent);
-                }
-            }
-        });
-
-        addView(mBrowserControllerView, LayoutParams.MATCH_PARENT, DisplayUtil.dip2px(getContext(),45));
     }
 
     public void setWebClient(WebViewClient webClient) {
@@ -202,17 +146,7 @@ public class BrowserLayout extends LinearLayout {
     }
 
     public WebView getWebView() {
-        return mWebView != null ? mWebView : null;
+        return mWebView;
     }
 
-    /**
-     * 是否显示控制布局  (底部布局的显示)
-     */
-    public void setIsShowController(boolean isShow) {
-        if (isShow) {
-            mBrowserControllerView.setVisibility(View.VISIBLE);
-        } else {
-            mBrowserControllerView.setVisibility(View.GONE);
-        }
-    }
 }

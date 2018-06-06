@@ -3,7 +3,6 @@ package com.kuanquan.qudao.view;
 import android.webkit.JavascriptInterface;
 
 import com.example.fly.baselibrary.utils.base.GsonUtils;
-import com.example.fly.myapplication.bean.JsBean;
 
 import java.util.HashMap;
 

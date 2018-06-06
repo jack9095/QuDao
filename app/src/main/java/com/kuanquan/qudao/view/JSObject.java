@@ -2,8 +2,6 @@ package com.kuanquan.qudao.view;
 
 import android.webkit.JavascriptInterface;
 
-import com.example.fly.myapplication.bean.JsBean;
-
 /**
  * 通用供H5页面Js调用的方法
  */
@@ -63,7 +61,7 @@ public class JSObject {
 
     private JsListener mJsListener;
     public interface JsListener{
-        void jsListener(JsBean obj);
+//        void jsListener(JsBean obj);
         void setStyle();
         void goBack();
         void goToPage(String path, String json);
