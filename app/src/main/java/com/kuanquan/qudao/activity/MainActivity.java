@@ -6,7 +6,9 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.kuanquan.qudao.R;
 import com.kuanquan.qudao.adapter.MainFragmentpagerAdapter;
@@ -90,9 +92,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if (getSupportActionBar() != null) {
+        /*if (getSupportActionBar() != null) {
             getSupportActionBar().hide();  //去掉标题栏
-        }
+        }*/
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fragmentList = new ArrayList<>();
@@ -106,6 +108,17 @@ public class MainActivity extends AppCompatActivity {
         fragmentList.add(liveFragment);
         fragmentList.add(notiFragment);
         fragmentList.add(myFragment);
+
+//        Toolbar mToolBar = findViewById(R.id.toolbar);
+//        setSupportActionBar(mToolBar);
+//        mToolBar.setTitle(getResources().getString(R.string.app_name));
+//        mToolBar.setNavigationIcon(R.mipmap.left_back);
+//        mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                finish();
+//            }
+//        });
 
         mViewPager = findViewById(R.id.viewpager);
         mBottomNavigationView = findViewById(R.id.navigation);
