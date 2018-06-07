@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ViewPagerTabLayout</string>
+    <string name="action_settings">Settings</string>
+
+    <!--主页-->
+    <string name="main_tab_news">主页</string>
+    <string name="main_tab_picture">美图大全</string>
+    <string name="main_tab_weather">消息大全</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
