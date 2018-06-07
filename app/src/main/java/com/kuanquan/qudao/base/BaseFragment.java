@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.kuanquan.qudao.event.RxEvent;
+import com.kuanquan.qudao.core.event.RxEvent;
 
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.subjects.PublishSubject;

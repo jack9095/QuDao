@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.kuanquan.qudao.R;
-import com.kuanquan.qudao.event.RxEvent;
 
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.subjects.PublishSubject;
