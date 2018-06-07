@@ -14,4 +14,6 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="ToolBarStyle" parent="@style/BaseToolBarStyle" />
+
 </resources>

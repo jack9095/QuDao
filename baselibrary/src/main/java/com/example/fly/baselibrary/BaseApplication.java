@@ -6,6 +6,8 @@ import com.example.fly.baselibrary.utils.base.ACache;
 import com.example.fly.baselibrary.utils.useful.LogUtil;
 import com.example.fly.baselibrary.utils.useful.SPManager;
 import com.facebook.stetho.Stetho;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
 import com.squareup.leakcanary.LeakCanary;
 
 import java.io.File;
@@ -27,12 +29,15 @@ public class BaseApplication extends Application {
         onFastInit();
         mAppContext = this;
         mACache = ACache.get(getApplicationContext(), false);
-        file = new File(getCacheDir().getAbsolutePath(),"fly");
+        file = new File(getCacheDir().getAbsolutePath(), "fly");
         mACacheFile = ACache.get(file);
         SPManager.init(mAppContext);
 
         initLog();
-
+        //初始化内存泄漏检测工具
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            return;
+        }
         LeakCanary.install(mAppContext);
         Stetho.initializeWithDefaults(mAppContext);
     }
@@ -55,6 +60,8 @@ public class BaseApplication extends Application {
                 .setLogType(LogUtil.TYPE.E) //设置默认打印级别
                 .setTag("lzh"); //设置默认打印Tag
         LogUtil.init(builder);
+
+        Logger.addLogAdapter(new AndroidLogAdapter());
     }
 
 
