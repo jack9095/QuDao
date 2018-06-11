@@ -3,6 +3,7 @@ package com.example.fly.baselibrary.utils.useful;
 import android.app.Activity;
 import android.content.Context;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -173,6 +174,27 @@ public class GlideUtil {
         @Override
         public String getId() {
             return getClass().getName();
+        }
+    }
+
+    public static void setImage(Context context,String imageUrl,ImageView view){
+        if (!TextUtils.isEmpty(imageUrl)) {
+            if (imageUrl.endsWith("gif")) {
+                Glide.with(context)
+                        .load(imageUrl)
+                        .asGif()
+                        .into(view);
+            }else {
+                Glide.with(context)
+                        .load(imageUrl)
+                        .asBitmap()
+                        .into(view);
+            }
+        }else{
+            Glide.with(context)
+                    .load(R.drawable.ic_insert_photo_placeholder_24dp)
+                    .asBitmap()
+                    .into(view);
         }
     }
 

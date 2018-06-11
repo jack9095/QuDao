@@ -3,6 +3,10 @@ package com.example.fly.baselibrary.mvpExample.base;
 import android.app.Activity;
 import android.os.Bundle;
 
+import com.example.fly.baselibrary.mvpEeventBus.EventCenter;
+
+import org.greenrobot.eventbus.EventBus;
+
 /**
  * @author: fei.wang
  * @date: 2017.4.23
@@ -17,6 +21,10 @@ public abstract  class BaseActivity<V,T extends BasePresenter<V>> extends Activi
         mPresent = createPresent();
         mPresent.attachView((V) this);
         mPresent.initialize();
+
+        if (isBindEventBusHere()) {
+            EventBus.getDefault().register(this);
+        }
     }
 
     @Override
@@ -31,4 +39,27 @@ public abstract  class BaseActivity<V,T extends BasePresenter<V>> extends Activi
      * @return
      */
     protected abstract T createPresent() ;
+
+    /**
+     * is bind eventBus
+     *
+     * @return
+     */
+    protected abstract boolean isBindEventBusHere();
+
+    public void postEventBus(String code) {
+        EventBus.getDefault().post(new EventCenter<Object>(code));
+    }
+
+    public void postEventBusSticky(String code) {
+        EventBus.getDefault().postSticky(new EventCenter<Object>(code));
+    }
+
+    public void postEventBusSticky(String code, Object obj) {
+        EventBus.getDefault().postSticky(new EventCenter<Object>(code, obj));
+    }
+
+    public void postEventBus(String code, Object obj) {
+        EventBus.getDefault().post(new EventCenter<Object>(code, obj));
+    }
 }

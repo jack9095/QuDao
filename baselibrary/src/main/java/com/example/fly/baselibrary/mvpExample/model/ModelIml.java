@@ -9,6 +9,6 @@ package com.example.fly.baselibrary.mvpExample.model;
 public class ModelIml implements IModel {
     @Override
     public void setOnLoadDataListener(OnLoadDataListener onLoadDataListener) {
-        onLoadDataListener.onComplete("上海");
+        onLoadDataListener.requestSuccessListener("","上海");
     }
 }

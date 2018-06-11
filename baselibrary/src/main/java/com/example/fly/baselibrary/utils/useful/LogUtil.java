@@ -38,7 +38,6 @@ import static com.example.fly.baselibrary.utils.useful.LogUtil.TYPE.XML;
  * @fuction 一个优化Log显示的工具类
  * @use Application中构造器初始化，其他方式和log一样
  * 轻量级，支持本地
- *
  */
 public class LogUtil {
 

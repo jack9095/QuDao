@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">rbase</string>
     <string name="crashTips">哎哟~程序异常退出了~</string>
+
+    <string name="success">获取数据成功</string>
+
 </resources>

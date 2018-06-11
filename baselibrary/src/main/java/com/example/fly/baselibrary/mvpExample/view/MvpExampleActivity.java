@@ -32,13 +32,18 @@ public class MvpExampleActivity extends BaseActivity<IMainView,Present> implemen
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mvp_example);
-        textView = (TextView) findViewById(R.id.text);
+        textView = findViewById(R.id.text);
         mPresent.getRequestData();
     }
 
     @Override
     protected Present createPresent() {
         return new Present();
+    }
+
+    @Override
+    protected boolean isBindEventBusHere() {
+        return false;
     }
 
     @Override

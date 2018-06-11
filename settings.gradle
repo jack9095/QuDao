@@ -1,1 +1,5 @@
-include ':app', ':baselibrary', ':test'
+include ':app'
+include ':network'
+//include ':basemvp'
+include ':baselibrary'
+//include ':test'

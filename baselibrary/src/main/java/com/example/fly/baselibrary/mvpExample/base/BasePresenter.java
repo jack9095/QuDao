@@ -5,7 +5,7 @@ import java.lang.ref.WeakReference;
 /**
  * @author: fei.wang
  * @date: 2017.4.23
- * @des: T  对应着Activity 的UI抽象接口  视图
+ * @des: T  对应着Activity(fragment) 的UI抽象接口  视图
  */
 public abstract class BasePresenter<T> {
     /**
@@ -56,7 +56,7 @@ public abstract class BasePresenter<T> {
 
     public abstract void initialize();      // 初始化方法
 
-    public abstract void getRequestData();  // 获取数据（本地或网络）
+//    public abstract void getRequestData();  // 获取数据（本地或网络）
 
     protected abstract IBaseModel createModel();
 }

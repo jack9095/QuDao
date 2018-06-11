@@ -23,7 +23,6 @@
             android:name=".mvpExample.view.MvpExampleActivity"
             android:screenOrientation="nosensor"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>

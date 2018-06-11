@@ -1,6 +1,5 @@
 package com.example.fly.baselibrary.mvpExample.presenter;
 
-
 import com.example.fly.baselibrary.mvpExample.base.BasePresenter;
 import com.example.fly.baselibrary.mvpExample.base.IBaseModel;
 import com.example.fly.baselibrary.mvpExample.model.ModelIml;
@@ -15,14 +14,15 @@ public class Present extends BasePresenter<IMainView> implements IBaseModel.OnLo
 
     @Override
     public void initialize() {
-
-    }
-
-    @Override
-    public void getRequestData() {
         getView().showLoading();
         model.setOnLoadDataListener(this);
     }
+
+//    @Override
+//    public void getRequestData() {
+//        getView().showLoading();
+//        model.setOnLoadDataListener(this);
+//    }
 
     @Override
     protected IBaseModel createModel() {
@@ -30,8 +30,12 @@ public class Present extends BasePresenter<IMainView> implements IBaseModel.OnLo
     }
 
     @Override
-    public void onComplete(Object data) {
+    public void requestSuccessListener(String requestCode, Object data) {
         getView().showData(data);
     }
 
+    @Override
+    public void requestErrorListener(String requestCode, String errorMessage) {
+
+    }
 }
