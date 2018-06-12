@@ -33,7 +33,7 @@ public class MvpExampleActivity extends BaseActivity<IMainView,Present> implemen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mvp_example);
         textView = findViewById(R.id.text);
-        mPresent.getRequestData();
+//        mPresent.getRequestData();
     }
 
     @Override

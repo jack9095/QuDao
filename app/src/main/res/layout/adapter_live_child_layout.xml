@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:paddingLeft="15dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/live_child_image"
-        android:layout_marginLeft="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <com.kuanquan.qudao.widget.CustomImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        app:borderRadius="10dp"
-        app:src="@mipmap/jiuzai"
-        app:type="round" />
+        android:layout_width="300dp"
+        android:layout_height="180dp" />
 
     <TextView
         android:id="@+id/live_child_title"
         android:layout_below="@id/live_child_image"
         android:text="CFA思博体验课|60分钟带你玩转"
         android:singleLine="true"
+        android:maxLines="1"
         android:ellipsize="end"
-        android:lines="1"
-        android:textSize="24dp"
-        android:textStyle="bold"
-        android:layout_marginLeft="15dp"
         android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
+        android:paddingRight="10dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content" />
     <TextView
         android:id="@+id/live_child_content"
         android:layout_below="@id/live_child_title"
         android:text="03-09 12:00 · 122人预约"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="15dp"
+        android:singleLine="true"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:paddingRight="10dp"
         android:layout_marginTop="5dp"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content" />
+
+    <View
+        android:id="@+id/live_child_right_view"
+        android:layout_toRightOf="@id/live_child_image"
+        android:visibility="gone"
+        android:layout_width="15dp"
+        android:layout_height="180dp"/>
 
 </RelativeLayout>

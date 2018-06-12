@@ -1,4 +1,4 @@
-package com.kuanquan.qudao.utils;
+package com.example.fly.baselibrary.utils.useful;
 
 import android.content.Context;
 import android.content.res.Resources;

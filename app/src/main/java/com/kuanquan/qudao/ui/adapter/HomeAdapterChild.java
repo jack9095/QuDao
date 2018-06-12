@@ -7,9 +7,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.fly.baselibrary.utils.useful.GlideUtil;
+import com.example.fly.baselibrary.utils.useful.LogUtil;
 import com.kuanquan.qudao.R;
 import com.kuanquan.qudao.bean.HomeBeanChild;
+import com.kuanquan.qudao.utils.glide.GlideRoundTransform;
+
 import java.util.List;
 
 /**
@@ -51,7 +55,19 @@ public class HomeAdapterChild extends RecyclerView.Adapter<RecyclerView.ViewHold
                     mRecyclerHolder.title.setText(homeBeanChild.title);
                 }
                 if (!TextUtils.isEmpty(homeBeanChild.image)) {
-                    GlideUtil.setImage(parentF.getContext(),homeBeanChild.image,mRecyclerHolder.image);
+                    Glide.with(parentF.getContext())
+                            .load(homeBeanChild.image)
+                            .asBitmap()
+                            .transform(new GlideRoundTransform(parentF.getContext(),10))
+                            .into(mRecyclerHolder.image);
+                }
+
+                if (TextUtils.equals(homeBeanChild.type,"1")) {
+                    LogUtil.e(homeBeanChild.type);
+                    mRecyclerHolder.view.setVisibility(View.VISIBLE);
+                }else{
+                    LogUtil.e(homeBeanChild.type);
+                    mRecyclerHolder.view.setVisibility(View.GONE);
                 }
             }
         }
@@ -72,11 +88,13 @@ public class HomeAdapterChild extends RecyclerView.Adapter<RecyclerView.ViewHold
     public static class RecyclerHolder extends RecyclerView.ViewHolder {
         ImageView image;
         TextView title,content;
+        View view;
         public RecyclerHolder(View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.live_child_image);
             title = itemView.findViewById(R.id.live_child_title);
             content = itemView.findViewById(R.id.live_child_content);
+            view = itemView.findViewById(R.id.live_child_right_view);
         }
     }
 }

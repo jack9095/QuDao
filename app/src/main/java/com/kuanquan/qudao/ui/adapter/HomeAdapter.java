@@ -4,157 +4,86 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
-
+import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
+import com.chad.library.adapter.base.BaseViewHolder;
 import com.example.fly.baselibrary.utils.useful.GlideUtil;
+import com.example.fly.baselibrary.utils.useful.LogUtil;
 import com.kuanquan.qudao.R;
 import com.kuanquan.qudao.bean.HomeBean;
-
 import java.util.List;
 
 /**
  * Created by fei.wang on 2018/6/11.
  *
  */
-public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private final int ONE = 0x1109;
-    private final int TWO = 0x1110;
-    private final int THREE = 0x1111;
-    private List<HomeBean> lists;
-    private ViewGroup parentF;
+public class HomeAdapter extends BaseMultiItemQuickAdapter<HomeBean, BaseViewHolder> {
 
-    public void setData(List<HomeBean> homeBeans){
-        this.lists = homeBeans;
-        notifyDataSetChanged();
+    public HomeAdapter(List<HomeBean> data) {
+        super(data);
+        addItemType(HomeBean.ONE, R.layout.adapter_weex_layout);
+        addItemType(HomeBean.TWO, R.layout.adapter_five_item_layout);
+        addItemType(HomeBean.THREE, R.layout.adapter_live_open_layout);
+        addItemType(HomeBean.FOUR, R.layout.adapter_live_layout);
+        addItemType(HomeBean.FIVE, R.layout.adapter_discover_layout);
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        parentF = parent;
-        View view;
-        RecyclerView.ViewHolder holder;
-        switch (viewType){
-            case ONE:
-                view = getView(R.layout.adapter_weex_layout,parent);
-                holder = new WeexHolder(view);
-                return holder;
-            case TWO:
-                view = getView(R.layout.adapter_live_layout,parent);
-                holder = new LiveHolder(view,parent);
-                return holder;
-            case THREE:
-                view = getView(R.layout.adapter_discover_layout,parent);
-                holder = new DiscoverHolder(view);
-                return holder;
-            default:
-                return null;
-        }
-    }
+    protected void convert(BaseViewHolder helper, HomeBean item) {
+        switch (helper.getItemViewType()) {
+            case HomeBean.ONE:   // banner
+                ImageView mImageView = helper.getView(R.id.banner_image);
+                GlideUtil.setImageUrl(mContext,item.image,mImageView);
+                break;
+            case HomeBean.TWO:  // 5个item
+//                ImageView elective_course_image = helper.getView(R.id.elective_course_image);
+//                GlideUtil.setImage(mContext,item.lists.get(0).image,elective_course_image);
+//                helper.setText(R.id.elective_course_text,item.lists.get(0).title);
 
-    /**
-     * 用来引入布局的方法
-     */
-    private View getView(int view,ViewGroup parent) {
-        return View.inflate(parent.getContext(), view, null);
-    }
+//                ImageView live_image = helper.getView(R.id.live_image);
+//                GlideUtil.setImage(mContext,item.lists.get(1).image,live_image);
+//                helper.setText(R.id.live_text,item.lists.get(1).title);
 
-    @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        HomeBean homeBean = lists.get(position);
-        if (holder instanceof WeexHolder) {
-            WeexHolder mWeexHolder = (WeexHolder) holder;
+//                ImageView bank_image = helper.getView(R.id.bank_image);
+//                GlideUtil.setImage(mContext,item.lists.get(2).image,bank_image);
+//                helper.setText(R.id.bank_text,item.lists.get(2).title);
 
-        }else if (holder instanceof LiveHolder) {
-            LiveHolder mLiveHolder = (LiveHolder) holder;
-            HomeAdapterChild adapter = new HomeAdapterChild();
-            mLiveHolder.mRecyclerView.setAdapter(adapter);
-        }else if (holder instanceof DiscoverHolder) {
-            DiscoverHolder mDiscoverHolder = (DiscoverHolder) holder;
-            if (homeBean != null) {
-                if (!TextUtils.isEmpty(homeBean.content)) {
-                    mDiscoverHolder.content.setText(homeBean.content);
-                }
-                if (!TextUtils.isEmpty(homeBean.title)) {
-                    mDiscoverHolder.title.setText(homeBean.title);
-                }
-                if (!TextUtils.isEmpty(homeBean.image)) {
-                    GlideUtil.setImage(parentF.getContext(),homeBean.image,mDiscoverHolder.image);
-                }
-                if (TextUtils.equals("1",homeBean.isDiscover)) {
-                    mDiscoverHolder.discover.setVisibility(View.VISIBLE);
-                    mDiscoverHolder.more.setVisibility(View.VISIBLE);
+//                ImageView answer_image = helper.getView(R.id.answer_image);
+//                GlideUtil.setImage(mContext,item.lists.get(3).image,answer_image);
+//                helper.setText(R.id.answer_text,item.lists.get(3).title);
+
+//                ImageView member_image = helper.getView(R.id.member_image);
+//                GlideUtil.setImage(mContext,item.lists.get(4).image,member_image);
+//                helper.setText(R.id.member_text,item.lists.get(4).title);
+                break;
+            case HomeBean.THREE:  // 公开
+                ImageView live_open_head_image = helper.getView(R.id.live_open_head_image);
+                GlideUtil.setImageCircle(mContext,item.image,live_open_head_image);
+                helper.setText(R.id.live_open_title,item.title);
+                helper.setText(R.id.live_open_content,item.content);
+                break;
+            case HomeBean.FOUR:
+                RecyclerView mRecyclerView = helper.getView(R.id.adapter_live_layout_recycler);
+                LinearLayoutManager manager = new LinearLayoutManager(mContext,LinearLayoutManager.HORIZONTAL,false);
+                mRecyclerView.setLayoutManager(manager);
+                HomeAdapterChild adapter = new HomeAdapterChild();
+                mRecyclerView.setAdapter(adapter);
+                adapter.setData(item.lists);
+                break;
+            case HomeBean.FIVE:
+                helper.setText(R.id.text_discover_title,item.title);
+                helper.setText(R.id.text_discover_bottom_content,item.content);
+                ImageView text_discover_image = helper.getView(R.id.text_discover_image);
+                GlideUtil.setImage(mContext,item.image,text_discover_image);
+                if (TextUtils.equals("1",item.isDiscover)) {
+                    helper.getView(R.id.text_discover).setVisibility(View.VISIBLE);
+                    helper.getView(R.id.text_discover_more).setVisibility(View.VISIBLE);
                 }else{
-                    mDiscoverHolder.discover.setVisibility(View.GONE);
-                    mDiscoverHolder.more.setVisibility(View.GONE);
+                    helper.getView(R.id.text_discover).setVisibility(View.GONE);
+                    helper.getView(R.id.text_discover_more).setVisibility(View.GONE);
                 }
-            }
-            mDiscoverHolder.colse.setOnClickListener(new CloseOnClick(position));
-        }
-    }
-
-    @Override
-    public int getItemCount() {
-        if (lists != null && lists.size() > 0) {
-            return lists.size();
-        }else{
-            return 0;
-        }
-    }
-
-    @Override
-    public int getItemViewType(int position) {
-//        return super.getItemViewType(position);
-        if (position == 0) {//第0个位置是weex轮播图
-            return ONE;
-        } else if (position == 1) {//第一个是直播布局
-            return TWO;
-        } else if (position == 2) {//第2个位置是发现布局
-            return THREE;
-        } else {//其他位置返回正常的布局
-            return THREE;
-        }
-    }
-
-    /**
-     * Weex的ViewHolder
-     */
-    public static class WeexHolder extends RecyclerView.ViewHolder {
-
-        public WeexHolder(View itemView) {
-            super(itemView);
-
-        }
-    }
-
-    /**
-     * Live的ViewHolder
-     */
-    public static class LiveHolder extends RecyclerView.ViewHolder {
-        RecyclerView mRecyclerView;
-        public LiveHolder(View itemView,ViewGroup parent) {
-            super(itemView);
-            mRecyclerView = itemView.findViewById(R.id.adapter_live_layout_recycler);
-            LinearLayoutManager manager = new LinearLayoutManager(parent.getContext(),LinearLayoutManager.HORIZONTAL,false);
-            mRecyclerView.setLayoutManager(manager);
-        }
-    }
-
-    /**
-     * discover的ViewHolder
-     */
-    public static class DiscoverHolder extends RecyclerView.ViewHolder {
-        TextView title,content,discover,more;
-        ImageView image,colse;
-        public DiscoverHolder(View itemView) {
-            super(itemView);
-            title = itemView.findViewById(R.id.text_discover_title);
-            content = itemView.findViewById(R.id.text_discover_bottom_content);
-            more = itemView.findViewById(R.id.text_discover_more);
-            discover = itemView.findViewById(R.id.text_discover);
-            image = itemView.findViewById(R.id.text_discover_image);
-            colse = itemView.findViewById(R.id.text_discover_image_close);
+                helper.getView(R.id.text_discover_image_close).setOnClickListener(new CloseOnClick(getParentPosition(item)));
+                break;
         }
     }
 

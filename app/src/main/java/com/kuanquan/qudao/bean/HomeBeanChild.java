@@ -10,4 +10,5 @@ public class HomeBeanChild implements Serializable {
     public String image;
     public String title;
     public String content;
+    public String type;  // 1 显示右边的空包view
 }

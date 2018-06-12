@@ -9,9 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.example.fly.baselibrary.mvpExample.base.BaseFragment;
 import com.kuanquan.qudao.R;
+import com.kuanquan.qudao.bean.HomeBean;
 import com.kuanquan.qudao.core.mvp.presenter.HomePresenter;
 import com.kuanquan.qudao.core.mvp.view.IHomeView;
 import com.kuanquan.qudao.ui.adapter.HomeAdapter;
+
+import java.util.List;
 
 /**
  * 首页
@@ -19,6 +22,8 @@ import com.kuanquan.qudao.ui.adapter.HomeAdapter;
 public class HomeFragment extends BaseFragment<IHomeView,HomePresenter> implements IHomeView{
     private RecyclerView mRecyclerView;
     private HomeAdapter mHomeAdapter;
+    private List<HomeBean> lists;
+
     @Override
     protected HomePresenter createPresent() {
         return new HomePresenter();
@@ -39,7 +44,7 @@ public class HomeFragment extends BaseFragment<IHomeView,HomePresenter> implemen
 
     @Override
     protected void initData(Bundle savedInstanceState) {
-        mHomeAdapter = new HomeAdapter();
+        mHomeAdapter = new HomeAdapter(lists);
         mRecyclerView.setAdapter(mHomeAdapter);
     }
 
@@ -55,6 +60,6 @@ public class HomeFragment extends BaseFragment<IHomeView,HomePresenter> implemen
 
     @Override
     public void showData(Object data) {
-
+        lists = (List<HomeBean>) data;
     }
 }

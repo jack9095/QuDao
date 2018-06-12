@@ -188,12 +188,51 @@ public class GlideUtil {
                 Glide.with(context)
                         .load(imageUrl)
                         .asBitmap()
+                        .transform(new GlideRoundTransform(context))
                         .into(view);
             }
         }else{
             Glide.with(context)
                     .load(R.drawable.ic_insert_photo_placeholder_24dp)
                     .asBitmap()
+                    .transform(new GlideRoundTransform(context))
+                    .into(view);
+        }
+    }
+
+    public static void setImageUrl(Context context,String imageUrl,ImageView view){
+        if (!TextUtils.isEmpty(imageUrl)) {
+            if (imageUrl.endsWith("gif")) {
+                Glide.with(context)
+                        .load(imageUrl)
+                        .asGif()
+                        .into(view);
+            }else {
+                Glide.with(context)
+                        .load(imageUrl)
+                        .asBitmap()
+                        .into(view);
+            }
+        }else{
+            Glide.with(context)
+                    .load(R.drawable.ic_insert_photo_placeholder_24dp)
+                    .asBitmap()
+                    .into(view);
+        }
+    }
+
+    public static void setImageCircle(Context context,String imageUrl,ImageView view){
+        if (!TextUtils.isEmpty(imageUrl)) {
+                Glide.with(context)
+                        .load(imageUrl)
+                        .asBitmap()
+                        .transform(new GlideCircleTransform(context))
+                        .into(view);
+        }else{
+            Glide.with(context)
+                    .load(R.drawable.ic_insert_photo_placeholder_24dp)
+                    .asBitmap()
+                    .transform(new GlideCircleTransform(context))
                     .into(view);
         }
     }

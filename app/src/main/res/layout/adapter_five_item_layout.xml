@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:background="#ffffff"
+    android:gravity="center"
+    android:layout_height="85dp">
+    <RelativeLayout
+        style="@style/home_item_five_layout">
+
+        <ImageView
+            android:id="@+id/elective_course_image"
+            android:src="@mipmap/elective_f"
+            style="@style/home_item_five_image" />
+
+        <TextView
+            android:id="@+id/elective_course_text"
+            android:layout_below="@id/elective_course_image"
+            android:text="选课"
+            style="@style/home_item_five_text" />
+
+    </RelativeLayout>
+
+    <!--直播-->
+    <RelativeLayout
+        style="@style/home_item_five_layout">
+
+        <ImageView
+            android:id="@+id/live_image"
+            android:src="@mipmap/live_f"
+            style="@style/home_item_five_image" />
+
+        <TextView
+            android:id="@+id/live_text"
+            android:text="直播"
+            android:layout_below="@id/live_image"
+            style="@style/home_item_five_text" />
+
+    </RelativeLayout>
+
+    <!--题库-->
+    <RelativeLayout
+        style="@style/home_item_five_layout">
+
+        <ImageView
+            android:id="@+id/bank_image"
+            android:src="@mipmap/bank_f"
+            style="@style/home_item_five_image"/>
+
+        <TextView
+            android:id="@+id/bank_text"
+            android:text="题库"
+            android:layout_below="@id/bank_image"
+            style="@style/home_item_five_text" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/home_item_five_layout">
+
+        <ImageView
+            android:id="@+id/answer_image"
+            android:src="@mipmap/answer_f"
+            style="@style/home_item_five_image" />
+
+        <TextView
+            android:id="@+id/answer_text"
+            android:text="问答"
+            android:layout_below="@id/answer_image"
+            style="@style/home_item_five_text" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/home_item_five_layout">
+
+        <ImageView
+            android:id="@+id/member_image"
+            android:src="@mipmap/member_f"
+            style="@style/home_item_five_image" />
+
+        <TextView
+            android:id="@+id/member_text"
+            android:text="会员"
+            android:layout_below="@id/member_image"
+            style="@style/home_item_five_text" />
+
+    </RelativeLayout>
+
+</LinearLayout>

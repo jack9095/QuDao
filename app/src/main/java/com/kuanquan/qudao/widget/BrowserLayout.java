@@ -11,6 +11,8 @@ import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
+import com.kuanquan.qudao.R;
+
 /**
  * 浏览器Layout,封装以及初始化WebView
  */

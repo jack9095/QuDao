@@ -1,12 +1,15 @@
 package com.kuanquan.qudao.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Path;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.widget.ImageView;
 
-public class RoundedImageView extends android.support.v7.widget.AppCompatImageView {
+@SuppressLint("AppCompatCustomView")
+public class RoundedImageView extends ImageView {
 
 	/*圆角的半径，依次为左上角xy半径，右上角，右下角，左下角*/
     private float[] rids = {17.0f,17.0f,17.0f,17.0f,0.0f,0.0f,0.0f,0.0f,};
