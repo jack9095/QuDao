@@ -7,9 +7,6 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  * MD5加密
- *
- * @author yuyh.
- * @date 16/4/9.
  */
 public class MD5 {
     private static final String TAG = MD5.class.getSimpleName();

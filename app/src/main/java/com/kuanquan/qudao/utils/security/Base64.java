@@ -2,10 +2,7 @@ package com.kuanquan.qudao.utils.security;
 
 import java.io.UnsupportedEncodingException;
 
-/**
- * @author yuyh.
- * @date 16/4/9.
- */
+
 public class Base64 {
 
     /**

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/text_live_open"
+        android:layout_below="@id/open_live_top_view"
+        android:layout_marginLeft="15dp"
+        android:text="直播"
+        android:layout_centerVertical="true"
+        android:textSize="17sp"
+        android:textColor="#242b36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/text_live_more_open"
+        android:text="查看更多"
+        android:layout_toLeftOf="@id/text_live_more_open_image"
+        android:layout_alignBaseline="@id/text_live_open"
+        android:paddingRight="8dp"
+        android:layout_centerVertical="true"
+        android:textColor="#899099"
+        android:textSize="14sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/text_live_more_open_image"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="15dp"
+        android:layout_alignBaseline="@id/text_live_open"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/more_f"
+        android:layout_width="7dp"
+        android:layout_height="12dp" />
+</RelativeLayout>

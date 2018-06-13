@@ -10,9 +10,6 @@ import javax.crypto.spec.IvParameterSpec;
 
 /**
  * DES加解密
- *
- * @author yuyh.
- * @date 16/4/9.
  */
 public class DESEncrypt {
     public static final String ALGORITHM_DES = "DES/CBC/PKCS5Padding";

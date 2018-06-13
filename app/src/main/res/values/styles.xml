@@ -36,4 +36,11 @@
         <item name="android:layout_marginTop">8dp</item>
     </style>
 
+    <style name="popwindow_exit_anim_style" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/home_popupwindow_show</item>
+        <!-- 指定显示的动画xml -->
+        <item name="android:windowExitAnimation">@anim/home_popupwindow_hide</item>
+        <!-- 指定消失的动画xml -->
+    </style>
+
 </resources>

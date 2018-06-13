@@ -188,6 +188,7 @@ public class GlideUtil {
                 Glide.with(context)
                         .load(imageUrl)
                         .asBitmap()
+                        .centerCrop()
                         .transform(new GlideRoundTransform(context))
                         .into(view);
             }
@@ -237,4 +238,13 @@ public class GlideUtil {
         }
     }
 
+    public static void loadPicture(Context context, String url, ImageView imageView) {
+        if (!TextUtils.isEmpty(url) && url.contains(".gif")) {
+            Glide.with(context.getApplicationContext()).load(url)
+                    .placeholder(R.drawable.ic_insert_photo_placeholder_24dp).error(R.drawable.ic_insert_photo_placeholder_24dp).centerCrop().into(imageView);
+        } else {
+            Glide.with(context.getApplicationContext()).load(url).asBitmap()
+                    .placeholder(R.drawable.ic_insert_photo_placeholder_24dp).error(R.drawable.ic_insert_photo_placeholder_24dp).into(imageView);
+        }
+    }
 }

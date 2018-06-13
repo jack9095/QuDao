@@ -1,13 +1,59 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragment.HomeFragment">
 
+    <RelativeLayout
+        android:id="@+id/home_head_bar"
+        android:layout_width="match_parent"
+        android:background="@android:color/white"
+        android:layout_height="45dp">
+        <ImageView
+            android:id="@+id/bar_head_image"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:scaleType="centerCrop"
+            android:layout_width="24dp"
+            android:layout_height="24dp" />
+
+        <View
+            android:id="@+id/bar_head_view"
+            android:layout_toRightOf="@id/bar_head_image"
+            android:layout_marginLeft="13dp"
+            android:layout_centerVertical="true"
+            android:background="#f1f1f1"
+            android:layout_width="0.5dp"
+            android:layout_height="15dp"/>
+
+        <TextView
+            android:id="@+id/bar_head_search"
+            android:gravity="center_vertical"
+            android:layout_toRightOf="@id/bar_head_view"
+            android:text="搜索课程资料"
+            android:paddingLeft="9dp"
+            android:layout_centerVertical="true"
+            android:textColor="#cccccc"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/bar_head_image_right"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/scan_f"
+            android:scaleType="centerCrop"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+    </RelativeLayout>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
+        android:layout_below="@id/home_head_bar"
         android:background="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-</FrameLayout>
+</RelativeLayout>

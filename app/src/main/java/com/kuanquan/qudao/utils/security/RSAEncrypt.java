@@ -23,10 +23,7 @@ import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
-/**
- * @author yuyh.
- * @date 16/4/10.
- */
+
 public class RSAEncrypt {
 
     public static final String KEY_ALGORTHM="RSA";

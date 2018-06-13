@@ -7,7 +7,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
 import com.example.fly.baselibrary.mvpExample.base.BaseFragment;
+import com.example.fly.baselibrary.utils.useful.GlideUtil;
 import com.kuanquan.qudao.R;
 import com.kuanquan.qudao.bean.HomeBean;
 import com.kuanquan.qudao.core.mvp.presenter.HomePresenter;
@@ -23,6 +26,7 @@ public class HomeFragment extends BaseFragment<IHomeView,HomePresenter> implemen
     private RecyclerView mRecyclerView;
     private HomeAdapter mHomeAdapter;
     private List<HomeBean> lists;
+    private ImageView mImageView;
 
     @Override
     protected HomePresenter createPresent() {
@@ -40,6 +44,9 @@ public class HomeFragment extends BaseFragment<IHomeView,HomePresenter> implemen
         LinearLayoutManager manager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        mImageView = view.findViewById(R.id.bar_head_image);
+        GlideUtil.setImageCircle(getContext(),"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3909870665,3259015587&fm=27&gp=0.jpg",mImageView);
     }
 
     @Override

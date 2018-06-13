@@ -7,9 +7,6 @@ import android.widget.LinearLayout;
 
 import com.example.fly.baselibrary.utils.useful.LogUtil;
 
-/**
- * Created by able on 2018/4/3.
- */
 
 public class MyEvent extends LinearLayout {
     private static String TAG = MyEvent.class.getSimpleName();

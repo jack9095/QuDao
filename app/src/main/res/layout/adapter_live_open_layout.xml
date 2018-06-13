@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:paddingLeft="15dp"
-    android:paddingRight="15dp"
     android:background="#ffffff"
     android:clipChildren="false"
     android:layout_width="match_parent"
@@ -10,29 +8,24 @@
     <View
         android:id="@+id/open_live_top_view"
         android:background="#f0f0f0"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
         android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"/>
 
-    <TextView
-        android:id="@+id/text_live_open"
+    <include
+        android:id="@+id/bar_in_f"
+        layout="@layout/layout_f"
         android:layout_below="@id/open_live_top_view"
-        android:text="直播"
-        android:textSize="17sp"
-        android:textColor="#242b36"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/text_live_more_open"
-        android:text="查看更多"
-        android:layout_alignParentRight="true"
-        android:layout_alignBaseline="@id/text_live_open"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+
     <ImageView
         android:id="@+id/live_open_head_image"
-        android:layout_below="@id/text_live_open"
+        android:layout_below="@id/bar_in_f"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="15dp"
         android:scaleType="centerCrop"
         android:layout_width="38dp"
@@ -44,6 +37,7 @@
         android:layout_alignTop="@id/live_open_head_image"
         android:layout_toRightOf="@id/live_open_head_image"
         android:layout_marginLeft="10dp"
+        android:layout_marginRight="15dp"
         android:textSize="15sp"
         android:textColor="#242b36"
         android:maxLines="1"
@@ -56,6 +50,7 @@
         android:layout_toRightOf="@id/live_open_head_image"
         android:layout_below="@id/live_open_title"
         android:layout_alignBottom="@id/live_open_head_image"
+        android:layout_marginRight="15dp"
         android:layout_marginLeft="10dp"
         android:textSize="12sp"
         android:textColor="#899099"
@@ -67,10 +62,8 @@
     <View
         android:layout_below="@id/live_open_head_image"
         android:background="#f7f7f7"
-        android:layout_marginLeft="-15dp"
-        android:layout_marginRight="-15dp"
         android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="9dp"/>
 
 </RelativeLayout>

@@ -47,7 +47,14 @@ public class HomePresenter extends BasePresenter<IHomeView> implements IBaseMode
         HomeBean mHomeBean;
         mHomeBean = new HomeBean();
         mHomeBean.itemType = 0;
-        mHomeBean.image = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528784678961&di=3d8861c62ef509d7eecf123b99c74dad&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fdcc451da81cb39dbd7c13dcbda160924ab18302d.jpg";
+        HomeBeanChild banner;
+        for (int i = 0; i < 5; i++) {
+            banner = new HomeBeanChild();
+            banner.title = "直播";
+            banner.image = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528880525724&di=13b1552703f0dcc186f5a86a00f4716c&imgtype=0&src=http%3A%2F%2Fupfile.asqql.com%2F2009pasdfasdfic2009s305985-ts%2F2016-6%2F20166281614225011.gif";
+            listChilds.add(banner);
+        }
+        mHomeBean.lists.addAll(listChilds);
         lists.add(mHomeBean);
 
         mHomeBean = new HomeBean();

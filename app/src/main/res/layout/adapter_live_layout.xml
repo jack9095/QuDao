@@ -1,48 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#ffffff"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#ffffff">
 
-    <View
+    <!--<View
         android:id="@+id/text_live_top_view"
         android:background="#f0f0f0"
         android:layout_marginLeft="19dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"/>
+        android:layout_height="0.5dp"/>-->
 
-    <TextView
-        android:id="@+id/text_live"
-        android:layout_below="@id/text_live_top_view"
-        android:text="直播"
-        android:layout_marginLeft="15dp"
-        android:textSize="18sp"
-        android:textColor="#242B36"
+    <!--android:layout_below="@id/text_live_top_view"-->
+    <include
+        android:id="@+id/bar_in_f"
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/text_live_more"
-        android:text="查看更多"
-        android:textSize="14sp"
-        android:textColor="#899099"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        layout="@layout/layout_f" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/adapter_live_layout_recycler"
-        android:layout_marginTop="17dp"
-        android:layout_below="@id/text_live"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bar_in_f"
+        android:layout_marginTop="17dp" />
 
     <View
-        android:layout_below="@id/adapter_live_layout_recycler"
-        android:background="#f7f7f7"
-        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
-        android:layout_height="9dp"/>
+        android:layout_height="9dp"
+        android:layout_below="@id/adapter_live_layout_recycler"
+        android:layout_marginTop="20dp"
+        android:background="#f7f7f7" />
 </RelativeLayout>

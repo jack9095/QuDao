@@ -3,10 +3,7 @@ package com.kuanquan.qudao.utils.security;
 import javax.crypto.spec.SecretKeySpec;
 
 
-/**
- * @author yuyh.
- * @date 16/4/9.
- */
+
 public class AESEncrypt {
 
     /**

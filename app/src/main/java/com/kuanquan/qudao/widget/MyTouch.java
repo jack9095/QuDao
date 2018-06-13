@@ -10,9 +10,6 @@ import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.View;
 
-/**
- * Created by able on 2018/4/3.
- */
 
 public class MyTouch extends View {
     private static String TAG = MyTouch.class.getSimpleName();

@@ -132,7 +132,7 @@ public class HomeAdapter_Copy extends RecyclerView.Adapter<RecyclerView.ViewHold
         FrameLayout mFrameLayout;
         public BannerHolder(View itemView) {
             super(itemView);
-            mFrameLayout = itemView.findViewById(R.id.weex_layout);
+            mFrameLayout = itemView.findViewById(R.id.frame_layout);
         }
     }
 

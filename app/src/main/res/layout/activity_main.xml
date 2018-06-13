@@ -9,6 +9,7 @@
 
     <RelativeLayout
         android:id="@+id/app_bar"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:background="@color/colorPrimaryDark"
         app:layout_behavior="@string/bye_burger_title_behavior"
