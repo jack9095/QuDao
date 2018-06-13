@@ -7,11 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.fly.baselibrary.utils.useful.GlideUtil;
 import com.kuanquan.qudao.R;
 import com.kuanquan.qudao.bean.HomeBean;
+import com.kuanquan.qudao.bean.HomeBeanChild;
+import com.kuanquan.qudao.ui.popupwindow.HomePopupWindow;
+import com.kuanquan.qudao.widget.HomeBanner;
 
 import java.util.List;
 
@@ -19,14 +23,15 @@ import java.util.List;
  * Created by fei.wang on 2018/6/11.
  *
  */
-public class HomeAdapter_Copy extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private final int ONE = 0x1109;
-    private final int TWO = 0x1110;
-    private final int THREE = 0x1111;
-    private final int FOUR = 0x1112;
-    private final int FIVE = 0x1113;
+public class HomeAdapter_Copy extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements HomeBanner.OnPageClickListener{
+    private final int ONE = 0;
+    private final int TWO = 1;
+    private final int THREE = 2;
+    private final int FOUR = 3;
+//    private final int FIVE = 0x1113;
     private List<HomeBean> lists;
     private ViewGroup parentF;
+    private HomePopupWindow mHomePopupWindow;
 
     public void setData(List<HomeBean> homeBeans){
         this.lists = homeBeans;
@@ -43,16 +48,20 @@ public class HomeAdapter_Copy extends RecyclerView.Adapter<RecyclerView.ViewHold
                 view = getView(R.layout.adapter_weex_layout,parent);
                 holder = new BannerHolder(view);
                 return holder;
-            case FOUR:
-                view = getView(R.layout.adapter_live_layout,parent);
-                holder = new LiveHolder(view,parent);
+            case TWO:
+                view = getView(R.layout.adapter_five_item_layout,parent);
+                holder = new FiveItemHolder(view);
                 return holder;
-            case FIVE:
+            case THREE:
+                view = getView(R.layout.adapter_live_open_layout,parent);
+                holder = new LiveHolder(view);
+                return holder;
+            case FOUR:
                 view = getView(R.layout.adapter_discover_layout,parent);
                 holder = new DiscoverHolder(view);
                 return holder;
-            default:
-                return null;
+                default:
+                    return null;
         }
     }
 
@@ -68,12 +77,17 @@ public class HomeAdapter_Copy extends RecyclerView.Adapter<RecyclerView.ViewHold
         HomeBean homeBean = lists.get(position);
         if (holder instanceof BannerHolder) {
             BannerHolder mBannerHolder = (BannerHolder) holder;
+            mBannerHolder.mHomeBanner.setData(homeBean.lists,this);
+        }else if (holder instanceof FiveItemHolder) {   // 5
+            FiveItemHolder mFiveItemHolder = (FiveItemHolder) holder;
+            List<HomeBeanChild> listChilds = homeBean.lists;
 
-        }else if (holder instanceof LiveHolder) {
+        }else if (holder instanceof LiveHolder) {  // live
             LiveHolder mLiveHolder = (LiveHolder) holder;
-            HomeAdapterChild adapter = new HomeAdapterChild();
-            mLiveHolder.mRecyclerView.setAdapter(adapter);
-        }else if (holder instanceof DiscoverHolder) {
+            GlideUtil.setImageCircle(parentF.getContext(),homeBean.image,mLiveHolder.live_open_head_image);
+            mLiveHolder.live_open_title.setText(homeBean.title);
+            mLiveHolder.live_open_content.setText(homeBean.content);
+        }else if (holder instanceof DiscoverHolder) {  // 发现
             DiscoverHolder mDiscoverHolder = (DiscoverHolder) holder;
             if (homeBean != null) {
                 if (!TextUtils.isEmpty(homeBean.content)) {
@@ -86,14 +100,12 @@ public class HomeAdapter_Copy extends RecyclerView.Adapter<RecyclerView.ViewHold
                     GlideUtil.setImage(parentF.getContext(),homeBean.image,mDiscoverHolder.image);
                 }
                 if (TextUtils.equals("1",homeBean.isDiscover)) {
-                    mDiscoverHolder.discover.setVisibility(View.VISIBLE);
-                    mDiscoverHolder.more.setVisibility(View.VISIBLE);
+                    mDiscoverHolder.text_discover_rl.setVisibility(View.VISIBLE);
                 }else{
-                    mDiscoverHolder.discover.setVisibility(View.GONE);
-                    mDiscoverHolder.more.setVisibility(View.GONE);
+                    mDiscoverHolder.text_discover_rl.setVisibility(View.GONE);
                 }
             }
-            mDiscoverHolder.colse.setOnClickListener(new CloseOnClick(position));
+            mDiscoverHolder.colse.setOnClickListener(new CloseOnClick(position,mDiscoverHolder.colse));
         }
     }
 
@@ -116,23 +128,26 @@ public class HomeAdapter_Copy extends RecyclerView.Adapter<RecyclerView.ViewHold
             return TWO;
         } else if (itemType == 2) { //是直播公开课布局
             return THREE;
-        } else if (itemType == 3) { //是直播布局 (水平滚动)
+        } else if (itemType == 3) { //是发现布局
             return FOUR;
-        } else if (itemType == 4) { //是发现布局
-            return FIVE;
         } else {//其他位置返回正常的布局
-            return FIVE;
+            return FOUR;
         }
+    }
+
+    @Override
+    public void onPageClick(HomeBeanChild info) {
+
     }
 
     /**
      * banner的ViewHolder
      */
     public static class BannerHolder extends RecyclerView.ViewHolder {
-        FrameLayout mFrameLayout;
+        HomeBanner mHomeBanner;
         public BannerHolder(View itemView) {
             super(itemView);
-            mFrameLayout = itemView.findViewById(R.id.frame_layout);
+            mHomeBanner = itemView.findViewById(R.id.banner_layout);
         }
     }
 
@@ -140,27 +155,53 @@ public class HomeAdapter_Copy extends RecyclerView.Adapter<RecyclerView.ViewHold
      * 5个item的ViewHolder
      */
     public static class FiveItemHolder extends RecyclerView.ViewHolder {
-        RecyclerView mRecyclerView;
-        public FiveItemHolder(View itemView,ViewGroup parent) {
+        ImageView elective_course_image,live_image,bank_image,answer_image,member_image;
+        TextView elective_course_text,live_text,bank_text,answer_text,member_text;
+        public FiveItemHolder(View itemView) {
             super(itemView);
-            mRecyclerView = itemView.findViewById(R.id.adapter_live_layout_recycler);
-            LinearLayoutManager manager = new LinearLayoutManager(parent.getContext(),LinearLayoutManager.HORIZONTAL,false);
-            mRecyclerView.setLayoutManager(manager);
+            elective_course_image = itemView.findViewById(R.id.elective_course_image);
+            elective_course_text = itemView.findViewById(R.id.elective_course_text);
+
+            live_image = itemView.findViewById(R.id.live_image);
+            live_text = itemView.findViewById(R.id.live_text);
+
+            bank_image = itemView.findViewById(R.id.bank_image);
+            bank_text = itemView.findViewById(R.id.bank_text);
+
+            answer_image = itemView.findViewById(R.id.answer_image);
+            answer_text = itemView.findViewById(R.id.answer_text);
+
+            member_image = itemView.findViewById(R.id.member_image);
+            member_text = itemView.findViewById(R.id.member_text);
+        }
+    }
+
+    /**
+     * Live 的ViewHolder
+     */
+    public static class LiveHolder extends RecyclerView.ViewHolder {
+        ImageView live_open_head_image;
+        TextView live_open_title,live_open_content;
+        public LiveHolder(View itemView) {
+            super(itemView);
+            live_open_head_image = itemView.findViewById(R.id.live_open_head_image);
+            live_open_title = itemView.findViewById(R.id.live_open_title);
+            live_open_content = itemView.findViewById(R.id.live_open_content);
         }
     }
 
     /**
      * Live (scroll) 的ViewHolder
      */
-    public static class LiveHolder extends RecyclerView.ViewHolder {
-        RecyclerView mRecyclerView;
-        public LiveHolder(View itemView,ViewGroup parent) {
-            super(itemView);
-            mRecyclerView = itemView.findViewById(R.id.adapter_live_layout_recycler);
-            LinearLayoutManager manager = new LinearLayoutManager(parent.getContext(),LinearLayoutManager.HORIZONTAL,false);
-            mRecyclerView.setLayoutManager(manager);
-        }
-    }
+//    public static class LiveHolder extends RecyclerView.ViewHolder {
+//        RecyclerView mRecyclerView;
+//        public LiveHolder(View itemView,ViewGroup parent) {
+//            super(itemView);
+//            mRecyclerView = itemView.findViewById(R.id.adapter_live_layout_recycler);
+//            LinearLayoutManager manager = new LinearLayoutManager(parent.getContext(),LinearLayoutManager.HORIZONTAL,false);
+//            mRecyclerView.setLayoutManager(manager);
+//        }
+//    }
 
     /**
      * discover的ViewHolder
@@ -168,25 +209,39 @@ public class HomeAdapter_Copy extends RecyclerView.Adapter<RecyclerView.ViewHold
     public static class DiscoverHolder extends RecyclerView.ViewHolder {
         TextView title,content,discover,more;
         ImageView image,colse;
+        RelativeLayout text_discover_rl;
         public DiscoverHolder(View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.text_discover_title);
             content = itemView.findViewById(R.id.text_discover_bottom_content);
-            more = itemView.findViewById(R.id.text_discover_more);
-            discover = itemView.findViewById(R.id.text_discover);
             image = itemView.findViewById(R.id.text_discover_image);
             colse = itemView.findViewById(R.id.text_discover_image_close);
+            text_discover_rl = itemView.findViewById(R.id.text_discover_rl);
+
+            more = itemView.findViewById(R.id.text_discover_more);
+            discover = itemView.findViewById(R.id.text_discover);
+
         }
     }
 
-    class CloseOnClick implements View.OnClickListener{
+    class CloseOnClick implements View.OnClickListener,HomePopupWindow.IPopuWindowListener{
         int position;
-        public CloseOnClick(int position) {
+        View close;
+        public CloseOnClick(int position,View close) {
+            this.close = close;
             this.position = position;
         }
 
         @Override
         public void onClick(View view) {
+            if (mHomePopupWindow == null) {
+                mHomePopupWindow = new HomePopupWindow(parentF.getContext(),this);
+            }
+            mHomePopupWindow.show(close);
+        }
+
+        @Override
+        public void dispose() {
 
         }
     }

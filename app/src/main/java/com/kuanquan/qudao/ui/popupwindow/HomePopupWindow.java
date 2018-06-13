@@ -23,27 +23,32 @@ public class HomePopupWindow extends PopupWindow {
     private IPopuWindowListener mOnClickListener;
     //PopupWindow布局文件中的ImageView
     private ImageView mImageView;
+    private int mShowMorePopupWindowWidth;
+    private int mShowMorePopupWindowHeight;
 
     public HomePopupWindow(Context mContext,IPopuWindowListener listener) {
         super(mContext);
         this.mContext = mContext;
         this.mOnClickListener = listener;
         //获取布局文件
-        View mContentView = LayoutInflater.from(mContext).inflate(R.layout.home_pop, null);
+        View mContentView = LayoutInflater.from(mContext).inflate(R.layout.home_pop, null,false);
         //设置布局
         setContentView(mContentView);
+        mContentView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        mShowMorePopupWindowWidth = mContentView.getMeasuredWidth();
+        mShowMorePopupWindowHeight = mContentView.getMeasuredHeight();
         // 设置弹窗的宽度和高度
-        setWidth(112);
-        setHeight(50);
+        setWidth(mShowMorePopupWindowWidth);
+        setHeight(mShowMorePopupWindowHeight);
         //设置能否获取到焦点
         setFocusable(false);
         //设置PopupWindow进入和退出时的动画效果
-        setAnimationStyle(R.style.popwindow_exit_anim_style);
+//        setAnimationStyle(R.style.popwindow_exit_anim_style);
         setTouchable(true); // 默认是true，设置为false，所有touch事件无响应，而被PopupWindow覆盖的Activity部分会响应点击
         // 设置弹窗外可点击,此时点击PopupWindow外的范围，Popupwindow不会消失
-        setOutsideTouchable(false);
+        setOutsideTouchable(true);
         //外部是否可以点击，设置Drawable原因可以参考：http://blog.csdn.net/harvic880925/article/details/49278705
-//        setBackgroundDrawable(new BitmapDrawable());
+        setBackgroundDrawable(null);
         // 设置弹窗的布局界面
         initUI();
     }
@@ -69,10 +74,14 @@ public class HomePopupWindow extends PopupWindow {
      * 显示弹窗列表界面
      */
     public void show(View view) {
-        int[] location = new int[2];
-        view.getLocationOnScreen(location);
-        //Gravity.BOTTOM设置在view下方，还可以根据location来设置PopupWindowj显示的位置
-        showAtLocation(view, Gravity.BOTTOM, 0, 0);
+//        int[] location = new int[2];
+//        view.getLocationOnScreen(location);
+//        //Gravity.BOTTOM设置在view下方，还可以根据location来设置PopupWindowj显示的位置
+//        showAtLocation(view, Gravity.BOTTOM, 0, 0); // 这个位置相对于整个屏幕的得自己计算
+
+        int heightMoreBtnView = view.getHeight();
+        showAsDropDown(view, -(mShowMorePopupWindowWidth - heightMoreBtnView * 2),
+                -(mShowMorePopupWindowHeight - heightMoreBtnView - 80) / 2);
     }
 
     /**

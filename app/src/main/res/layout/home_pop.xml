@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="112dp"
-    android:layout_height="49dp"
-    android:background="#000000"
-    android:orientation="horizontal">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="336dp"
+    android:layout_height="147dp">
 
     <ImageView
         android:id="@+id/delete_home_image"
-        android:layout_width="112dp"
-        android:layout_height="49dp"
+        android:layout_width="110dp"
+        android:layout_height="47dp"
+        android:contentDescription="@string/app_name"
         android:src="@mipmap/home_delete_f" />
-</LinearLayout>
+</RelativeLayout>

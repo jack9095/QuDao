@@ -1,5 +1,6 @@
 package com.kuanquan.qudao.ui.adapter;
 
+import android.annotation.SuppressLint;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -7,7 +8,9 @@ import android.view.View;
 import android.widget.ImageView;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.example.fly.baselibrary.utils.base.GsonUtils;
 import com.example.fly.baselibrary.utils.useful.GlideUtil;
+import com.example.fly.baselibrary.utils.useful.LogUtil;
 import com.kuanquan.qudao.R;
 import com.kuanquan.qudao.bean.HomeBean;
 import com.kuanquan.qudao.bean.HomeBeanChild;
@@ -22,8 +25,16 @@ import java.util.List;
  */
 public class HomeAdapter extends BaseMultiItemQuickAdapter<HomeBean, BaseViewHolder> implements HomeBanner.OnPageClickListener {
     private HomePopupWindow mHomePopupWindow;
+    private List<HomeBean> lists;
+
+    public void setData(List<HomeBean> lists) {
+        this.lists = lists;
+        notifyDataSetChanged();
+    }
+
     public HomeAdapter(List<HomeBean> data) {
         super(data);
+        this.lists = data;
         addItemType(HomeBean.ONE, R.layout.adapter_weex_layout);
         addItemType(HomeBean.TWO, R.layout.adapter_five_item_layout);
         addItemType(HomeBean.THREE, R.layout.adapter_live_open_layout);
@@ -84,7 +95,9 @@ public class HomeAdapter extends BaseMultiItemQuickAdapter<HomeBean, BaseViewHol
                 }else{
                     helper.getView(R.id.text_discover_rl).setVisibility(View.GONE);
                 }
-                helper.getView(R.id.text_discover_image_close).setOnClickListener(new CloseOnClick(getParentPosition(item),helper.getView(R.id.text_discover_image_close)));
+                ImageView close = helper.getView(R.id.text_discover_image_close);
+//                LogUtil.e("要删除的数据 = " + helper.getLayoutPosition());
+                close.setOnClickListener(new CloseOnClick(item,close,helper.getLayoutPosition()));
                 break;
         }
     }
@@ -95,11 +108,13 @@ public class HomeAdapter extends BaseMultiItemQuickAdapter<HomeBean, BaseViewHol
     }
 
     class CloseOnClick implements View.OnClickListener,HomePopupWindow.IPopuWindowListener{
-        int position;
         View close;
-        public CloseOnClick(int position,View close) {
-            this.position = position;
+        HomeBean mHomeBean;
+        int mPosition;
+        public CloseOnClick(HomeBean item,View close,int mPosition) {
+            this.mHomeBean = item;
             this.close = close;
+            this.mPosition = mPosition;
         }
 
         @Override
@@ -108,12 +123,20 @@ public class HomeAdapter extends BaseMultiItemQuickAdapter<HomeBean, BaseViewHol
                 mHomePopupWindow = new HomePopupWindow(mContext,this);
             }
             mHomePopupWindow.show(close);
+            notifyDataSetChanged();
         }
 
         @Override
         public void dispose() {
             if (mHomePopupWindow.isShowing()) {
                 mHomePopupWindow.dismiss();
+                LogUtil.e("删除的角标 = " + mPosition);
+                LogUtil.e("删除的数据 = " + GsonUtils.toJson(lists.get(mPosition)));
+                lists.remove(mPosition);
+//                notifyItemRemoved(position);
+                //必须调用这行代码
+//                notifyItemRangeChanged(position, lists.size());
+                notifyDataSetChanged();
             }
         }
     }

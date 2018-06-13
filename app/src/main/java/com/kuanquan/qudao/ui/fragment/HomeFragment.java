@@ -8,9 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.fly.baselibrary.mvpExample.base.BaseFragment;
 import com.example.fly.baselibrary.utils.useful.GlideUtil;
+import com.example.fly.baselibrary.utils.useful.LogUtil;
 import com.kuanquan.qudao.R;
 import com.kuanquan.qudao.bean.HomeBean;
 import com.kuanquan.qudao.core.mvp.presenter.HomePresenter;
@@ -53,6 +56,14 @@ public class HomeFragment extends BaseFragment<IHomeView,HomePresenter> implemen
     protected void initData(Bundle savedInstanceState) {
         mHomeAdapter = new HomeAdapter(lists);
         mRecyclerView.setAdapter(mHomeAdapter);
+
+        mHomeAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                LogUtil.d("onItemClick: ");
+                Toast.makeText(context, "onItemClick" + position, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

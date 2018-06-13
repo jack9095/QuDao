@@ -112,12 +112,12 @@
     <TextView
         android:id="@+id/text_discover_bottom_content"
         android:layout_below="@id/text_discover_title"
-        android:layout_toLeftOf="@id/text_discover_image_close"
+        android:layout_marginTop="14dp"
         android:text="CIA快咨询·321阅读"
         android:paddingRight="10dp"
         android:textColor="#899099"
         android:textSize="12sp"
-        android:lines="2"
+        android:lines="1"
         android:ellipsize="end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -130,8 +130,8 @@
         android:layout_marginRight="15dp"
         android:layout_marginTop="14dp"
         android:src="@mipmap/close_f"
-        android:layout_width="15dp"
-        android:layout_height="15dp" />
+        android:layout_width="20dp"
+        android:layout_height="20dp" />
 
     <View
         android:layout_marginTop="12dp"
