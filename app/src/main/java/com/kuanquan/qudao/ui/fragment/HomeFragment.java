@@ -12,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -157,21 +159,28 @@ public class HomeFragment extends BaseFragment<IHomeView, HomePresenter> impleme
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f,0.0f);  // 从显示到隐藏
+                alphaAnimation.setInterpolator(new LinearInterpolator());  // 匀速
+        alphaAnimation.setDuration(2000);  // 设置动画显示时长
+        alphaAnimation.setFillAfter(true); // 动画结束，停留在最后一帧
+                mTextView.startAnimation(alphaAnimation);
+
 //                AnimatorUtil.animAplhaOut(mTextView,500);
 //                AnimationUtil.with().moveToViewTop(mTextView,500);
 //                AnimationUtil.with().moveToViewBottom(mTextView,500);
-                ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(mTextView,"alpha",0.0f,1.0f);
-                objectAnimator.setDuration(400);   // 动画执行时长
+//                ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(mTextView,"alpha",0.0f,1.0f);
+//                objectAnimator.setDuration(400);   // 动画执行时长
+//                objectAnimator.setRepeatCount(0);
 //        objectAnimator.setInterpolator(new LinearInterpolator());
-                objectAnimator.setInterpolator(new AccelerateInterpolator());
-                objectAnimator.addListener(new AnimatorListenerAdapter() {//便利类，只要实现需要的方法
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        //在动画结束后回调
-                        mTextView.setVisibility(View.GONE);
-                    }
-                });
-                objectAnimator.start();
+//                objectAnimator.setInterpolator(new AccelerateInterpolator());
+//                objectAnimator.addListener(new AnimatorListenerAdapter() {//便利类，只要实现需要的方法
+//                    @Override
+//                    public void onAnimationEnd(Animator animation) {
+//                        //在动画结束后回调
+//                        mTextView.setVisibility(View.GONE);
+//                    }
+//                });
+//                objectAnimator.start();
             }
         },4000);
     }
