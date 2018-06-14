@@ -3,8 +3,8 @@
 
     <translate
         android:duration="500"
-        android:fromYDelta="100%p"
-        android:toYDelta="0" />
+        android:fromXDelta="50%p"
+        android:toXDelta="0" />
     <alpha
         android:duration="500"
         android:fromAlpha="0.0"

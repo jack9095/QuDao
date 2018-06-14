@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.kuanquan.qudao.widget.HomeBanner xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/banner_layout"
-    android:background="#ffffff"
-    android:layout_width="match_parent"
-    android:layout_height="140dp"/>
-

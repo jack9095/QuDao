@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="#ffffff"
-    android:gravity="center"
+    android:background="#00ffff"
     android:layout_height="85dp">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:layout_height="85dp">
     <RelativeLayout
         style="@style/home_item_five_layout">
 
@@ -88,3 +92,4 @@
     </RelativeLayout>
 
 </LinearLayout>
+</RelativeLayout>

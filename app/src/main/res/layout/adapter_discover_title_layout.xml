@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/text_discover_rl"
+    android:layout_width="match_parent"
+    android:background="#ffffff"
+    android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/discover_title_view"
+            android:background="#f7f7f7"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="9dp"/>
+
+        <RelativeLayout
+            android:layout_below="@id/discover_title_view"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/text_discover"
+                    android:text="发现"
+                    android:textSize="17sp"
+                    android:textColor="#242b36"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/text_discover_more"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:text="设置偏好"
+                    android:textColor="#899099"
+                    android:textSize="14sp"
+                    android:paddingRight="8dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/text_discover_more_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:id="@+id/text_discover_more_image"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/more_f"
+                    android:layout_width="7dp"
+                    android:layout_height="12dp" />
+        </RelativeLayout>
+
+</RelativeLayout>

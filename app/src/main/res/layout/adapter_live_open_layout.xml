@@ -59,11 +59,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <View
+    <!--<View
         android:layout_below="@id/live_open_head_image"
         android:background="#f7f7f7"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="9dp"/>
+        android:layout_height="9dp"/>-->
 
 </RelativeLayout>

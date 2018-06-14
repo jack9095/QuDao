@@ -10,7 +10,11 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/baselibrary" />
+            <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/network" />
+            <option value="$PROJECT_DIR$/recycler_animator" />
+            <option value="$PROJECT_DIR$/test" />
+            <option value="$PROJECT_DIR$/top_bottom_scroll" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

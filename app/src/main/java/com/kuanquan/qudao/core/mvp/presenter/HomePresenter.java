@@ -45,9 +45,12 @@ public class HomePresenter extends BasePresenter<IHomeView> implements IBaseMode
 
     public void getData(){
         HomeBean mHomeBean;
+//        mHomeBean = new HomeBean();
+//        mHomeBean.itemType = 0;
+//        lists.add(mHomeBean);
+
         mHomeBean = new HomeBean();
-        mHomeBean.itemType = 0;
-        mHomeBean.position = 0;
+        mHomeBean.itemType = 1;
         HomeBeanChild banner;
         for (int i = 0; i < 5; i++) {
             banner = new HomeBeanChild();
@@ -59,8 +62,7 @@ public class HomePresenter extends BasePresenter<IHomeView> implements IBaseMode
         lists.add(mHomeBean);
 
         mHomeBean = new HomeBean();
-        mHomeBean.itemType = 1;
-        mHomeBean.position = 1;
+        mHomeBean.itemType = 2;
         listChilds.clear();
         HomeBeanChild mHomeBeanChild;
         for (int i = 0; i < 5; i++) {
@@ -74,13 +76,13 @@ public class HomePresenter extends BasePresenter<IHomeView> implements IBaseMode
         lists.add(mHomeBean);
 
         mHomeBean = new HomeBean();
-        mHomeBean.itemType = 2;
-        mHomeBean.position = 2;
+        mHomeBean.itemType = 3;
         mHomeBean.image = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528784678961&di=3d8861c62ef509d7eecf123b99c74dad&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fdcc451da81cb39dbd7c13dcbda160924ab18302d.jpg";
         mHomeBean.title = "新三板——真正意义的中国版纳斯达克,飞利浦财物总监介绍投行的酸甜苦辣";
         mHomeBean.content = "明晚7点，飞利浦财物总监介绍投行的酸甜苦辣,飞利浦财物总监介绍投行的酸甜苦辣";
         lists.add(mHomeBean);
 
+        // 水平滑动
 //        mHomeBean = new HomeBean();
 //        mHomeBean.itemType = 3;
 //        HomeBeanChild mHomeBeanChildF;
@@ -98,13 +100,16 @@ public class HomePresenter extends BasePresenter<IHomeView> implements IBaseMode
 //        mHomeBean.lists.addAll(listChilds);
 //        lists.add(mHomeBean);
 
+        mHomeBean = new HomeBean();
+        mHomeBean.itemType = 4;
+        lists.add(mHomeBean);
 
-        for (int i = 0; i < 7; i++) {
+
+        // 发现
+        for (int i = 0; i < 6; i++) {
             mHomeBean = new HomeBean();
-            if (i == 0) {
-                mHomeBean.isDiscover = "1";
-            }
-            mHomeBean.itemType = 4;
+            mHomeBean.isDiscover = "1";   // 表示发现
+            mHomeBean.itemType = 5;
             mHomeBean.position = lists.size();
             mHomeBean.title = i + "新三板——真正意义的中国版纳斯达克";
             mHomeBean.content = i + "财会资讯 · 3211阅读";

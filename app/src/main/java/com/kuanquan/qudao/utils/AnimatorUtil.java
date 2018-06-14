@@ -6,6 +6,8 @@ import android.animation.TimeInterpolator;
 import android.animation.ValueAnimator;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -150,6 +152,45 @@ public class AnimatorUtil {
         oa.start();
     }
 
+    /**
+     * 淡出效果
+     *
+     * @param target 动画载体
+     */
+    public static void animAplhaOut(final View target, long duration) {
+        ObjectAnimator oa = ObjectAnimator.ofFloat(target, Anim.ALPHA, 1, 0);
+        oa = baseOption(oa, duration
+                , new AccelerateDecelerateInterpolator()
+                , 0, ValueAnimator.RESTART
+                , new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        target.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+
+                    }
+                }, new ValueAnimator.AnimatorUpdateListener() {
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator animation) {
+
+                    }
+                });
+        oa.start();
+    }
+
 
     private static ObjectAnimator baseOption(ObjectAnimator animator, long duration
             , TimeInterpolator timeInterpolator, int repeatCount, int repeatMode
@@ -185,4 +226,40 @@ public class AnimatorUtil {
 
         }
     }
+
+
+    private static final String TAG = AnimatorUtil.class.getSimpleName();
+
+    /**
+     * 从控件所在位置移动到控件的底部
+     *
+     * @return
+     */
+    public static TranslateAnimation moveToViewBottom() {
+        TranslateAnimation mHiddenAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
+                Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
+                0.0f, Animation.RELATIVE_TO_SELF, 1.0f);
+        mHiddenAction.setDuration(500);
+        return mHiddenAction;
+    }
+
+    /**
+     * 从控件的底部移动到控件所在位置
+     *
+     * @return
+     */
+    public static TranslateAnimation moveToViewLocation() {
+        TranslateAnimation mHiddenAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
+                Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
+                1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
+        mHiddenAction.setDuration(500);
+        return mHiddenAction;
+    }
+
+    // 用法如下：
+//    fly.setVisibility(View.GONE);
+//    fly_one.setVisibility(View.VISIBLE);
+//    fly.setAnimation(moveToViewBottom());
+//    fly_one.setAnimation(moveToViewLocation());
+
 }

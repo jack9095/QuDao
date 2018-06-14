@@ -1,21 +1,23 @@
 package com.kuanquan.qudao.ui.adapter;
 
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.view.WindowInsets;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
+import com.example.fly.baselibrary.utils.base.GsonUtils;
 import com.example.fly.baselibrary.utils.useful.GlideUtil;
+import com.example.fly.baselibrary.utils.useful.LogUtil;
 import com.kuanquan.qudao.R;
 import com.kuanquan.qudao.bean.HomeBean;
 import com.kuanquan.qudao.bean.HomeBeanChild;
 import com.kuanquan.qudao.ui.popupwindow.HomePopupWindow;
 import com.kuanquan.qudao.widget.HomeBanner;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -28,10 +30,15 @@ public class HomeAdapter_Copy extends RecyclerView.Adapter<RecyclerView.ViewHold
     private final int TWO = 1;
     private final int THREE = 2;
     private final int FOUR = 3;
-//    private final int FIVE = 0x1113;
+    private final int FIVE = 4;
+    private final int SIX = 5;
     private List<HomeBean> lists;
     private ViewGroup parentF;
     private HomePopupWindow mHomePopupWindow;
+
+    public HomeAdapter_Copy(OnHomeListener mOnHomeListener) {
+        this.mOnHomeListener = mOnHomeListener;
+    }
 
     public void setData(List<HomeBean> homeBeans){
         this.lists = homeBeans;
@@ -45,18 +52,26 @@ public class HomeAdapter_Copy extends RecyclerView.Adapter<RecyclerView.ViewHold
         RecyclerView.ViewHolder holder;
         switch (viewType){
             case ONE:
-                view = getView(R.layout.adapter_weex_layout,parent);
-                holder = new BannerHolder(view);
+                view = getView(R.layout.adapter_null_layout,parent);
+                holder = new NullHolder(view);
                 return holder;
             case TWO:
+                view = getView(R.layout.adapter_banner_layout,parent);
+                holder = new BannerHolder(view);
+                return holder;
+            case THREE:
                 view = getView(R.layout.adapter_five_item_layout,parent);
                 holder = new FiveItemHolder(view);
                 return holder;
-            case THREE:
+            case FOUR:
                 view = getView(R.layout.adapter_live_open_layout,parent);
                 holder = new LiveHolder(view);
                 return holder;
-            case FOUR:
+            case FIVE:
+                view = getView(R.layout.adapter_discover_title_layout,parent);
+                holder = new DiscoverTitleHolder(view);
+                return holder;
+            case SIX:
                 view = getView(R.layout.adapter_discover_layout,parent);
                 holder = new DiscoverHolder(view);
                 return holder;
@@ -99,11 +114,11 @@ public class HomeAdapter_Copy extends RecyclerView.Adapter<RecyclerView.ViewHold
                 if (!TextUtils.isEmpty(homeBean.image)) {
                     GlideUtil.setImage(parentF.getContext(),homeBean.image,mDiscoverHolder.image);
                 }
-                if (TextUtils.equals("1",homeBean.isDiscover)) {
-                    mDiscoverHolder.text_discover_rl.setVisibility(View.VISIBLE);
-                }else{
-                    mDiscoverHolder.text_discover_rl.setVisibility(View.GONE);
-                }
+//                if (TextUtils.equals("1",homeBean.isDiscover)) {
+//                    mDiscoverHolder.text_discover_rl.setVisibility(View.VISIBLE);
+//                }else{
+//                    mDiscoverHolder.text_discover_rl.setVisibility(View.GONE);
+//                }
             }
             mDiscoverHolder.colse.setOnClickListener(new CloseOnClick(position,mDiscoverHolder.colse));
         }
@@ -122,22 +137,38 @@ public class HomeAdapter_Copy extends RecyclerView.Adapter<RecyclerView.ViewHold
     public int getItemViewType(int position) {
 //        return super.getItemViewType(position);
         int itemType = lists.get(position).itemType;
-        if (itemType == 0) {        //是轮播图
+        if (itemType == 0) {        //是空白布局
             return ONE;
-        } else if (itemType == 1) { //是5个item布局
+        } else if (itemType == 1) { //是轮播图
             return TWO;
-        } else if (itemType == 2) { //是直播公开课布局
+        } else if (itemType == 2) { //是5个item布局
             return THREE;
-        } else if (itemType == 3) { //是发现布局
+        } else if (itemType == 3) { //是直播公开课布局
             return FOUR;
+        } else if (itemType == 4) { //是发现标题布局
+            return FIVE;
+        } else if (itemType == 5) { //是发现布局
+            return SIX;
         } else {//其他位置返回正常的布局
-            return FOUR;
+            return SIX;
         }
     }
 
     @Override
     public void onPageClick(HomeBeanChild info) {
 
+    }
+
+    /**
+     * NullHolder的ViewHolder
+     */
+    public static class NullHolder extends RecyclerView.ViewHolder {
+        View null_view;
+        public NullHolder(View itemView) {
+            super(itemView);
+            null_view = itemView.findViewById(R.id.null_view);
+
+        }
     }
 
     /**
@@ -204,6 +235,17 @@ public class HomeAdapter_Copy extends RecyclerView.Adapter<RecyclerView.ViewHold
 //    }
 
     /**
+     * discover title的ViewHolder
+     */
+    public static class DiscoverTitleHolder extends RecyclerView.ViewHolder {
+
+        public DiscoverTitleHolder(View itemView) {
+            super(itemView);
+
+        }
+    }
+
+    /**
      * discover的ViewHolder
      */
     public static class DiscoverHolder extends RecyclerView.ViewHolder {
@@ -237,12 +279,56 @@ public class HomeAdapter_Copy extends RecyclerView.Adapter<RecyclerView.ViewHold
             if (mHomePopupWindow == null) {
                 mHomePopupWindow = new HomePopupWindow(parentF.getContext(),this);
             }
-            mHomePopupWindow.show(close);
+            mHomePopupWindow.show(close,position);
+            LogUtil.e("点击的角标 = " + position);
         }
 
         @Override
-        public void dispose() {
+        public void dispose(int position) {
+            if (mHomePopupWindow.isShowing()) {
+                mHomePopupWindow.dismiss();
+                mOnHomeListener.onNotify();
+                LogUtil.e("删除的角标 = " + position);
+                LogUtil.e("删除的数据 = " + GsonUtils.toJson(lists.get(position)));
 
+                int counntDiscover = 0;
+                if (lists.size() > 0) {
+                    for (int i = 0; i < lists.size(); i++) {
+                        if ("1".equals(lists.get(i).isDiscover)) {
+                            counntDiscover++;
+                        }
+                    }
+                }
+
+                if (counntDiscover == 1) {
+                    notifyItemRemoved(position);
+                    lists.remove(position);
+                    if (position != lists.size()) {
+                        notifyItemRangeChanged(position, lists.size() - position);
+                    }
+
+                    if (position - 1 >= 0 && position - 1 < lists.size()) {
+                        lists.remove(position - 1);
+                        notifyDataSetChanged();
+                    }
+
+                }else {
+                    notifyItemRemoved(position);
+                    lists.remove(position);
+                    if (position != lists.size()) {
+                        notifyItemRangeChanged(position, lists.size() - position);
+                    }
+                }
+
+                //必须调用这行代码
+//                notifyItemRangeChanged(position, lists.size());
+//                notifyDataSetChanged();
+            }
         }
+    }
+
+    private OnHomeListener mOnHomeListener;
+    public interface OnHomeListener{
+        void onNotify();
     }
 }

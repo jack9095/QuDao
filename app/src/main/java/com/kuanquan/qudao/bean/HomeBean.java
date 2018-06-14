@@ -1,6 +1,6 @@
 package com.kuanquan.qudao.bean;
 
-import com.chad.library.adapter.base.entity.MultiItemEntity;
+//import com.chad.library.adapter.base.entity.MultiItemEntity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -10,7 +10,8 @@ import java.util.List;
  * Created by Administrator on 2018/6/11.
  *
  */
-public class HomeBean implements MultiItemEntity,Serializable {
+//public class HomeBean implements MultiItemEntity,Serializable {
+public class HomeBean implements Serializable {
     public static final int ONE = 0;
     public static final int TWO = 1;
     public static final int THREE = 2;
@@ -31,8 +32,8 @@ public class HomeBean implements MultiItemEntity,Serializable {
 //        this.itemType = itemType;
 //    }
 
-    @Override
-    public int getItemType() {
-        return itemType;
-    }
+//    @Override
+//    public int getItemType() {
+//        return itemType;
+//    }
 }

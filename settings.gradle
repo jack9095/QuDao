@@ -1,5 +1,5 @@
-include ':app'
+include ':app', ':recycler_animator', ':library', ':top_bottom_scroll'
 include ':network'
 //include ':basemvp'
 include ':baselibrary'
-//include ':test'
+include ':test'
