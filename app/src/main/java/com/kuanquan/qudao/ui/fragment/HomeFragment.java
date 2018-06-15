@@ -13,7 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -146,9 +148,56 @@ public class HomeFragment extends BaseFragment<IHomeView, HomePresenter> impleme
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+//        mTextView.setVisibility(View.VISIBLE);
+    }
+
+    @Override
     public void onNotify() {
         LogUtil.e("onNotify = " + "onNotify");
-        mTextView.setVisibility(View.VISIBLE);
+        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(mTextView,"y",0.0f,134.0f);
+        objectAnimator.setDuration(500);   // 动画执行时长
+//        objectAnimator.setRepeatCount(0);
+        objectAnimator.setInterpolator(new LinearInterpolator());
+//        objectAnimator.setInterpolator(new AccelerateInterpolator());
+        objectAnimator.addListener(new AnimatorListenerAdapter() {//便利类，只要实现需要的方法
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                //在动画结束后回调
+//                mTextView.setVisibility(View.GONE);
+                mTextView.clearAnimation();
+            }
+        });
+        objectAnimator.start();
+//        mTextView.setVisibility(View.VISIBLE);
+//        TranslateAnimation translateAnimation = new TranslateAnimation(
+//                Animation.ABSOLUTE,0,
+//                Animation.ABSOLUTE,0,
+//                Animation.ABSOLUTE,0,
+//                Animation.ABSOLUTE,134);
+//        translateAnimation.setDuration(1000);  // 动画执行时长，单位毫秒
+//        translateAnimation.setFillAfter(true);
+//        translateAnimation.setFillBefore(false);
+//        mTextView.startAnimation(translateAnimation);
+//        translateAnimation.setAnimationListener(new Animation.AnimationListener() {
+//            @Override
+//            public void onAnimationStart(Animation animation) {
+//
+//            }
+//
+//            @Override
+//            public void onAnimationEnd(Animation animation) {
+//                mTextView.clearAnimation();
+////                        mTextView.invalidate();
+////                        mTextView.setVisibility(View.GONE);
+//            }
+//
+//            @Override
+//            public void onAnimationRepeat(Animation animation) {
+//
+//            }
+//        });
 
 //        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(mTextView,"y",0.0f,130.0f);
 //        objectAnimator.setDuration(400);   // 动画执行时长
@@ -159,28 +208,57 @@ public class HomeFragment extends BaseFragment<IHomeView, HomePresenter> impleme
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f,0.0f);  // 从显示到隐藏
-                alphaAnimation.setInterpolator(new LinearInterpolator());  // 匀速
-        alphaAnimation.setDuration(2000);  // 设置动画显示时长
-        alphaAnimation.setFillAfter(true); // 动画结束，停留在最后一帧
-                mTextView.startAnimation(alphaAnimation);
+//                TranslateAnimation translateAnimation = new TranslateAnimation(
+//                        Animation.ABSOLUTE,0,
+//                        Animation.ABSOLUTE,0,
+//                        Animation.ABSOLUTE,134,
+//                        Animation.ABSOLUTE,0);
+//                translateAnimation.setDuration(1000);  // 动画执行时长，单位毫秒
+//                translateAnimation.setFillAfter(true);
+//                translateAnimation.setFillBefore(false);
+//                mTextView.startAnimation(translateAnimation);
+//                translateAnimation.setAnimationListener(new Animation.AnimationListener() {
+//                    @Override
+//                    public void onAnimationStart(Animation animation) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onAnimationEnd(Animation animation) {
+//                        mTextView.clearAnimation();
+////                        mTextView.invalidate();
+////                        mTextView.setVisibility(View.GONE);
+//                    }
+//
+//                    @Override
+//                    public void onAnimationRepeat(Animation animation) {
+//
+//                    }
+//                });
+
+//                AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f,0.0f);  // 从显示到隐藏
+//                alphaAnimation.setInterpolator(new LinearInterpolator());  // 匀速
+//        alphaAnimation.setDuration(2000);  // 设置动画显示时长
+//        alphaAnimation.setFillAfter(true); // 动画结束，停留在最后一帧
+//                mTextView.startAnimation(alphaAnimation);
 
 //                AnimatorUtil.animAplhaOut(mTextView,500);
 //                AnimationUtil.with().moveToViewTop(mTextView,500);
 //                AnimationUtil.with().moveToViewBottom(mTextView,500);
-//                ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(mTextView,"alpha",0.0f,1.0f);
-//                objectAnimator.setDuration(400);   // 动画执行时长
-//                objectAnimator.setRepeatCount(0);
-//        objectAnimator.setInterpolator(new LinearInterpolator());
-//                objectAnimator.setInterpolator(new AccelerateInterpolator());
-//                objectAnimator.addListener(new AnimatorListenerAdapter() {//便利类，只要实现需要的方法
-//                    @Override
-//                    public void onAnimationEnd(Animator animation) {
-//                        //在动画结束后回调
+                ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(mTextView,"y",134.0f,0.0f);
+                objectAnimator.setDuration(500);   // 动画执行时长
+                objectAnimator.setRepeatCount(0);
+                objectAnimator.setInterpolator(new LinearInterpolator());
+                objectAnimator.setInterpolator(new AccelerateInterpolator());
+                objectAnimator.addListener(new AnimatorListenerAdapter() {//便利类，只要实现需要的方法
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        //在动画结束后回调
 //                        mTextView.setVisibility(View.GONE);
-//                    }
-//                });
-//                objectAnimator.start();
+                        mTextView.clearAnimation();
+                    }
+                });
+                objectAnimator.start();
             }
         },4000);
     }

@@ -1,12 +1,15 @@
 package com.kuanquan.qudao.ui.adapter;
 
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowInsets;
+import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Scroller;
 import android.widget.TextView;
 import com.example.fly.baselibrary.utils.base.GsonUtils;
 import com.example.fly.baselibrary.utils.useful.GlideUtil;
@@ -19,6 +22,7 @@ import com.kuanquan.qudao.widget.HomeBanner;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 /**
@@ -90,9 +94,12 @@ public class HomeAdapter_Copy extends RecyclerView.Adapter<RecyclerView.ViewHold
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         HomeBean homeBean = lists.get(position);
-        if (holder instanceof BannerHolder) {
+        if (holder instanceof BannerHolder) {   // bannre
             BannerHolder mBannerHolder = (BannerHolder) holder;
             mBannerHolder.mHomeBanner.setData(homeBean.lists,this);
+
+           mBannerHolder.mHomeBanner.setScrollSpeed(mBannerHolder.mHomeBanner);
+//
         }else if (holder instanceof FiveItemHolder) {   // 5
             FiveItemHolder mFiveItemHolder = (FiveItemHolder) holder;
             List<HomeBeanChild> listChilds = homeBean.lists;
