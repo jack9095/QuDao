@@ -54,7 +54,7 @@ public class HomePresenter extends BasePresenter<IHomeView> implements IBaseMode
         HomeBeanChild banner;
         for (int i = 0; i < 5; i++) {
             banner = new HomeBeanChild();
-            banner.title = "直播";
+            banner.title = "趣到";
             banner.image = "http://img5.imgtn.bdimg.com/it/u=3532743473,184108530&fm=200&gp=0.jpg";
             listChilds.add(banner);
         }
@@ -67,7 +67,7 @@ public class HomePresenter extends BasePresenter<IHomeView> implements IBaseMode
         HomeBeanChild mHomeBeanChild;
         for (int i = 0; i < 5; i++) {
             mHomeBeanChild = new HomeBeanChild();
-            mHomeBeanChild.title = "直播";
+            mHomeBeanChild.title = "趣到";
             mHomeBeanChild.image = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528784678961&di=3d8861c62ef509d7eecf123b99c74dad&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fdcc451da81cb39dbd7c13dcbda160924ab18302d.jpg";
             listChilds.add(mHomeBeanChild);
         }
@@ -78,8 +78,8 @@ public class HomePresenter extends BasePresenter<IHomeView> implements IBaseMode
         mHomeBean = new HomeBean();
         mHomeBean.itemType = 3;
         mHomeBean.image = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528784678961&di=3d8861c62ef509d7eecf123b99c74dad&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fdcc451da81cb39dbd7c13dcbda160924ab18302d.jpg";
-        mHomeBean.title = "新三板——真正意义的中国版纳斯达克,飞利浦财物总监介绍投行的酸甜苦辣";
-        mHomeBean.content = "明晚7点，飞利浦财物总监介绍投行的酸甜苦辣,飞利浦财物总监介绍投行的酸甜苦辣";
+        mHomeBean.title = "《经济学动态》是中国社会科学院经济研究所主办的向国内外发行的经济类月刊";
+        mHomeBean.content = "主要栏目与内容包括：经济科学新论、经济热点分析、部门经济、地区经济、财政金融研究、学术探讨、会议综述、学术资料、经济体制改革、企业管理、调查与建议、中外学术交流、外国经济理论动态与述评、世界经济、书刊评介等";
         lists.add(mHomeBean);
 
         // 水平滑动
@@ -92,8 +92,8 @@ public class HomePresenter extends BasePresenter<IHomeView> implements IBaseMode
 //            if (i == 6) {
 //                mHomeBeanChildF.type = "1";
 //            }
-//            mHomeBeanChildF.title = "新三板——真正意义的中国版纳斯达克,飞利浦财物总监介绍投行的酸甜苦辣";
-//            mHomeBeanChildF.content = "明晚7点，飞利浦财物总监介绍投行的酸甜苦辣,飞利浦财物总监介绍投行的酸甜苦辣";
+//            mHomeBeanChildF.title = "《经济学动态》是中国社会科学院经济研究所主办的向国内外发行的经济类月刊";
+//            mHomeBeanChildF.content = "主要栏目与内容包括：经济科学新论、经济热点分析、部门经济、地区经济、财政金融研究、学术探讨、会议综述、学术资料、经济体制改革、企业管理、调查与建议、中外学术交流、外国经济理论动态与述评、世界经济、书刊评介等";
 //            mHomeBeanChildF.image = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528784678961&di=3d8861c62ef509d7eecf123b99c74dad&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fdcc451da81cb39dbd7c13dcbda160924ab18302d.jpg";
 //            listChilds.add(mHomeBeanChildF);
 //        }
@@ -111,8 +111,8 @@ public class HomePresenter extends BasePresenter<IHomeView> implements IBaseMode
             mHomeBean.isDiscover = "1";   // 表示发现
             mHomeBean.itemType = 5;
             mHomeBean.position = lists.size();
-            mHomeBean.title = i + "新三板——真正意义的中国版纳斯达克";
-            mHomeBean.content = i + "财会资讯 · 3211阅读";
+            mHomeBean.title = i + "《经济学动态》是中国社会科学院经济研究所主办的向国内外发行的经济类月刊";
+            mHomeBean.content = i + "《经济学动态》 · 3211阅读";
             mHomeBean.image = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528784678961&di=3d8861c62ef509d7eecf123b99c74dad&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fdcc451da81cb39dbd7c13dcbda160924ab18302d.jpg";
             lists.add(mHomeBean);
         }

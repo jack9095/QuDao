@@ -2,16 +2,24 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/QuDao.iml" filepath="$PROJECT_DIR$/QuDao.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://D:\qudao\app\app.iml" filepath="D:\qudao\app\app.iml" />
+      <module fileurl="file://D:\QuDao\app\app.iml" filepath="D:\QuDao\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/baselibrary/baselibrary.iml" filepath="$PROJECT_DIR$/baselibrary/baselibrary.iml" />
+      <module fileurl="file://D:\QuDao\baselibrary\baselibrary.iml" filepath="D:\QuDao\baselibrary\baselibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
+      <module fileurl="file://D:\QuDao\library\library.iml" filepath="D:\QuDao\library\library.iml" />
       <module fileurl="file://$PROJECT_DIR$/network/network.iml" filepath="$PROJECT_DIR$/network/network.iml" />
-      <module fileurl="file://$PROJECT_DIR$/qudao.iml" filepath="$PROJECT_DIR$/qudao.iml" />
+      <module fileurl="file://D:\QuDao\network\network.iml" filepath="D:\QuDao\network\network.iml" />
       <module fileurl="file://D:\qudao\qudao.iml" filepath="D:\qudao\qudao.iml" />
+      <module fileurl="file://D:\QuDao\qudao.iml" filepath="D:\QuDao\qudao.iml" />
       <module fileurl="file://$PROJECT_DIR$/recycler_animator/recycler_animator.iml" filepath="$PROJECT_DIR$/recycler_animator/recycler_animator.iml" />
+      <module fileurl="file://D:\QuDao\recycler_animator\recycler_animator.iml" filepath="D:\QuDao\recycler_animator\recycler_animator.iml" />
       <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
+      <module fileurl="file://D:\QuDao\test\test.iml" filepath="D:\QuDao\test\test.iml" />
       <module fileurl="file://$PROJECT_DIR$/top_bottom_scroll/top_bottom_scroll.iml" filepath="$PROJECT_DIR$/top_bottom_scroll/top_bottom_scroll.iml" />
+      <module fileurl="file://D:\QuDao\top_bottom_scroll\top_bottom_scroll.iml" filepath="D:\QuDao\top_bottom_scroll\top_bottom_scroll.iml" />
     </modules>
   </component>
 </project>
