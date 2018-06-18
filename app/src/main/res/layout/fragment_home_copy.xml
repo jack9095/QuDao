@@ -56,7 +56,7 @@
             android:id="@+id/bar_head_search"
             android:gravity="center_vertical"
             android:layout_toRightOf="@id/bar_head_view"
-            android:text="搜索课程资料"
+            android:text="搜索最新经济咨询"
             android:paddingLeft="9dp"
             android:layout_centerVertical="true"
             android:textColor="#cccccc"

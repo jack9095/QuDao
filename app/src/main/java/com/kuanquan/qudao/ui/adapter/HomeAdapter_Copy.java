@@ -150,7 +150,7 @@ public class HomeAdapter_Copy extends RecyclerView.Adapter<RecyclerView.ViewHold
             return TWO;
         } else if (itemType == 2) { //是5个item布局
             return THREE;
-        } else if (itemType == 3) { //是直播公开课布局
+        } else if (itemType == 3) { //是直播布局
             return FOUR;
         } else if (itemType == 4) { //是发现标题布局
             return FIVE;

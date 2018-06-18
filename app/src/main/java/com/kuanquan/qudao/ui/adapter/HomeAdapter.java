@@ -45,11 +45,11 @@
 //    @Override
 //    protected void convert(BaseViewHolder helper, HomeBean item) {
 //        switch (helper.getItemViewType()) {
-//            case HomeBean.ONE:   // banner
+//            case HomeBean.ONE:
 //                HomeBanner mHomeBanner = helper.getView(R.id.banner_layout);
 //                mHomeBanner.setData(item.lists,this);
 //                break;
-//            case HomeBean.TWO:  // 5个item
+//            case HomeBean.TWO:
 ////                ImageView elective_course_image = helper.getView(R.id.elective_course_image);
 ////                GlideUtil.setImage(mContext,item.lists.get(0).image,elective_course_image);
 ////                helper.setText(R.id.elective_course_text,item.lists.get(0).title);
@@ -70,7 +70,7 @@
 ////                GlideUtil.setImage(mContext,item.lists.get(4).image,member_image);
 ////                helper.setText(R.id.member_text,item.lists.get(4).title);
 //                break;
-//            case HomeBean.THREE:  // 公开
+//            case HomeBean.THREE:
 //                ImageView live_open_head_image = helper.getView(R.id.live_open_head_image);
 //                GlideUtil.setImageCircle(mContext,item.image,live_open_head_image);
 //                helper.setText(R.id.live_open_title,item.title);
