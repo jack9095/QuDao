@@ -7,6 +7,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
@@ -46,8 +47,8 @@ public class HomePopupWindow extends PopupWindow {
         mShowMorePopupWindowWidth = mContentView.getMeasuredWidth();
         mShowMorePopupWindowHeight = mContentView.getMeasuredHeight();
         // 设置弹窗的宽度和高度
-        setWidth(mShowMorePopupWindowWidth);
-        setHeight(mShowMorePopupWindowHeight);
+        setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+        setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
         //设置能否获取到焦点
         setFocusable(false);
         //设置PopupWindow进入和退出时的动画效果

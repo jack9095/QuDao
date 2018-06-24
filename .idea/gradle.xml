@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/recycler_animator" />
             <option value="$PROJECT_DIR$/test" />
             <option value="$PROJECT_DIR$/top_bottom_scroll" />
+            <option value="$PROJECT_DIR$/webview" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
