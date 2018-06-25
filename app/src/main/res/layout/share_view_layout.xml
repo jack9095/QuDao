@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/share_view_layout_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:paddingLeft="15dp"
+        tools:ignore="UselessParent">
+
+        <View
+            android:layout_width="160dp"
+            android:layout_height="0.5dp"
+            android:background="#f0f0f0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:text="点赞"
+            android:textColor="#899099"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="160dp"
+            android:layout_height="0.5dp"
+            android:background="#f0f0f0" />
+    </LinearLayout>
+
+    <!--点赞-->
+    <RelativeLayout
+        android:id="@+id/share_view_layout_fabulous"
+        android:layout_toLeftOf="@id/share_view_layout_wechat_friend"
+        android:layout_below="@id/share_view_layout_ll"
+        android:layout_marginTop="11dp"
+        android:layout_width="98dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:background="@drawable/round_layout_share">
+
+        <ImageView
+            android:id="@+id/share_view_layout_fabulous_image"
+            android:contentDescription="@string/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <!--微信朋友-->
+    <RelativeLayout
+        android:id="@+id/share_view_layout_wechat_friend"
+        android:layout_below="@id/share_view_layout_ll"
+        android:layout_marginTop="11dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginRight="23dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="98dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:background="@drawable/round_layout_share">
+
+        <ImageView
+            android:id="@+id/share_view_layout_wechat_friend_image"
+            android:contentDescription="@string/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_toRightOf="@id/share_view_layout_wechat_friend_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="微信朋友"
+            android:textColor="#48505A"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+    <!--朋友圈-->
+    <RelativeLayout
+        android:id="@+id/share_view_layout_circle_friend"
+        android:layout_toRightOf="@id/share_view_layout_wechat_friend"
+        android:layout_below="@id/share_view_layout_ll"
+        android:layout_marginTop="11dp"
+        android:layout_width="98dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:background="@drawable/round_layout_share">
+
+        <ImageView
+            android:id="@+id/share_view_layout_circle_friend_image"
+            android:contentDescription="@string/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_toRightOf="@id/share_view_layout_circle_friend_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="朋友圈"
+            android:textColor="#48505A"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_below="@id/share_view_layout_wechat_friend"
+        android:background="#f0f0f0"
+        android:layout_marginTop="17dp"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"/>
+</RelativeLayout>

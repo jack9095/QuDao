@@ -15,8 +15,8 @@ import com.wangng.webviewinrecyclerview.slideconflict.SlideConfictActivity;
 
 /**
  * 2017/7/25.
+ * one
  */
-
 public class WrapContentActivity extends AppCompatActivity {
 
     private static final String TAG = "SlideConfictActivity";

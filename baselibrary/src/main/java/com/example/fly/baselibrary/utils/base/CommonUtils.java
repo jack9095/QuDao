@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.util.Random;
 
 /**
- * @author quchao
  * @date 2017/11/27
  */
 

@@ -1,4 +1,4 @@
-package com.wangng.webviewinrecyclerview;
+package com.kuanquan.qudao.ui.adapter;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -17,6 +17,8 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import com.kuanquan.qudao.R;
 
 /**
  * 2017/7/20.
