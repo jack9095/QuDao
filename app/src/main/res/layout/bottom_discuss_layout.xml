@@ -2,54 +2,78 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#ffffff"
     android:layout_height="42dp"
     android:orientation="vertical">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#f0f0f0"/>
 
     <LinearLayout
         android:id="@+id/bottom_discuss_layout_ll"
-        android:layout_width="223dp"
-        android:layout_height="32dp"
+        android:layout_width="210dp"
+        android:layout_height="30dp"
+        android:background="@drawable/round_layout_bottom"
         android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         tools:ignore="UselessParent">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:src="@mipmap/botton_layout_writ_discuss"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="12dp"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
             android:contentDescription="@string/app_name" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_gravity="center_vertical"
             android:text="写评论"
             android:textColor="#CCCCD0"
             android:textSize="12sp" />
     </LinearLayout>
 
-    <!--评论-->
-    <ImageView
-        android:id="@+id/bottom_discuss_layout_discuss_image"
+    <RelativeLayout
+        android:id="@+id/bottom_discuss_layout_discuss_image_rl"
         android:layout_toLeftOf="@id/bottom_discuss_layout_fabulous_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="23dp"
-        android:contentDescription="@string/app_name" />
+        android:paddingLeft="8dp"
+        android:layout_width="45dp"
+        android:layout_height="match_parent">
 
-    <!--点赞-->
+        <!--评论-->
+        <ImageView
+            android:id="@+id/bottom_discuss_layout_discuss_image"
+            android:src="@mipmap/bottom_detail_discuss_wz"
+            android:layout_centerVertical="true"
+            android:layout_width="18dp"
+            android:layout_height="17dp"
+            android:contentDescription="@string/app_name" />
+
+    </RelativeLayout>
+
+    <!--收藏-->
     <ImageView
         android:id="@+id/bottom_discuss_layout_fabulous_image"
         android:layout_toLeftOf="@id/bottom_discuss_layout_share_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:src="@mipmap/wz_detail_collection_bottom"
+        android:layout_centerVertical="true"
+        android:layout_width="18dp"
+        android:layout_height="17dp"
         android:layout_marginRight="20dp"
         android:contentDescription="@string/app_name" />
 
     <!--分享-->
     <ImageView
         android:id="@+id/bottom_discuss_layout_share_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="18dp"
+        android:layout_height="17dp"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/bottom_layout_share_icon"
         android:layout_alignParentRight="true"
         android:layout_marginRight="17dp"
         android:contentDescription="@string/app_name" />

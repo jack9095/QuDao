@@ -3,6 +3,7 @@ package com.kuanquan.qudao.ui.fragment;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -31,6 +32,7 @@ import com.kuanquan.qudao.bean.HomeBean;
 import com.kuanquan.qudao.core.mvp.presenter.HomePresenter;
 import com.kuanquan.qudao.core.mvp.view.IHomeView;
 //import com.kuanquan.qudao.ui.adapter.HomeAdapter;
+import com.kuanquan.qudao.ui.activity.DetailsArticleActivity;
 import com.kuanquan.qudao.ui.adapter.HomeAdapter_Copy;
 import com.kuanquan.qudao.utils.AnimatorUtil;
 import com.wingsofts.byeburgernavigationview.ByeBurgerBehavior;
@@ -78,6 +80,13 @@ public class HomeFragment extends BaseFragment<IHomeView, HomePresenter> impleme
 
         mImageView = view.findViewById(R.id.bar_head_image);
         GlideUtil.setImageCircle(getContext(), "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3909870665,3259015587&fm=27&gp=0.jpg", mImageView);
+
+        mImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(context, DetailsArticleActivity.class));
+            }
+        });
 
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             int mScrollThreshold;

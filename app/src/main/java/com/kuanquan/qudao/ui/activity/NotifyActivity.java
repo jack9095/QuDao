@@ -5,11 +5,14 @@ import android.os.Bundle;
 
 import com.kuanquan.qudao.R;
 
-public class DetailsActivity extends AppCompatActivity {
+/**
+ * 消息主页
+ */
+public class NotifyActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_details);
+        setContentView(R.layout.activity_notify);
     }
 }

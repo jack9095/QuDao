@@ -1,20 +1,24 @@
 package com.kuanquan.qudao.ui.adapter;
 
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.example.fly.baselibrary.utils.useful.GlideUtil;
+import com.example.fly.baselibrary.utils.useful.LogUtil;
 import com.kuanquan.qudao.R;
 import com.kuanquan.qudao.bean.DetailsArticleBean;
+
 import java.util.List;
 
 /**
- * Created by Administrator on 2018/6/25.
- *
+ * Created by fei.wang on 2018/6/25.
+ *  文章详情适配器
  */
 public class DetailsArticleAdapter extends RecyclerView.Adapter {
     private static final int ITEM_TYPE_ONE = 0;
@@ -23,8 +27,13 @@ public class DetailsArticleAdapter extends RecyclerView.Adapter {
     private static final int ITEM_TYPE_FOUR = 3;
     private List<DetailsArticleBean> lists;
     private ViewGroup parentF;
+    private int isOne = 0;
 
-    public void setData(List<DetailsArticleBean> homeBeans){
+    public DetailsArticleAdapter(OnShareListener mOnShareListener) {
+        this.mOnShareListener = mOnShareListener;
+    }
+
+    public void setData(List<DetailsArticleBean> homeBeans) {
         this.lists = homeBeans;
         notifyDataSetChanged();
     }
@@ -34,7 +43,7 @@ public class DetailsArticleAdapter extends RecyclerView.Adapter {
         parentF = parent;
         View view;
         RecyclerView.ViewHolder holder;
-        switch (viewType){
+        switch (viewType) {
             case ITEM_TYPE_ONE:
                 holder = new WebViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_webview, parent, false));
                 return holder;
@@ -59,15 +68,38 @@ public class DetailsArticleAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         DetailsArticleBean detailsArticleBean = lists.get(position);
         if (holder instanceof WebViewHolder) {   // 是webView
-            WebViewHolder mBannerHolder = (WebViewHolder) holder;
-
-        }else if (holder instanceof ShareHolder) {   // 分享
+            WebViewHolder mWebViewHolder = (WebViewHolder) holder;
+            if (isOne == 0) {
+                mWebViewHolder.setUrl(detailsArticleBean.h5Url);
+            }
+            isOne = 1;
+        } else if (holder instanceof ShareHolder) {   // 分享
             ShareHolder mShareHolder = (ShareHolder) holder;
+            mShareHolder.wechat_friend.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mOnShareListener.wechatFriend();  // 微信朋友
+                }
+            });
+            mShareHolder.circle_friend.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mOnShareListener.circleFriend();  // 朋友圈
+                }
+            });
 
-        }else if (holder instanceof DiscussHolder) {  // live
+        } else if (holder instanceof DiscussHolder) {  // 评论列表
             DiscussHolder mDiscussHolder = (DiscussHolder) holder;
-            GlideUtil.setImageCircle(parentF.getContext(),detailsArticleBean.headImg,mDiscussHolder.mImageView);
+            GlideUtil.setImageCircle(parentF.getContext(), detailsArticleBean.headImg, mDiscussHolder.mImageView);
+            setTextView(mDiscussHolder.content,detailsArticleBean.content);
+            setTextView(mDiscussHolder.name,detailsArticleBean.name);
+            setTextView(mDiscussHolder.time,detailsArticleBean.time + detailsArticleBean.replyNum);
 
+            if (detailsArticleBean.isFabulous) {
+                mDiscussHolder.fabulous.setImageResource(R.mipmap.wz_detail_zan_seleted);
+            }else{
+                mDiscussHolder.fabulous.setImageResource(R.mipmap.wz_detail_zan);
+            }
         }
     }
 
@@ -75,7 +107,7 @@ public class DetailsArticleAdapter extends RecyclerView.Adapter {
     public int getItemCount() {
         if (lists != null && lists.size() > 0) {
             return lists.size();
-        }else{
+        } else {
             return 0;
         }
     }
@@ -100,11 +132,12 @@ public class DetailsArticleAdapter extends RecyclerView.Adapter {
     /**
      * 分享的ViewHolder
      */
-    public static class ShareHolder extends RecyclerView.ViewHolder {
+    public static class ShareHolder extends RecyclerView.ViewHolder{
         private RelativeLayout fabulous;  // 点赞
         private ImageView fabulousImage;  // 点赞图标
         private RelativeLayout wechat_friend;  // 微信朋友
         private RelativeLayout circle_friend;  // 朋友圈
+
         public ShareHolder(View itemView) {
             super(itemView);
             fabulous = itemView.findViewById(R.id.share_view_layout_fabulous);
@@ -129,8 +162,9 @@ public class DetailsArticleAdapter extends RecyclerView.Adapter {
      * 评论的ViewHolder
      */
     public static class DiscussHolder extends RecyclerView.ViewHolder {
-        ImageView mImageView,fabulous;
-        TextView name,content,time;
+        ImageView mImageView, fabulous;
+        TextView name, content, time;
+
         public DiscussHolder(View itemView) {
             super(itemView);
             mImageView = itemView.findViewById(R.id.adapter_discuss_layout_head_img);
@@ -139,5 +173,21 @@ public class DetailsArticleAdapter extends RecyclerView.Adapter {
             content = itemView.findViewById(R.id.adapter_discuss_layout_content);
             time = itemView.findViewById(R.id.adapter_discuss_layout_time);
         }
+    }
+
+    private void setTextView(TextView mTextView, String str) {
+        if (mTextView != null) {
+            if (!TextUtils.isEmpty(str)) {
+                mTextView.setText(str);
+            }else{
+                mTextView.setText("");
+            }
+        }
+    }
+
+    private OnShareListener mOnShareListener;
+    public interface OnShareListener{
+        void wechatFriend();
+        void circleFriend();
     }
 }

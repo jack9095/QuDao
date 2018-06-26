@@ -20,18 +20,15 @@ import android.webkit.WebViewClient;
 
 import com.kuanquan.qudao.R;
 
-/**
- * 2017/7/20.
- */
 
 public class WebViewHolder extends RecyclerView.ViewHolder {
 
     private static final String TAG = "WebViewHolder";
 
     private boolean mIsLoading;
-    String url = "https://m.baidu.com/from=1012852s/s?word=%E5%B7%B4%E5%8E%98%E5%B2%9B&ts=0307421&t_kt=0&ie=utf-8&fm_kl=b26a42b666&" +
-            "rsv_iqid=1090308116&rsv_t=c2dbEJhJPefAJ0vOMwixV" +
-            "WqB6iOhhVxxQLyQquz%252F5XUgPAfwO9liAVJ%252BXki86eQ&sa=is_4&rsv_pq=1090308116&rsv_sug4=10218&inputT=3904&ss=100&rq=%E5%B7%B4";
+//    String url = "https://m.baidu.com/from=1012852s/s?word=%E5%B7%B4%E5%8E%98%E5%B2%9B&ts=0307421&t_kt=0&ie=utf-8&fm_kl=b26a42b666&" +
+//            "rsv_iqid=1090308116&rsv_t=c2dbEJhJPefAJ0vOMwixV" +
+//            "WqB6iOhhVxxQLyQquz%252F5XUgPAfwO9liAVJ%252BXki86eQ&sa=is_4&rsv_pq=1090308116&rsv_sug4=10218&inputT=3904&ss=100&rq=%E5%B7%B4";
     private final WebView webView;
 
     public WebViewHolder(View itemView) {
@@ -40,13 +37,18 @@ public class WebViewHolder extends RecyclerView.ViewHolder {
 
         //当页面正在加载时，禁止链接的点击事件
         webView.setOnTouchListener(new WebViewTouchListener());
-
+        webView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
         webView.setWebViewClient(new WebViewClient());
         webView.setWebChromeClient(new WebChromeClient());
         WebSettings settings = webView.getSettings();
+        webView.getSettings().setDomStorageEnabled(true);
         settings.setJavaScriptEnabled(true);
-        webView.loadUrl(url);
+//        webView.loadUrl(url);
 
+    }
+
+    public void setUrl(String strUrl){
+        webView.loadUrl(strUrl);
     }
 
     private class WebViewTouchListener implements View.OnTouchListener {

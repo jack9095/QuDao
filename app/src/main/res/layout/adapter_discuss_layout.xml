@@ -21,6 +21,7 @@
             android:id="@+id/adapter_discuss_layout_name"
             android:text="曹勇"
             android:textColor="#3CBDA3"
+            android:layout_toRightOf="@id/adapter_discuss_layout_head_img"
             android:textSize="12sp"
             android:layout_marginLeft="12dp"
             android:layout_centerVertical="true"
@@ -30,6 +31,7 @@
         <ImageView
             android:id="@+id/adapter_discuss_layout_fabulous"
             android:contentDescription="@string/app_name"
+            android:src="@mipmap/wz_detail_zan"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:layout_width="wrap_content"
