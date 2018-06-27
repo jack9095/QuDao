@@ -38,7 +38,9 @@
         app:layout_behavior="com.kuanquan.qudao.widget.live.behavior.LiveContentBehavior">
 
         <!--滑动黏贴到顶部的内容-->
-        <RelativeLayout android:layout_width="match_parent"
+        <com.kuanquan.qudao.widget.Sticklayout
+            android:id="@+id/stick_rl"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="?attr/colorPrimary">
 
@@ -54,7 +56,7 @@
                 android:layout_centerVertical="true"
                 android:src="@mipmap/back"/>
 
-        </RelativeLayout>
+        </com.kuanquan.qudao.widget.Sticklayout>
 
         <!--刷新列表-->
         <android.support.v4.widget.SwipeRefreshLayout

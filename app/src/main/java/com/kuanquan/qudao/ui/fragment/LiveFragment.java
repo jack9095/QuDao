@@ -12,9 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.kuanquan.qudao.R;
 import com.kuanquan.qudao.ui.adapter.ItemAdapter;
+import com.kuanquan.qudao.widget.Sticklayout;
 import com.kuanquan.qudao.widget.live.behavior.LiveHeaderPagerBehavior;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +24,7 @@ import java.util.List;
 /**
  * 直播
  */
-public class LiveFragment extends CommonFragment implements LiveHeaderPagerBehavior.OnPagerStateListener {
+public class LiveFragment extends CommonFragment implements LiveHeaderPagerBehavior.OnPagerStateListener,Sticklayout.TouchListener {
 
     RecyclerView mRecyclerView;
     List<String> mDatas = new ArrayList<>();
@@ -30,6 +32,7 @@ public class LiveFragment extends CommonFragment implements LiveHeaderPagerBehav
     private FrameLayout mHeaderView;
     private LiveHeaderPagerBehavior mHeaderPagerBehavior;
     private ImageView mIvBack;
+    private Sticklayout mSticklayout;
 
     @Override
     protected View initLayout(LayoutInflater inflater, ViewGroup container) {
@@ -40,6 +43,8 @@ public class LiveFragment extends CommonFragment implements LiveHeaderPagerBehav
     protected void initView() {
         mHeaderView = view.findViewById(R.id.id_hide_header);
         mIvBack = view.findViewById(R.id.iv_back);
+        mSticklayout = view.findViewById(R.id.stick_rl);
+        mSticklayout.setTouchListener(this);
         mIvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,5 +143,10 @@ public class LiveFragment extends CommonFragment implements LiveHeaderPagerBehav
             return;
         }
 //        finish();
+    }
+
+    @Override
+    public void onTouchRListener() {
+        mHeaderPagerBehavior.openPager();
     }
 }
