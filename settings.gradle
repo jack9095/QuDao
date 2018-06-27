@@ -1,4 +1,4 @@
-include ':app', ':recycler_animator', ':library', ':top_bottom_scroll', ':webview'
+include ':app', ':recycler_animator', ':library', ':top_bottom_scroll', ':webview', ':StickyNavLayout-master', ':SupportLibraryDemo', ':UcMainPagerDemo', ':CoordinatorLayoutDemo', ':coordinator_test'
 include ':network'
 //include ':basemvp'
 include ':baselibrary'

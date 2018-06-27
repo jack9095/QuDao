@@ -8,8 +8,13 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/CoordinatorLayoutDemo" />
+            <option value="$PROJECT_DIR$/StickyNavLayout-master" />
+            <option value="$PROJECT_DIR$/SupportLibraryDemo" />
+            <option value="$PROJECT_DIR$/UcMainPagerDemo" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/baselibrary" />
+            <option value="$PROJECT_DIR$/coordinator_test" />
             <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/network" />
             <option value="$PROJECT_DIR$/recycler_animator" />

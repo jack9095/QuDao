@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/CoordinatorLayoutDemo/CoordinatorLayoutDemo.iml" filepath="$PROJECT_DIR$/CoordinatorLayoutDemo/CoordinatorLayoutDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StickyNavLayout-master/StickyNavLayout-master.iml" filepath="$PROJECT_DIR$/StickyNavLayout-master/StickyNavLayout-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SupportLibraryDemo/SupportLibraryDemo.iml" filepath="$PROJECT_DIR$/SupportLibraryDemo/SupportLibraryDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UcMainPagerDemo/UcMainPagerDemo.iml" filepath="$PROJECT_DIR$/UcMainPagerDemo/UcMainPagerDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/baselibrary/baselibrary.iml" filepath="$PROJECT_DIR$/baselibrary/baselibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/coordinator_test/coordinator_test.iml" filepath="$PROJECT_DIR$/coordinator_test/coordinator_test.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/network/network.iml" filepath="$PROJECT_DIR$/network/network.iml" />
       <module fileurl="file://$PROJECT_DIR$/qudao.iml" filepath="$PROJECT_DIR$/qudao.iml" />
