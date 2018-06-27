@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.xujun.contralayout"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application
+        android:name=".base.BaseAPP"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".UI.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".UI.toolBar.ToolBarSampleSnar">
+        </activity>
+        <activity android:name=".UI.toolBar.ToolBarSample">
+        </activity>
+        <activity android:name=".UI.viewPager.ViewPagerSample">
+        </activity>
+        <activity android:name=".UI.viewPager.ViewPagerParallax">
+        </activity>
+        <activity android:name=".UI.viewPager.ViewPagerParallaxSnap">
+        </activity>
+        <activity android:name=".UI.zhihu.ZhiHuActivity">
+        </activity>
+        <activity android:name=".UI.JianShuActivity">
+        </activity>
+        <activity android:name=".UI.zhihu.ZhiHuHomeActivity">
+        </activity>
+        <activity android:name=".UI.FloatingActiobButtton.FloatingActionButtonActivity">
+        </activity>
+        <activity android:name=".UI.FloatingActiobButtton.HorizontalSample">
+        </activity>
+        <activity android:name=".UI.cardView.CardViewSample">
+        </activity>
+        <activity android:name=".UI.drawlayout.DrawLayoutSample">
+        </activity>
+        <activity android:name=".UI.bottomsheet.BottomSheetActivity">
+        </activity>
+        <activity android:name=".UI.bottomsheet.BaiduMapSample">
+        </activity>
+        <activity android:name=".UI.viewPager.ViewPagerNew">
+        </activity>
+        <activity android:name=".UI.weibo.WeiboActivity">
+        </activity>
+        <activity android:name=".UI.weibo.WeiboSampleActivity">
+        </activity>
+    </application>
+
+</manifest>
