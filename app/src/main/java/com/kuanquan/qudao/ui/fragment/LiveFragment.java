@@ -9,19 +9,29 @@ import android.view.ViewGroup;
 import com.kuanquan.qudao.R;
 
 /**
- * A simple {@link Fragment} subclass.
+ * 图片
  */
-public class LiveFragment extends Fragment {
-
-
-    public LiveFragment() {
-    }
+public class LiveFragment extends CommonFragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    protected View initLayout(LayoutInflater inflater, ViewGroup container) {
         return inflater.inflate(R.layout.fragment_live, container, false);
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void initData(Bundle savedInstanceState) {
+
+    }
+
+    @Override
+    protected boolean isBindEventBusHere() {
+        return false;
     }
 
 }

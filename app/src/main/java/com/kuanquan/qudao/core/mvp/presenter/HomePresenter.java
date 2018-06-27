@@ -45,9 +45,6 @@ public class HomePresenter extends BasePresenter<IHomeView> implements IBaseMode
 
     public void getData(){
         HomeBean mHomeBean;
-//        mHomeBean = new HomeBean();
-//        mHomeBean.itemType = 0;
-//        lists.add(mHomeBean);
 
         mHomeBean = new HomeBean();
         mHomeBean.itemType = 1;
