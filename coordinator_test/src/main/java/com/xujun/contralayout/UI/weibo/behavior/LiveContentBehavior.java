@@ -18,13 +18,13 @@ import java.util.List;
  * <p/>
  * Created by xujun
  */
-public class WeiboContentBehavior extends HeaderScrollingViewBehavior {
-    private static final String TAG = "WeiboContentBehavior";
+public class LiveContentBehavior extends HeaderScrollingViewBehavior {
+    private static final String TAG = "LiveContentBehavior";
 
-    public WeiboContentBehavior() {
+    public LiveContentBehavior() {
     }
 
-    public WeiboContentBehavior(Context context, AttributeSet attrs) {
+    public LiveContentBehavior(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 

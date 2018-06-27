@@ -1,4 +1,4 @@
-package com.xujun.contralayout.UI.weibo.behavior;
+package com.kuanquan.qudao.widget.live.behavior;
 
 import android.content.Context;
 import android.support.design.BuildConfig;
@@ -10,13 +10,13 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.OverScroller;
 
-import com.xujun.contralayout.R;
-import com.xujun.contralayout.base.BaseAPP;
+import com.kuanquan.qudao.R;
+import com.kuanquan.qudao.app.QuApplication;
 
 import java.lang.ref.WeakReference;
 
 
-public class WeiboHeaderPagerBehavior extends ViewOffsetBehavior {
+public class LiveHeaderPagerBehavior extends ViewOffsetBehavior {
     private static final String TAG = "UcNewsHeaderPager";
     public static final int STATE_OPENED = 0;
     public static final int STATE_CLOSED = 1;
@@ -35,17 +35,17 @@ public class WeiboHeaderPagerBehavior extends ViewOffsetBehavior {
         mPagerStateListener = pagerStateListener;
     }
 
-    public WeiboHeaderPagerBehavior() {
+    public LiveHeaderPagerBehavior() {
         init();
     }
 
-    public WeiboHeaderPagerBehavior(Context context, AttributeSet attrs) {
+    public LiveHeaderPagerBehavior(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
     private void init() {
-        mOverScroller = new OverScroller(BaseAPP.getAppContext());
+        mOverScroller = new OverScroller(QuApplication.getAppContext());
     }
 
     @Override
@@ -160,7 +160,7 @@ public class WeiboHeaderPagerBehavior extends ViewOffsetBehavior {
 
     //    需要注意的是  Header 我们是通过 setTranslationY 来移出屏幕的，所以这个值是负数
     private int getHeaderOffsetRange() {
-        return BaseAPP.getInstance().getResources().getDimensionPixelOffset(R.dimen
+        return QuApplication.getAppContext().getResources().getDimensionPixelOffset(R.dimen
                 .weibo_header_offset);
     }
 

@@ -1,9 +1,75 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/background_light"
     tools:context=".ui.fragment.LiveFragment">
 
+    <!--标题头部滑动隐藏的布局-->
+    <FrameLayout
+        android:id="@+id/id_hide_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_200"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_behavior="com.kuanquan.qudao.widget.live.behavior.LiveHeaderPagerBehavior"
+        >
 
+        <com.kuanquan.qudao.widget.live.weight.NestedLinearLayout
+            android:background="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/backdrop"
+                android:contentDescription="@string/app_name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@mipmap/jiuzai"/>
+        </com.kuanquan.qudao.widget.live.weight.NestedLinearLayout>
+    </FrameLayout>
+
+
+    <!--标题以及头部下面的-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_behavior="com.kuanquan.qudao.widget.live.behavior.LiveContentBehavior">
+
+        <!--滑动黏贴到顶部的内容-->
+        <RelativeLayout android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="?attr/colorPrimary">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/colorAccent"/>
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_marginLeft="10dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/back"/>
+
+        </RelativeLayout>
+
+        <!--刷新列表-->
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/live_swipeRefreshLayout"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/live_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

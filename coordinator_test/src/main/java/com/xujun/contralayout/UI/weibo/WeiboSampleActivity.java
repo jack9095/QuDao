@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.xujun.contralayout.R;
 import com.xujun.contralayout.UI.ListFragment;
-import com.xujun.contralayout.UI.weibo.behavior.WeiboHeaderPagerBehavior;
+import com.xujun.contralayout.UI.weibo.behavior.LiveHeaderPagerBehavior;
 import com.xujun.contralayout.base.BaseFragmentAdapter;
 import com.xujun.contralayout.base.BaseMVPActivity;
 import com.xujun.contralayout.base.mvp.IBasePresenter;
@@ -19,7 +19,7 @@ import com.xujun.contralayout.base.mvp.IBasePresenter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WeiboSampleActivity extends BaseMVPActivity implements WeiboHeaderPagerBehavior.OnPagerStateListener {
+public class WeiboSampleActivity extends BaseMVPActivity implements LiveHeaderPagerBehavior.OnPagerStateListener {
 
     ViewPager mViewPager;
     List<Fragment> mFragments;
@@ -29,7 +29,7 @@ public class WeiboSampleActivity extends BaseMVPActivity implements WeiboHeaderP
             "主页", "微博", "相册"
     };
     private View mHeaderView;
-    private WeiboHeaderPagerBehavior mHeaderPagerBehavior;
+    private LiveHeaderPagerBehavior mHeaderPagerBehavior;
     private View mIvBack;
 
     @Override
@@ -63,7 +63,7 @@ public class WeiboSampleActivity extends BaseMVPActivity implements WeiboHeaderP
         setupViewPager();
         CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams)
                 mHeaderView.getLayoutParams();
-        mHeaderPagerBehavior = (WeiboHeaderPagerBehavior) layoutParams.getBehavior();
+        mHeaderPagerBehavior = (LiveHeaderPagerBehavior) layoutParams.getBehavior();
         mHeaderPagerBehavior.setPagerStateListener(this);
     }
 
