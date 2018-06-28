@@ -16,6 +16,7 @@
       <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
       <module fileurl="file://$PROJECT_DIR$/top_bottom_scroll/top_bottom_scroll.iml" filepath="$PROJECT_DIR$/top_bottom_scroll/top_bottom_scroll.iml" />
       <module fileurl="file://$PROJECT_DIR$/webview/webview.iml" filepath="$PROJECT_DIR$/webview/webview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/weibo_find/weibo_find.iml" filepath="$PROJECT_DIR$/weibo_find/weibo_find.iml" />
     </modules>
   </component>
 </project>

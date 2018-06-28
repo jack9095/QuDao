@@ -65,22 +65,24 @@ public class NestedLinearLayout extends LinearLayout implements NestedScrollingC
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()){
             case MotionEvent.ACTION_MOVE:
-                Log.i(TAG, "onTouchEvent: ACTION_MOVE=");
+                Log.e(TAG, "onTouchEvent: ACTION_MOVE=");
                 int y = (int) (event.getRawY());
                 int dy =lastY- y;
                 lastY = y;
-                Log.i(TAG, "onTouchEvent: lastY=" + lastY);
-                Log.i(TAG, "onTouchEvent: dy=" + dy);
-                //  dy < 0 下拉， dy>0 赏花
+                Log.e(TAG, "onTouchEvent: lastY=" + lastY);
+                Log.e(TAG, "onTouchEvent: dy=" + dy);
+                //  dy < 0 下拉， dy>0 上滑
                 if (dy >0) { // 上滑的时候才交给父类去处理
                     if (startNestedScroll(ViewCompat.SCROLL_AXIS_VERTICAL) // 如果找到了支持嵌套滚动的父类
                             && dispatchNestedPreScroll(0, dy, consumed, offset)) {//
                         // 父类进行了一部分滚动
+                        Log.e(TAG, "上滑");
                     }
                 }else{
                     if (startNestedScroll(ViewCompat.SCROLL_AXIS_VERTICAL) // 如果找到了支持嵌套滚动的父类
                             && dispatchNestedScroll(0, 0, 0,dy, offset)) {//
                         // 父类进行了一部分滚动
+                        Log.e(TAG, "下拉");
                     }
                 }
                 break;

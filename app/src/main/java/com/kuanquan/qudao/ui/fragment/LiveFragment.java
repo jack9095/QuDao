@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
+import com.example.fly.baselibrary.utils.useful.LogUtil;
 import com.kuanquan.qudao.R;
 import com.kuanquan.qudao.ui.adapter.ItemAdapter;
 import com.kuanquan.qudao.widget.Sticklayout;
@@ -24,14 +23,14 @@ import java.util.List;
 /**
  * 直播
  */
-public class LiveFragment extends CommonFragment implements LiveHeaderPagerBehavior.OnPagerStateListener,Sticklayout.TouchListener {
+public class LiveFragment extends CommonFragment implements View.OnClickListener,LiveHeaderPagerBehavior.OnPagerStateListener,Sticklayout.TouchListener {
 
     RecyclerView mRecyclerView;
     List<String> mDatas = new ArrayList<>();
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private FrameLayout mHeaderView;
     private LiveHeaderPagerBehavior mHeaderPagerBehavior;
-    private ImageView mIvBack;
+    private ImageView backdrop;
     private Sticklayout mSticklayout;
 
     @Override
@@ -42,16 +41,11 @@ public class LiveFragment extends CommonFragment implements LiveHeaderPagerBehav
     @Override
     protected void initView() {
         mHeaderView = view.findViewById(R.id.id_hide_header);
-        mIvBack = view.findViewById(R.id.iv_back);
+        backdrop = view.findViewById(R.id.backdrop);
         mSticklayout = view.findViewById(R.id.stick_rl);
+        backdrop.setOnClickListener(this);
+        view.findViewById(R.id.head_rl).setOnClickListener(this);
         mSticklayout.setTouchListener(this);
-        mIvBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                handleBack();
-            }
-        });
-        mIvBack.setVisibility(View.INVISIBLE);
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.live_recyclerView);
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.live_swipeRefreshLayout);
@@ -121,32 +115,37 @@ public class LiveFragment extends CommonFragment implements LiveHeaderPagerBehav
     @Override
     public void onPagerClosed() {
         Toast.makeText(context, "关闭了", Toast.LENGTH_SHORT).show();
-        mIvBack.setVisibility(View.VISIBLE);
         tooglePager(false);
     }
 
     @Override
     public void onPagerOpened() {
         Toast.makeText(context, "打开了", Toast.LENGTH_SHORT).show();
-        mIvBack.setVisibility(View.INVISIBLE);
        tooglePager(true);
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        handleBack();
-//    }
-//
     private void handleBack() {
         if(mHeaderPagerBehavior.isClosed()){
             mHeaderPagerBehavior.openPager();
-            return;
         }
-//        finish();
     }
+
+
 
     @Override
     public void onTouchRListener() {
-        mHeaderPagerBehavior.openPager();
+        handleBack();
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.backdrop:
+                LogUtil.e("banner点击事件");
+                break;
+            case R.id.head_rl:
+                LogUtil.e("5个item的点击事件");
+                break;
+        }
     }
 }

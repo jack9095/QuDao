@@ -21,6 +21,7 @@
             <option value="$PROJECT_DIR$/test" />
             <option value="$PROJECT_DIR$/top_bottom_scroll" />
             <option value="$PROJECT_DIR$/webview" />
+            <option value="$PROJECT_DIR$/weibo_find" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -5,4 +5,6 @@
 
     <dimen name="weibo_header_height">200dp</dimen>
     <dimen name="weibo_header_offset">-200dp</dimen>
+
+    <dimen name="header_height">300dp</dimen>
 </resources>

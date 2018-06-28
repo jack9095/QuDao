@@ -15,7 +15,9 @@ import com.kuanquan.qudao.app.QuApplication;
 
 import java.lang.ref.WeakReference;
 
-
+/**
+ * 头部联动滑动事件
+ */
 public class LiveHeaderPagerBehavior extends ViewOffsetBehavior {
     private static final String TAG = "UcNewsHeaderPager";
     public static final int STATE_OPENED = 0;
@@ -59,7 +61,7 @@ public class LiveHeaderPagerBehavior extends ViewOffsetBehavior {
     public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, View child, View
             directTargetChild, View target, int nestedScrollAxes) {
         if (BuildConfig.DEBUG) {
-            Log.d(TAG, "onStartNestedScroll: nestedScrollAxes=" + nestedScrollAxes);
+            Log.e(TAG, "onStartNestedScroll: nestedScrollAxes=" + nestedScrollAxes);
         }
 
         boolean canScroll = canScroll(child, 0);
@@ -73,16 +75,17 @@ public class LiveHeaderPagerBehavior extends ViewOffsetBehavior {
     public boolean onNestedPreFling(CoordinatorLayout coordinatorLayout, View child, View target,
                                     float velocityX, float velocityY) {
         // consumed the flinging behavior until Closed
+        // 消耗翻转行为直到关闭
 
         boolean coumsed = !isClosed(child);
-        Log.i(TAG, "onNestedPreFling: coumsed=" +coumsed);
+        Log.e(TAG, "onNestedPreFling: 消耗 =" +coumsed);
         return coumsed;
     }
 
     @Override
     public boolean onNestedFling(CoordinatorLayout coordinatorLayout, View child, View target,
                                  float velocityX, float velocityY, boolean consumed) {
-        Log.i(TAG, "onNestedFling: velocityY=" +velocityY);
+        Log.e(TAG, "onNestedFling: velocityY=" +velocityY);
         return super.onNestedFling(coordinatorLayout, child, target, velocityX, velocityY,
                 consumed);
 
@@ -126,14 +129,11 @@ public class LiveHeaderPagerBehavior extends ViewOffsetBehavior {
         return false;
     }
 
-
-
     @Override
-    public boolean onInterceptTouchEvent(CoordinatorLayout parent, final View child, MotionEvent
-            ev) {
+    public boolean onInterceptTouchEvent(CoordinatorLayout parent, final View child, MotionEvent ev) {
 
         boolean closed = isClosed();
-        Log.i(TAG, "onInterceptTouchEvent: closed=" + closed);
+        Log.e(TAG, "onInterceptTouchEvent: closed=" + closed);
         if (ev.getAction() == MotionEvent.ACTION_UP && !closed) {
             handleActionUp(parent,child);
         }
@@ -146,7 +146,7 @@ public class LiveHeaderPagerBehavior extends ViewOffsetBehavior {
                                   int dx, int dy, int[] consumed) {
         super.onNestedPreScroll(coordinatorLayout, child, target, dx, dy, consumed);
         //dy>0 scroll up;dy<0,scroll down
-        Log.i(TAG, "onNestedPreScroll: dy=" + dy);
+        Log.e(TAG, "onNestedPreScroll: 不能滑动了，直接给 Header 设置 终值，防止出错 dy=" + dy);
         float halfOfDis = dy;
         //    不能滑动了，直接给 Header 设置 终值，防止出错
         if (!canScroll(child, halfOfDis)) {
@@ -166,7 +166,7 @@ public class LiveHeaderPagerBehavior extends ViewOffsetBehavior {
 
     private void handleActionUp(CoordinatorLayout parent, final View child) {
         if (BuildConfig.DEBUG) {
-            Log.d(TAG, "handleActionUp: ");
+            Log.e(TAG, "handleActionUp: ");
         }
         if (mFlingRunnable != null) {
             child.removeCallbacks(mFlingRunnable);
@@ -178,7 +178,6 @@ public class LiveHeaderPagerBehavior extends ViewOffsetBehavior {
         } else {
             mFlingRunnable.scrollToOpen(DURATION_SHORT);
         }
-
     }
 
     private void onFlingFinished(CoordinatorLayout coordinatorLayout, View layout) {

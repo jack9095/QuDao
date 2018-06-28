@@ -1,109 +1,146 @@
 package com.kuanquan.qudao.ui.fragment;
 
-import android.content.Context;
-import android.net.Uri;
+import android.animation.LayoutTransition;
+import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.os.Handler;
+import android.support.design.widget.AppBarLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.kuanquan.qudao.R;
+import com.kuanquan.qudao.ui.adapter.ItemAdapter;
+import com.kuanquan.qudao.widget.Sticklayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link NotiFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link NotiFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * 主页的消息页面
  */
-public class NotiFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class NotiFragment extends CommonFragment implements View.OnClickListener,Sticklayout.TouchListener{
+    //AppBarLayout
+    private AppBarLayout mAppBarLayout;
+    //顶部HeaderLayout
+    private LinearLayout headerLayout;
+    //滑动固定标题布局
+    private Sticklayout mSticklayout;
+    //是否隐藏了头部
+    private boolean isHideHeaderLayout = false;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    private OnFragmentInteractionListener mListener;
-
-    public NotiFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment NotiFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static NotiFragment newInstance(String param1, String param2) {
-        NotiFragment fragment = new NotiFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private RecyclerView mRecyclerView;
+    private List<String> mDatas = new ArrayList<>();
+    private SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout_f for this fragment
+    protected View initLayout(LayoutInflater inflater, ViewGroup container) {
         return inflater.inflate(R.layout.fragment_noti, container, false);
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+    @Override
+    protected void initView() {
+        headerLayout = (LinearLayout) view.findViewById(R.id.ll_header_layout);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.notify_recyclerView);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.notify_swipeRefreshLayout);
+        mSticklayout = (Sticklayout) view.findViewById(R.id.notify_stick_rl);
+        mSticklayout.setTouchListener(this);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
+        initAppBarLayout();
+    }
+
+    // 初始化AppBarLayout
+    private void initAppBarLayout(){
+        LayoutTransition mTransition = new LayoutTransition();
+        /**
+         * 添加View时过渡动画效果
+         */
+        ObjectAnimator addAnimator = ObjectAnimator.ofFloat(null, "translationY", 0, 1.f).
+                setDuration(mTransition.getDuration(LayoutTransition.APPEARING));
+        mTransition.setAnimator(LayoutTransition.APPEARING, addAnimator);
+
+        //header layout height
+        final int headerHeight = getResources().getDimensionPixelOffset(R.dimen.header_height);
+        mAppBarLayout = (AppBarLayout) view.findViewById(R.id.notify_appbar);
+        mAppBarLayout.setLayoutTransition(mTransition);
+
+        mAppBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                verticalOffset = Math.abs(verticalOffset);
+                if ( verticalOffset >= headerHeight ){
+                    isHideHeaderLayout = true;
+                    //当偏移量超过顶部layout的高度时，我们认为他已经完全移动出屏幕了
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            AppBarLayout.LayoutParams mParams = (AppBarLayout.LayoutParams) headerLayout.getLayoutParams();
+                            mParams.setScrollFlags(0);
+                            headerLayout.setLayoutParams(mParams);
+                            headerLayout.setVisibility(View.GONE);
+                        }
+                    },100);
+                }
+            }
+        });
+    }
+
+    @Override
+    protected void initData(Bundle savedInstanceState) {
+        for (int i = 0; i < 50; i++) {
+            @SuppressLint("DefaultLocale")
+            String s = String.format("我是第%d个" + "item", i);
+            mDatas.add(s);
         }
+
+        mRecyclerView.setAdapter(new ItemAdapter(context, mDatas));
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mSwipeRefreshLayout.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mSwipeRefreshLayout.setRefreshing(false);
+                        Toast.makeText(context, "刷新完成", Toast.LENGTH_SHORT).show();
+                    }
+                }, 1200);
+            }
+        });
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-//        if (context instanceof OnFragmentInteractionListener) {
-//            mListener = (OnFragmentInteractionListener) context;
-//        } else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnFragmentInteractionListener");
-//        }
+    protected boolean isBindEventBusHere() {
+        return false;
     }
 
     @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
+    public void onClick(View view) {
+
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+    @Override
+    public void onTouchRListener() {
+        if (isHideHeaderLayout){
+            isHideHeaderLayout = false;
+            mRecyclerView.scrollToPosition(0);
+            headerLayout.setVisibility(View.VISIBLE);
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    AppBarLayout.LayoutParams mParams = (AppBarLayout.LayoutParams) headerLayout.getLayoutParams();
+                    mParams.setScrollFlags(AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL|
+                            AppBarLayout.LayoutParams.SCROLL_FLAG_EXIT_UNTIL_COLLAPSED);
+                    headerLayout.setLayoutParams(mParams);
+                }
+            },300);
+        }
     }
 }

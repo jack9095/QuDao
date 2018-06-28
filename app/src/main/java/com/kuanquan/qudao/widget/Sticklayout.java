@@ -7,6 +7,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.RelativeLayout;
 
+import com.example.fly.baselibrary.utils.useful.LogUtil;
+
 /**
  * Created by Administrator on 2018/6/27.
  */
@@ -31,6 +33,34 @@ public class Sticklayout extends RelativeLayout {
 
     int y;
     @Override
+    public boolean onTouchEvent(MotionEvent ev) {
+        switch (ev.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                y = (int) ev.getY();
+                LogUtil.e("Sticklayout","按下事件   y = " + y);
+                break;
+            case MotionEvent.ACTION_MOVE:
+                int yUp = (int) ev.getY();
+                LogUtil.e("Sticklayout","移动事件     yUp = " + yUp);
+                if (yUp - y > 5) {
+                    mTouchListener.onTouchRListener();
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                LogUtil.e("Sticklayout","抬起事件");
+
+                break;
+        }
+        return true;
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        getParent().requestDisallowInterceptTouchEvent(true);  // 请求父控件不拦截子控件的触摸事件
+        return super.dispatchTouchEvent(ev);
+    }
+
+   /* @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         switch (ev.getAction()){
             case MotionEvent.ACTION_DOWN:
@@ -39,14 +69,14 @@ public class Sticklayout extends RelativeLayout {
             case MotionEvent.ACTION_MOVE:
                 break;
             case MotionEvent.ACTION_UP:
-               int yUp = (int) ev.getY();
+                int yUp = (int) ev.getY();
                 if (yUp - y > 10) {
                     mTouchListener.onTouchRListener();
                 }
                 break;
         }
-        return super.dispatchTouchEvent(ev);
-    }
+        return true;
+    }*/
 
     TouchListener mTouchListener;
     public void setTouchListener(TouchListener mTouchListener){

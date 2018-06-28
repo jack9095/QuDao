@@ -74,4 +74,9 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
+    <style name="MainAppBar" parent="android:Widget">
+        <item name="elevation">0dip</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
 </resources>
