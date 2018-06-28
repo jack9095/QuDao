@@ -1,70 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.NotiFragment">
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
 
-    <android.support.design.widget.CoordinatorLayout
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/notify_appbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/transparent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:theme="@style/MainAppBar">
 
-        <android.support.design.widget.AppBarLayout
-            android:id="@+id/notify_appbar"
+        <!--头部布局-->
+        <LinearLayout
+            android:id="@+id/ll_header_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
-            android:theme="@style/MainAppBar">
+            android:layout_height="300dp"
+            android:background="@color/colorPrimary"
+            android:orientation="vertical"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <!--头部布局-->
-            <LinearLayout
-                android:id="@+id/ll_header_layout"
+            <ImageView
+                android:id="@+id/backdrop"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:background="@color/colorPrimary"
-                android:orientation="vertical"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                android:layout_height="match_parent"
+                android:contentDescription="@string/app_name"
+                android:src="@mipmap/jiuzai" />
 
-                <ImageView
-                    android:id="@+id/backdrop"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/app_name"
-                    android:src="@mipmap/jiuzai" />
+        </LinearLayout>
 
-            </LinearLayout>
-
-            <!--滑动固定标题布局-->
-            <com.kuanquan.qudao.widget.Sticklayout
-                android:id="@+id/notify_stick_rl"
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                android:background="@color/colorAccent">
-
-            </com.kuanquan.qudao.widget.Sticklayout>
-
-        </android.support.design.widget.AppBarLayout>
-
-        <!--刷新列表-->
-        <com.kuanquan.qudao.widget.MySwipeRefreshLayout
-            android:id="@+id/notify_swipeRefreshLayout"
+        <!--滑动固定标题布局-->
+        <com.kuanquan.qudao.widget.Sticklayout
+            android:id="@+id/notify_stick_rl"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:layout_height="120dp"
+            android:background="@color/colorAccent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/notify_recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+        </com.kuanquan.qudao.widget.Sticklayout>
 
-        </com.kuanquan.qudao.widget.MySwipeRefreshLayout>
+    </android.support.design.widget.AppBarLayout>
 
-    </android.support.design.widget.CoordinatorLayout>
+    <!--刷新列表-->
+    <com.kuanquan.qudao.widget.MySwipeRefreshLayout
+        android:id="@+id/notify_swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-</RelativeLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/notify_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.kuanquan.qudao.widget.MySwipeRefreshLayout>
+
+</android.support.design.widget.CoordinatorLayout>
 
