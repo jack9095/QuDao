@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.kuanquan.stickyitemdecoration.com.oubowu.stickydemo.MainActivity">
+    <item
+        android:id="@+id/action_jump"
+        android:orderInCategory="100"
+        android:title="跳转附着头部Demo"
+        app:showAsAction="never"/>
+</menu>
