@@ -38,7 +38,8 @@ public class MainActivity extends BaseActivity
     {
         RichEditor("RichEditor富文本", RichEditorActivity.class),
         AppBarLayout("AppBarLayout的使用", AppBarLayoutActivity.class),
-        StickyHeader("RecyclerView粘性头部", StickyHeaderActivity.class),
+//        StickyHeader("RecyclerView粘性头部", StickyHeaderActivity.class),
+        StickyHeader("RecyclerView粘性头部", StickyHeaderActivityDemo.class),
         MultiImage("宫格图控件", MultiImageActivity.class),
         Decoration("自定义RecyclerView分割线", DecorationActivity.class),
         Behavior("自定义CoordinatorLayout.Behavior 实现悬浮动画", BehaviorActivity.class),

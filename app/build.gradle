@@ -37,5 +37,5 @@ dependencies {
     compile project(path: ':baselibrary')
     // 实现滑动隐藏标题栏底部导航栏 https://github.com/githubwing/ByeBurger
     //    compile 'com.github.githubwing:ByeBurger:1.2.3'
-    implementation project(':library')
+//    implementation project(':library')
 }

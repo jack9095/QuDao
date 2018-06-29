@@ -13,13 +13,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
-
 import com.kuanquan.qudao.R;
 import com.kuanquan.qudao.ui.adapter.ItemAdapter;
 import com.kuanquan.qudao.widget.Sticklayout;
-
 import java.util.ArrayList;
 import java.util.List;
 

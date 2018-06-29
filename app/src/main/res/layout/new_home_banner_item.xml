@@ -9,6 +9,6 @@
         android:id="@+id/banner_image"
         android:layout_width="match_parent"
         android:scaleType="fitXY"
-        android:layout_height="140dp" />
+        android:layout_height="@dimen/header_home_height" />
 
 </FrameLayout>

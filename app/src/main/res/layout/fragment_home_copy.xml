@@ -11,75 +11,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/transparent"
+        android:animateLayoutChanges="true"
         android:orientation="vertical">
 
         <android.support.design.widget.AppBarLayout
-            android:id="@+id/notify_appbar"
+            android:id="@+id/home_appbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
             android:theme="@style/MainAppBar">
 
             <!--头部布局-->
             <LinearLayout
-                android:id="@+id/ll_header_layout"
+                android:id="@+id/home_header_layout"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:background="@color/colorPrimary"
+                android:layout_height="@dimen/header_home_height"
                 android:orientation="vertical"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-                <RelativeLayout
-                    android:id="@+id/home_head_bar"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:animateLayoutChanges="true"
-                    android:background="@android:color/white">
-
-                    <ImageView
-                        android:id="@+id/bar_head_image"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="10dp"
-                        android:scaleType="centerCrop" />
-
-                    <View
-                        android:id="@+id/bar_head_view"
-                        android:layout_width="0.5dp"
-                        android:layout_height="15dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="13dp"
-                        android:layout_toRightOf="@id/bar_head_image"
-                        android:background="#f1f1f1" />
-
-                    <TextView
-                        android:id="@+id/bar_head_search"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_centerVertical="true"
-                        android:layout_toRightOf="@id/bar_head_view"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="9dp"
-                        android:text="搜索最新经济咨询"
-                        android:textColor="#cccccc"
-                        android:textSize="15sp" />
-
-                    <ImageView
-                        android:id="@+id/bar_head_image_right"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:scaleType="centerCrop"
-                        android:src="@mipmap/scan_f" />
-                </RelativeLayout>
-
                 <com.kuanquan.qudao.widget.HomeBanner
-                    android:id="@+id/banner_layout"
+                    android:id="@+id/home_banner_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="140dp"
+                    android:layout_height="@dimen/header_home_height"
                     android:background="#ffffff" />
             </LinearLayout>
             <!--消失头布布局 end-->
@@ -88,10 +40,9 @@
             <com.kuanquan.qudao.widget.Sticklayout
                 android:id="@+id/notify_stick_rl"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:background="@color/colorAccent"
+                android:layout_height="85dp"
                 android:orientation="vertical"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                app:layout_scrollFlags="scroll">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -148,12 +99,12 @@
 
                 </LinearLayout>
 
-                <RelativeLayout
+               <!-- <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:background="#ffffff">
 
-                </RelativeLayout>
+                </RelativeLayout>-->
 
             </com.kuanquan.qudao.widget.Sticklayout>
 
@@ -166,13 +117,21 @@
             android:layout_height="wrap_content"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/notify_recyclerView"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content">
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/notify_recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    layout="@layout/layout_f"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </FrameLayout>
 
         </com.kuanquan.qudao.widget.MySwipeRefreshLayout>
-
     </android.support.design.widget.CoordinatorLayout>
 
     <TextView
@@ -184,6 +143,6 @@
         android:text="将减少为您推送此类咨询"
         android:textColor="#FB4700"
         android:textSize="15sp"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
 </RelativeLayout>

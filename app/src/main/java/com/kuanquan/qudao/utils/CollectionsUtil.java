@@ -1,5 +1,8 @@
 package com.kuanquan.qudao.utils;
 
+import android.text.TextUtils;
+import android.widget.TextView;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -30,6 +33,17 @@ public class CollectionsUtil {
             return true;
         } else {
             return set.isEmpty();
+        }
+    }
+
+
+    public static void setTextView(TextView mTextView, String str) {
+        if (mTextView != null) {
+            if (!TextUtils.isEmpty(str)) {
+                mTextView.setText(str);
+            }else{
+                mTextView.setText("");
+            }
         }
     }
 }

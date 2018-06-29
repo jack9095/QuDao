@@ -20,7 +20,6 @@
         android:id="@+id/home_head_bar"
         android:layout_width="match_parent"
         android:background="@android:color/white"
-        app:layout_behavior="@string/bye_burger_title_behavior"
         android:layout_height="45dp">
         <ImageView
             android:id="@+id/bar_head_image"

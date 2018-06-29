@@ -8,23 +8,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/CoordinatorLayoutDemo" />
-            <option value="$PROJECT_DIR$/StickyNavLayout-master" />
-            <option value="$PROJECT_DIR$/SupportLibraryDemo" />
-            <option value="$PROJECT_DIR$/UcMainPagerDemo" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/baselibrary" />
-            <option value="$PROJECT_DIR$/coordinator_test" />
-            <option value="$PROJECT_DIR$/library" />
-            <option value="$PROJECT_DIR$/network" />
-            <option value="$PROJECT_DIR$/recycler_animator" />
-            <option value="$PROJECT_DIR$/recycler_stick_demo" />
-            <option value="$PROJECT_DIR$/recycler_stick_library" />
             <option value="$PROJECT_DIR$/stick_demo" />
-            <option value="$PROJECT_DIR$/test" />
-            <option value="$PROJECT_DIR$/top_bottom_scroll" />
-            <option value="$PROJECT_DIR$/webview" />
-            <option value="$PROJECT_DIR$/weibo_find" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
