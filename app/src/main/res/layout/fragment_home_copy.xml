@@ -99,13 +99,6 @@
 
                 </LinearLayout>
 
-               <!-- <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:background="#ffffff">
-
-                </RelativeLayout>-->
-
             </com.kuanquan.qudao.widget.Sticklayout>
 
         </android.support.design.widget.AppBarLayout>
@@ -114,16 +107,16 @@
         <com.kuanquan.qudao.widget.MySwipeRefreshLayout
             android:id="@+id/notify_swipeRefreshLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/notify_recyclerView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="match_parent" />
 
                 <include
                     layout="@layout/layout_f"

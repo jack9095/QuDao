@@ -101,15 +101,15 @@ public class HomeFragment extends CommonFragment implements HomeAdapter_release.
                     isHideHeaderLayout = true;
                     LogUtil.e("移出屏幕了");
                     //当偏移量超过顶部layout的高度时，我们认为他已经完全移动出屏幕了
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            AppBarLayout.LayoutParams mParams = (AppBarLayout.LayoutParams) headerLayout.getLayoutParams();
-                            mParams.setScrollFlags(0);
-                            headerLayout.setLayoutParams(mParams);
-                            headerLayout.setVisibility(View.GONE);
-                        }
-                    },100);
+//                    new Handler().postDelayed(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            AppBarLayout.LayoutParams mParams = (AppBarLayout.LayoutParams) headerLayout.getLayoutParams();
+//                            mParams.setScrollFlags(0);
+//                            headerLayout.setLayoutParams(mParams);
+//                            headerLayout.setVisibility(View.GONE);
+//                        }
+//                    },100);
                 }
             }
         });

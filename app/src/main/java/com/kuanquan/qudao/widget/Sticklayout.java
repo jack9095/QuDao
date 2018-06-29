@@ -31,28 +31,28 @@ public class Sticklayout extends LinearLayout {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
-    int y;
-    @Override
-    public boolean onTouchEvent(MotionEvent ev) {
-        switch (ev.getAction()){
-            case MotionEvent.ACTION_DOWN:
-                y = (int) ev.getY();
-                LogUtil.e("Sticklayout","按下事件   y = " + y);
-                break;
-            case MotionEvent.ACTION_MOVE:
-                int yUp = (int) ev.getY();
-                LogUtil.e("Sticklayout","移动事件     yUp = " + yUp);
-                if (yUp - y > 5) {
-                    mTouchListener.onTouchRListener();
-                }
-                break;
-            case MotionEvent.ACTION_UP:
-                LogUtil.e("Sticklayout","抬起事件");
-
-                break;
-        }
-        return true;
-    }
+//    int y;
+//    @Override
+//    public boolean onTouchEvent(MotionEvent ev) {
+//        switch (ev.getAction()){
+//            case MotionEvent.ACTION_DOWN:
+//                y = (int) ev.getY();
+//                LogUtil.e("Sticklayout","按下事件   y = " + y);
+//                break;
+//            case MotionEvent.ACTION_MOVE:
+//                int yUp = (int) ev.getY();
+//                LogUtil.e("Sticklayout","移动事件     yUp = " + yUp);
+//                if (yUp - y > 5) {
+//                    mTouchListener.onTouchRListener();
+//                }
+//                break;
+//            case MotionEvent.ACTION_UP:
+//                LogUtil.e("Sticklayout","抬起事件");
+//
+//                break;
+//        }
+//        return true;
+//    }
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {

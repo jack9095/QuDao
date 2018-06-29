@@ -190,11 +190,11 @@ public class HomeAdapter_release extends RecyclerView.Adapter<RecyclerView.ViewH
                 }
 
                 if (counntDiscover == 1) {
-//                    notifyItemRemoved(position);
-//                    lists.remove(position);
-//                    if (position != lists.size()) {
-//                        notifyItemRangeChanged(position, lists.size() - position);
-//                    }
+                    notifyItemRemoved(position);
+                    lists.remove(position);
+                    if (position != lists.size()) {
+                        notifyItemRangeChanged(position, lists.size() - position);
+                    }
 //                    if (position - 1 >= 0 && position - 1 < lists.size()) {
 //                        lists.remove(position - 1);
 //                        notifyDataSetChanged();
