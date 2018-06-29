@@ -5,15 +5,15 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.widget.RelativeLayout;
-
+import android.widget.LinearLayout;
 import com.example.fly.baselibrary.utils.useful.LogUtil;
 
 /**
  * Created by Administrator on 2018/6/27.
+ *
  */
 
-public class Sticklayout extends RelativeLayout {
+public class Sticklayout extends LinearLayout {
     public Sticklayout(Context context) {
         super(context);
     }

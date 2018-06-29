@@ -38,7 +38,15 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:background="@color/colorAccent"
+            android:orientation="vertical"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#ffffff">
+
+            </RelativeLayout>
 
         </com.kuanquan.qudao.widget.Sticklayout>
 

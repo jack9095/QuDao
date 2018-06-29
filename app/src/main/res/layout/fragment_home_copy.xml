@@ -1,78 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:orientation="vertical"
-    tools:context=".ui.fragment.HomeFragment">
+    android:orientation="vertical">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_below="@id/home_head_bar"
-        android:background="@android:color/white"
-        android:overScrollFooter="@android:color/transparent"
-        android:overScrollHeader="@android:color/transparent"
-        android:overScrollMode="never"
-        android:scrollbars="none"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/notify_appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:theme="@style/MainAppBar">
+
+            <!--头部布局-->
+            <LinearLayout
+                android:id="@+id/ll_header_layout"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <RelativeLayout
+                    android:id="@+id/home_head_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:animateLayoutChanges="true"
+                    android:background="@android:color/white">
+
+                    <ImageView
+                        android:id="@+id/bar_head_image"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:scaleType="centerCrop" />
+
+                    <View
+                        android:id="@+id/bar_head_view"
+                        android:layout_width="0.5dp"
+                        android:layout_height="15dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="13dp"
+                        android:layout_toRightOf="@id/bar_head_image"
+                        android:background="#f1f1f1" />
+
+                    <TextView
+                        android:id="@+id/bar_head_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/bar_head_view"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="9dp"
+                        android:text="搜索最新经济咨询"
+                        android:textColor="#cccccc"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@+id/bar_head_image_right"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/scan_f" />
+                </RelativeLayout>
+
+                <com.kuanquan.qudao.widget.HomeBanner
+                    android:id="@+id/banner_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:background="#ffffff" />
+            </LinearLayout>
+            <!--消失头布布局 end-->
+
+            <!--滑动固定标题布局-->
+            <com.kuanquan.qudao.widget.Sticklayout
+                android:id="@+id/notify_stick_rl"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@color/colorAccent"
+                android:orientation="vertical"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="85dp"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout style="@style/home_item_five_layout">
+
+                        <ImageView
+                            android:id="@+id/elective_course_image"
+                            style="@style/home_item_five_image"
+                            android:src="@mipmap/elective_f" />
+
+                    </RelativeLayout>
+
+                    <!--直播-->
+                    <RelativeLayout style="@style/home_item_five_layout">
+
+                        <ImageView
+                            android:id="@+id/live_image"
+                            style="@style/home_item_five_image"
+                            android:src="@mipmap/live_f" />
+
+                    </RelativeLayout>
+
+                    <!--题库-->
+                    <RelativeLayout style="@style/home_item_five_layout">
+
+                        <ImageView
+                            android:id="@+id/bank_image"
+                            style="@style/home_item_five_image"
+                            android:src="@mipmap/bank_f" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout style="@style/home_item_five_layout">
+
+                        <ImageView
+                            android:id="@+id/answer_image"
+                            style="@style/home_item_five_image"
+                            android:src="@mipmap/answer_f" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout style="@style/home_item_five_layout">
+
+                        <ImageView
+                            android:id="@+id/member_image"
+                            style="@style/home_item_five_image"
+                            android:src="@mipmap/member_f" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="#ffffff">
+
+                </RelativeLayout>
+
+            </com.kuanquan.qudao.widget.Sticklayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <!--刷新列表-->
+        <com.kuanquan.qudao.widget.MySwipeRefreshLayout
+            android:id="@+id/notify_swipeRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/notify_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.kuanquan.qudao.widget.MySwipeRefreshLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
 
     <TextView
         android:id="@+id/home_im_text"
         android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:background="#FCF9CF"
-        android:visibility="visible"
         android:gravity="center"
-        android:textSize="15sp"
-        android:textColor="#FB4700"
         android:text="将减少为您推送此类咨询"
-        android:layout_height="40dp" />
-
-    <RelativeLayout
-        android:id="@+id/home_head_bar"
-        android:layout_width="match_parent"
-        android:background="@android:color/white"
-        android:animateLayoutChanges="true"
-        android:layout_height="45dp">
-        <ImageView
-            android:id="@+id/bar_head_image"
-            android:layout_marginLeft="10dp"
-            android:layout_centerVertical="true"
-            android:scaleType="centerCrop"
-            android:layout_width="24dp"
-            android:layout_height="24dp" />
-
-        <View
-            android:id="@+id/bar_head_view"
-            android:layout_toRightOf="@id/bar_head_image"
-            android:layout_marginLeft="13dp"
-            android:layout_centerVertical="true"
-            android:background="#f1f1f1"
-            android:layout_width="0.5dp"
-            android:layout_height="15dp"/>
-
-        <TextView
-            android:id="@+id/bar_head_search"
-            android:gravity="center_vertical"
-            android:layout_toRightOf="@id/bar_head_view"
-            android:text="搜索最新经济咨询"
-            android:paddingLeft="9dp"
-            android:layout_centerVertical="true"
-            android:textColor="#cccccc"
-            android:textSize="15sp"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
-
-        <ImageView
-            android:id="@+id/bar_head_image_right"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:layout_centerVertical="true"
-            android:src="@mipmap/scan_f"
-            android:scaleType="centerCrop"
-            android:layout_width="20dp"
-            android:layout_height="20dp" />
-    </RelativeLayout>
+        android:textColor="#FB4700"
+        android:textSize="15sp"
+        android:visibility="visible" />
 
 </RelativeLayout>
