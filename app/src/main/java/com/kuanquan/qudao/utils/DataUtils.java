@@ -44,7 +44,7 @@ public class DataUtils {
         mHomeData.content = "主要栏目与内容包括：经济科学新论、经济热点分析、部门经济、地区经济、财政金融研究、学术探讨、会议综述、学术资料、经济体制改革、企业管理、调查与建议、中外学术交流、外国经济理论动态与述评、世界经济、书刊评介等";
         lists.add(mHomeData);
 
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 3; i++) {
             mHomeData = new HomeData();
             mHomeData.head = "发现";   // 表示发现
             mHomeData.isDiscover = "1";   // 表示发现

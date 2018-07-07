@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -10,43 +9,42 @@
         android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/btn_recycler_snap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onButtonClick"
-            android:text="ToolBar Snap"/>
+            android:text="ToolBar Snap" />
 
         <Button
             android:id="@+id/btn_toolBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onButtonClick"
-            android:text="toolBar的收缩与扩展"/>
+            android:text="toolBar的收缩与扩展" />
 
         <Button
             android:id="@+id/btn_viewPager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onButtonClick"
-            android:text="ViewPager特效"/>
+            android:text="ViewPager特效" />
 
         <Button
             android:id="@+id/btn_parallax"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onButtonClick"
-            android:text="ViewPager视觉特差效果 "/>
+            android:text="ViewPager视觉特差效果 " />
 
         <Button
             android:id="@+id/btn_viewpager_new"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onButtonClick"
-            android:text="viewpager_new "/>
+            android:text="viewpager_new " />
 
 
         <Button
@@ -54,70 +52,70 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onButtonClick"
-            android:text="ViewPager视觉特差效果Snap "/>
+            android:text="ViewPager视觉特差效果Snap " />
 
         <Button
             android:id="@+id/btn_floatingAction"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onButtonClick"
-            android:text="FoloatingActionButton Sample "/>
+            android:text="FoloatingActionButton Sample " />
 
         <Button
             android:id="@+id/btn_floatingAction_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onButtonClick"
-            android:text="FoloatingActionButton horizontal Sample "/>
+            android:text="FoloatingActionButton horizontal Sample " />
 
         <Button
             android:id="@+id/btn_zhihu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onButtonClick"
-            android:text="仿知乎底部 "/>
+            android:text="仿知乎底部 " />
 
         <Button
             android:id="@+id/btn_zhihu_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onButtonClick"
-            android:text="知乎首页 "/>
+            android:text="知乎首页 " />
 
         <Button
             android:id="@+id/btn_jianshu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onButtonClick"
-            android:text="仿简书 "/>
+            android:text="仿简书 " />
 
         <Button
             android:id="@+id/btn_cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onButtonClick"
-            android:text="CardViewSample "/>
+            android:text="CardViewSample " />
 
         <Button
             android:id="@+id/btn_drawlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onButtonClick"
-            android:text="DrawlayoutSample "/>
+            android:text="DrawlayoutSample " />
 
         <Button
             android:id="@+id/btn_bottom_sheet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onButtonClick"
-            android:text="BottomSheetSample "/>
+            android:text="BottomSheetSample " />
 
         <Button
             android:id="@+id/btn_weibo_sample"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onButtonClick"
-            android:text="仿照微博例子 "/>
+            android:text="仿照微博例子 " />
 
     </LinearLayout>
 </ScrollView>

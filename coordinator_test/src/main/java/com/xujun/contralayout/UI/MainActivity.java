@@ -139,11 +139,11 @@ public class MainActivity extends BaseMVPActivity {
                 jump(ViewPagerSample.class);
                 break;
 
-            case R.id.btn_parallax:
+            case R.id.btn_parallax:  // ViewPager视觉特差效果
                 jump(ViewPagerParallax.class);
                 break;
 
-            case R.id.btn_parallax_snap:
+            case R.id.btn_parallax_snap: // ViewPager视觉特差效果snap
                 jump(ViewPagerParallaxSnap.class);
                 break;
 

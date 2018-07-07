@@ -46,7 +46,7 @@ public class ListFragment extends BaseFragment {
         }
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
-        mSwipeRefreshLayout.setEnabled(false);
+        mSwipeRefreshLayout.setEnabled(true);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
         DividerItemDecoration itemDecoration = new DividerItemDecoration(mContext,
@@ -77,6 +77,7 @@ public class ListFragment extends BaseFragment {
 
     }
 
+    // true打开 false 关闭
     public void tooglePager(boolean isOpen) {
         if (isOpen) {
             setRefreshEnable(false);

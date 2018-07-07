@@ -103,7 +103,7 @@ public class HomePresenter extends BasePresenter<IHomeView> implements IBaseMode
 
 
         // 发现
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 3; i++) {
             mHomeBean = new HomeBean();
             mHomeBean.isDiscover = "1";   // 表示发现
             mHomeBean.itemType = 5;

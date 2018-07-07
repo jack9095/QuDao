@@ -44,7 +44,7 @@ public class ViewPagerParallax extends AppCompatActivity {
         setupViewPager(viewPager);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setupWithViewPager(viewPager); // 两者建立关联
     }
 
     private void setupViewPager(ViewPager viewPager) {

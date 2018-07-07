@@ -10,10 +10,6 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
 
-/**
- * @author meitu.xujun  on 2017/5/2 14:43
- * @version 0.1
- */
 
 public class NestedLinearLayout extends LinearLayout implements NestedScrollingChild {
 
