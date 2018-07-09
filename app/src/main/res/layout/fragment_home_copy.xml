@@ -3,19 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true"
     android:animateLayoutChanges="true"
     android:orientation="vertical">
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/transparent"
+        android:layout_height="wrap_content"
         android:animateLayoutChanges="true"
+        android:fitsSystemWindows="true"
+        android:background="@android:color/transparent"
         android:orientation="vertical">
 
         <android.support.design.widget.AppBarLayout
             android:id="@+id/home_appbar"
+            android:fitsSystemWindows="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/MainAppBar">
@@ -24,30 +27,33 @@
             <LinearLayout
                 android:id="@+id/home_header_layout"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/header_home_height"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
                 android:orientation="vertical"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                 <com.kuanquan.qudao.widget.HomeBanner
                     android:id="@+id/home_banner_layout"
                     android:layout_width="match_parent"
+                    android:fitsSystemWindows="true"
                     android:layout_height="@dimen/header_home_height"
                     android:background="#ffffff" />
-            </LinearLayout>
-            <!--消失头布布局 end-->
+                <!--</LinearLayout>-->
+                <!--消失头布布局 end-->
 
-            <!--滑动固定标题布局-->
-            <com.kuanquan.qudao.widget.Sticklayout
-                android:id="@+id/notify_stick_rl"
-                android:layout_width="match_parent"
-                android:layout_height="85dp"
-                android:orientation="vertical"
-                app:layout_scrollFlags="scroll">
+                <!--滑动固定标题布局-->
+                <!--<com.kuanquan.qudao.widget.Sticklayout
+                    android:id="@+id/notify_stick_rl"
+                    android:layout_width="match_parent"
+                    android:layout_height="85dp"
+                    android:orientation="vertical"
+                    app:layout_scrollFlags="scroll">-->
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="85dp"
                     android:background="#ffffff"
+                    android:fitsSystemWindows="true"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -57,6 +63,12 @@
                             android:id="@+id/elective_course_image"
                             style="@style/home_item_five_image"
                             android:src="@mipmap/elective_f" />
+
+                        <TextView
+                            android:id="@+id/elective_course_text"
+                            style="@style/home_item_five_text"
+                            android:layout_below="@id/elective_course_image"
+                            android:text="倾听" />
 
                     </RelativeLayout>
 
@@ -68,6 +80,12 @@
                             style="@style/home_item_five_image"
                             android:src="@mipmap/live_f" />
 
+                        <TextView
+                            android:id="@+id/live_text"
+                            style="@style/home_item_five_text"
+                            android:layout_below="@id/live_image"
+                            android:text="直播" />
+
                     </RelativeLayout>
 
                     <!--题库-->
@@ -78,6 +96,12 @@
                             style="@style/home_item_five_image"
                             android:src="@mipmap/bank_f" />
 
+                        <TextView
+                            android:id="@+id/bank_text"
+                            style="@style/home_item_five_text"
+                            android:layout_below="@id/bank_image"
+                            android:text="简报" />
+
                     </RelativeLayout>
 
                     <RelativeLayout style="@style/home_item_five_layout">
@@ -87,6 +111,11 @@
                             style="@style/home_item_five_image"
                             android:src="@mipmap/answer_f" />
 
+                        <TextView
+                            android:id="@+id/answer_text"
+                            style="@style/home_item_five_text"
+                            android:layout_below="@id/answer_image"
+                            android:text="论坛" />
                     </RelativeLayout>
 
                     <RelativeLayout style="@style/home_item_five_layout">
@@ -95,11 +124,118 @@
                             android:id="@+id/member_image"
                             style="@style/home_item_five_image"
                             android:src="@mipmap/member_f" />
+
+                        <TextView
+                            android:id="@+id/member_text"
+                            style="@style/home_item_five_text"
+                            android:layout_below="@id/member_image"
+                            android:text="会员" />
                     </RelativeLayout>
 
                 </LinearLayout>
 
-            </com.kuanquan.qudao.widget.Sticklayout>
+                <!--公开直播-->
+                <RelativeLayout
+                    android:fitsSystemWindows="true"
+                    android:background="#ffffff"
+                    android:clipChildren="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:id="@+id/open_live_top_view"
+                        android:background="#f0f0f0"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"/>
+
+                    <RelativeLayout
+                        android:id="@+id/stick_rl_adapter"
+                        android:layout_below="@+id/open_live_top_view"
+                        android:background="@android:color/white"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp">
+                        <TextView
+                            android:id="@+id/text_live_open"
+                            android:layout_marginLeft="15dp"
+                            android:text="直播"
+                            android:layout_centerVertical="true"
+                            android:textSize="17sp"
+                            android:textColor="#242b36"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:id="@+id/text_live_more_open"
+                            android:text="查看更多"
+                            android:layout_toLeftOf="@id/text_live_more_open_image"
+                            android:paddingRight="8dp"
+                            android:layout_centerVertical="true"
+                            android:textColor="#899099"
+                            android:textSize="14sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <ImageView
+                            android:id="@+id/text_live_more_open_image"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="15dp"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/more_f"
+                            android:layout_width="7dp"
+                            android:layout_height="12dp" />
+                    </RelativeLayout>
+
+
+                    <ImageView
+                        android:id="@+id/live_open_head_image"
+                        android:layout_below="@+id/stick_rl_adapter"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:scaleType="centerCrop"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp" />
+
+                    <TextView
+                        android:id="@+id/live_open_title"
+                        android:layout_below="@+id/stick_rl_adapter"
+                        android:layout_alignTop="@id/live_open_head_image"
+                        android:layout_toRightOf="@id/live_open_head_image"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="15dp"
+                        android:textSize="15sp"
+                        android:textColor="#242b36"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/live_open_content"
+                        android:layout_toRightOf="@id/live_open_head_image"
+                        android:layout_below="@id/live_open_title"
+                        android:layout_alignBottom="@id/live_open_head_image"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginLeft="10dp"
+                        android:textSize="12sp"
+                        android:textColor="#899099"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <View
+                        android:layout_below="@id/live_open_head_image"
+                        android:background="#f7f7f7"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="9dp"/>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <!--</com.kuanquan.qudao.widget.Sticklayout>-->
 
         </android.support.design.widget.AppBarLayout>
 
@@ -107,22 +243,25 @@
         <com.kuanquan.qudao.widget.MySwipeRefreshLayout
             android:id="@+id/notify_swipeRefreshLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <FrameLayout
+            <!--<FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent">-->
+
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/notify_recyclerView"
+                    android:fitsSystemWindows="true"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="wrap_content" />
 
-                <include
+                <!--<include
                     layout="@layout/layout_f"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </FrameLayout>
+                    android:layout_height="wrap_content" />
+            </FrameLayout>-->
 
         </com.kuanquan.qudao.widget.MySwipeRefreshLayout>
     </android.support.design.widget.CoordinatorLayout>
@@ -130,12 +269,12 @@
     <TextView
         android:id="@+id/home_im_text"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="-40dp"
         android:background="#FCF9CF"
         android:gravity="center"
         android:text="将减少为您推送此类咨询"
         android:textColor="#FB4700"
         android:textSize="15sp"
-        android:visibility="gone" />
+        android:visibility="visible" />
 
 </RelativeLayout>

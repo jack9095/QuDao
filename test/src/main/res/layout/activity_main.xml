@@ -4,20 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
+    android:background="@color/colorPrimary"
+    android:fitsSystemWindows="false"
     tools:context="com.retrofit.wangfei.viewpagertablayout.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:fitsSystemWindows="false"
+        app:elevation="0dp"
+        >
+
+        <!--app:layout_scrollFlags="scroll|enterAlways"-->
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                app:layout_scrollFlags="scroll|enterAlways"
+                app:layout_scrollFlags="scroll"
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimaryDark"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />

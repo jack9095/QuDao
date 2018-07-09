@@ -189,7 +189,7 @@ public class HomeFragment extends Fragment {
 
     private List<String> list = new ArrayList<>();
     private List<String> getData() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             list.add(i + "");
         }
         return list;

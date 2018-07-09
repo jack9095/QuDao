@@ -67,7 +67,7 @@ public class HomeAdapter_release extends RecyclerView.Adapter<RecyclerView.ViewH
             GlideUtil.setImageCircle(parentF.getContext(), homeBean.image, mLiveHolder.live_open_head_image);
             mLiveHolder.live_open_title.setText(homeBean.title);
             mLiveHolder.live_open_content.setText(homeBean.content);
-            mLiveHolder.itemView.setContentDescription("直播");
+//            mLiveHolder.itemView.setContentDescription("直播");
         } else if (holder instanceof DiscoverHolder) {  // 发现
             DiscoverHolder mDiscoverHolder = (DiscoverHolder) holder;
             if (homeBean != null) {
@@ -76,22 +76,27 @@ public class HomeAdapter_release extends RecyclerView.Adapter<RecyclerView.ViewH
                 GlideUtil.setImage(parentF.getContext(), homeBean.image, mDiscoverHolder.image);
             }
             mDiscoverHolder.colse.setOnClickListener(new CloseOnClick(position, mDiscoverHolder.colse));
-            mDiscoverHolder.headerTv.setText("发现");
-            mDiscoverHolder.moreTv.setText("设置偏好");
-
-            mDiscoverHolder.itemView.setContentDescription("发现");
             if (position == 0) {
-                mDiscoverHolder.headerLayout.setVisibility(View.GONE);
-                mDiscoverHolder.itemView.setTag(NONE_STICKY_VIEW);
-            } else {
-                if (homeBean.head.equals(lists.get(position - 1).head)) { //当前Item头部与上一个Item头部相同，则隐藏头部
-                    mDiscoverHolder.headerLayout.setVisibility(View.GONE);
-                    mDiscoverHolder.itemView.setTag(NONE_STICKY_VIEW);
-                } else {
-                    mDiscoverHolder.headerLayout.setVisibility(View.VISIBLE);
-                    mDiscoverHolder.itemView.setTag(HAS_STICKY_VIEW);
-                }
+                mDiscoverHolder.text_discover_title_stick.setVisibility(View.VISIBLE);
+            }else{
+                mDiscoverHolder.text_discover_title_stick.setVisibility(View.GONE);
             }
+//            mDiscoverHolder.headerTv.setText("发现");
+//            mDiscoverHolder.moreTv.setText("设置偏好");
+//
+//            mDiscoverHolder.itemView.setContentDescription("发现");
+//            if (position == 0) {
+//                mDiscoverHolder.headerLayout.setVisibility(View.GONE);
+//                mDiscoverHolder.itemView.setTag(NONE_STICKY_VIEW);
+//            } else {
+//                if (homeBean.head.equals(lists.get(position - 1).head)) { //当前Item头部与上一个Item头部相同，则隐藏头部
+//                    mDiscoverHolder.headerLayout.setVisibility(View.GONE);
+//                    mDiscoverHolder.itemView.setTag(NONE_STICKY_VIEW);
+//                } else {
+//                    mDiscoverHolder.headerLayout.setVisibility(View.VISIBLE);
+//                    mDiscoverHolder.itemView.setTag(HAS_STICKY_VIEW);
+//                }
+//            }
         }
     }
 
@@ -131,12 +136,9 @@ public class HomeAdapter_release extends RecyclerView.Adapter<RecyclerView.ViewH
      * discover的ViewHolder
      */
     public static class DiscoverHolder extends RecyclerView.ViewHolder {
-        RelativeLayout headerLayout;
-        TextView headerTv,moreTv;
-
-        TextView title, content, discover, more;
+        TextView title, content;
         ImageView image, colse;
-        RelativeLayout text_discover_rl;
+        RelativeLayout text_discover_title_stick;
 
         public DiscoverHolder(View itemView) {
             super(itemView);
@@ -144,13 +146,7 @@ public class HomeAdapter_release extends RecyclerView.Adapter<RecyclerView.ViewH
             content = itemView.findViewById(R.id.text_discover_bottom_content);
             image = itemView.findViewById(R.id.text_discover_image);
             colse = itemView.findViewById(R.id.text_discover_image_close);
-            text_discover_rl = itemView.findViewById(R.id.text_discover_rl);
-            more = itemView.findViewById(R.id.text_discover_more);
-            discover = itemView.findViewById(R.id.text_discover);
-
-            headerLayout = itemView.findViewById(R.id.stick_rl_adapter);
-            headerTv = itemView.findViewById(R.id.text_live_open);
-            moreTv = itemView.findViewById(R.id.text_live_more_open);
+            text_discover_title_stick = itemView.findViewById(R.id.text_discover_title_stick);
         }
     }
 

@@ -54,7 +54,7 @@ public class ListFragment extends BaseFragment {
         mRecyclerView.addItemDecoration(itemDecoration);
         mRecyclerView.setLayoutManager(layoutManager);
 
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 5; i++) {
             String s = String.format("我是第%d个" + title, i);
             mDatas.add(s);
         }
