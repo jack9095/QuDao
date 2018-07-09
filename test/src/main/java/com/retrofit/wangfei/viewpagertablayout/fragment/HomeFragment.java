@@ -15,15 +15,16 @@ import android.view.ViewGroup;
 import com.retrofit.wangfei.viewpagertablayout.util.Constance;
 import com.retrofit.wangfei.viewpagertablayout.R;
 import com.retrofit.wangfei.viewpagertablayout.adapter.MyRecycleViewAdapter;
+import com.retrofit.wangfei.viewpagertablayout.util.MyRecyclerView;
 import com.rey.material.widget.ProgressView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements MyRecyclerView.RecyclerViewListener {
 
-    RecyclerView recyclerview;
+    MyRecyclerView recyclerview;
     SwipeRefreshLayout swipeRefreshLayout;
     ProgressView progress_loading_main;    // 加载数据是显示的进度圆圈
     private LinearLayoutManager mRecycleViewLayoutManager;
@@ -48,7 +49,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        recyclerview = (RecyclerView) view.findViewById(R.id.recyclerview);
+        recyclerview = (MyRecyclerView) view.findViewById(R.id.recyclerview);
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_layout);
         progress_loading_main = (ProgressView) view.findViewById(R.id.progress_loading_main);
         return view;
@@ -63,7 +64,7 @@ public class HomeFragment extends Fragment {
         recyclerview.setAdapter(mAdapter);
         recyclerViewOnItemClickListener();
         refresh();
-        loadMore(mAdapter);
+//        loadMore(mAdapter);
         progress_loading_main.setVisibility(View.VISIBLE);
         initData();
     }
@@ -75,6 +76,7 @@ public class HomeFragment extends Fragment {
 
     /**进入页面的初始化数据*/
     private void initData(){
+        recyclerview.setParams(mRecycleViewLayoutManager,lists.size(),this);
         new Handler().postDelayed(new Runnable() {
 
             @Override
@@ -103,7 +105,6 @@ public class HomeFragment extends Fragment {
 //        recyclerview.setHasFixedSize(true);
         mRecycleViewLayoutManager = new LinearLayoutManager(getActivity());
         recyclerview.setLayoutManager(mRecycleViewLayoutManager);  // 设置RecycleView，显示是ListView还是gridView还是瀑布流
-
     }
 
     /**下拉刷新*/
@@ -111,7 +112,7 @@ public class HomeFragment extends Fragment {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                new Handler().postDelayed(new Runnable() {
+                swipeRefreshLayout.postDelayed(new Runnable() {
 
                     @Override
                     public void run() {
@@ -184,6 +185,7 @@ public class HomeFragment extends Fragment {
         // TODO 这里把页数mPageNum上传到服务端
         lists.clear();
         lists.addAll(getData());
+        recyclerview.setCount(lists.size());
         mAdapter.notifyDataSetChanged();
     }
 
@@ -193,5 +195,20 @@ public class HomeFragment extends Fragment {
             list.add(i + "");
         }
         return list;
+    }
+
+    @Override
+    public void onRecyclerViewLoadMore() {
+        if (lists != null && lists.size() >= 10) {  // 真实开发中要设置mNews.size()大于加载分页显示的个数
+            mAdapter.loadLayout.setVisibility(View.VISIBLE);
+            //加载更多
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    netNewsList(false);
+                }
+            }, 1000);
+        }
     }
 }

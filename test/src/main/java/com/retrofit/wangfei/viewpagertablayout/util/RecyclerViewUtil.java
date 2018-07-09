@@ -2,6 +2,7 @@ package com.retrofit.wangfei.viewpagertablayout.util;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -74,6 +75,7 @@ public class RecyclerViewUtil {
                 super.onScrollStateChanged(recyclerView, newState);
 
                 if (newState == RecyclerView.SCROLL_STATE_IDLE && isBottom(mRecyclerView)) {
+                        Log.e("RecyclerViewUtil","滑动到底部");
                     if (enable && mOnLoadMoreListener != null) {
                         mOnLoadMoreListener.onLoadMore();
                     }
