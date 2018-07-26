@@ -21,6 +21,18 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="home_item_five_layout_text">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:background">#eaecf0</item>
+        <item name="android:gravity">center</item>
+    </style>
+
     <style name="home_item_five_image">
         <item name="android:contentDescription">@string/app_name</item>
         <item name="android:layout_width">36dp</item>

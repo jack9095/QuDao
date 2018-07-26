@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff">
+
+    <LinearLayout
+        android:id="@+id/ll_home_item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="12dp"
+        android:paddingTop="12dp">
+
+        <RelativeLayout
+            android:id="@+id/course_item"
+            style="@style/home_item_five_layout">
+
+            <ImageView
+                android:id="@+id/elective_course_image"
+                style="@style/home_item_five_image"
+                android:src="@mipmap/elective_f" />
+
+            <TextView
+                android:id="@+id/elective_course_text"
+                style="@style/home_item_five_text"
+                android:layout_below="@+id/elective_course_image"
+                android:text="选课" />
+
+        </RelativeLayout>
+
+        <!--直播-->
+        <RelativeLayout
+            android:id="@+id/live_item"
+            style="@style/home_item_five_layout">
+
+            <ImageView
+                android:id="@+id/live_image"
+                style="@style/home_item_five_image"
+                android:src="@mipmap/live_f" />
+
+            <TextView
+                android:id="@+id/live_text"
+                style="@style/home_item_five_text"
+                android:layout_below="@+id/live_image"
+                android:text="直播" />
+
+        </RelativeLayout>
+
+        <!--题库-->
+        <RelativeLayout
+            android:id="@+id/bank_item"
+            style="@style/home_item_five_layout">
+
+            <ImageView
+                android:id="@+id/bank_image"
+                style="@style/home_item_five_image"
+                android:src="@mipmap/bank_f" />
+
+            <TextView
+                android:id="@+id/bank_text"
+                style="@style/home_item_five_text"
+                android:layout_below="@+id/bank_image"
+                android:text="题库" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/answer_item"
+            style="@style/home_item_five_layout">
+
+            <ImageView
+                android:id="@+id/answer_image"
+                style="@style/home_item_five_image"
+                android:src="@mipmap/answer_f" />
+
+            <TextView
+                android:id="@+id/answer_text"
+                style="@style/home_item_five_text"
+                android:layout_below="@+id/answer_image"
+                android:text="问答" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/member_item"
+            style="@style/home_item_five_layout">
+
+            <ImageView
+                android:id="@+id/member_image"
+                style="@style/home_item_five_image"
+                android:src="@mipmap/member_f" />
+
+            <TextView
+                android:id="@+id/member_text"
+                style="@style/home_item_five_text"
+                android:layout_below="@+id/member_image"
+                android:text="会员" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/stick_view_item"
+        android:layout_below="@+id/ll_home_item_layout"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#f0f0f0"/>
+</RelativeLayout>

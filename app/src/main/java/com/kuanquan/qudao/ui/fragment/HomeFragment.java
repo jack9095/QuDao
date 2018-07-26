@@ -2,8 +2,8 @@ package com.kuanquan.qudao.ui.fragment;
 
 import android.animation.LayoutTransition;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,20 +16,15 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.fly.baselibrary.utils.useful.GlideUtil;
 import com.example.fly.baselibrary.utils.useful.LogUtil;
 import com.kuanquan.qudao.R;
 import com.kuanquan.qudao.bean.HomeBeanChild;
-import com.kuanquan.qudao.ui.adapter.HomeAdapter_Copy;
+import com.kuanquan.qudao.ui.activity.NotifyActivity;
 import com.kuanquan.qudao.ui.adapter.HomeAdapter_release;
-import com.kuanquan.qudao.ui.adapter.ItemAdapter;
 import com.kuanquan.qudao.utils.DataUtils;
 import com.kuanquan.qudao.widget.HomeBanner;
 import com.kuanquan.qudao.widget.Sticklayout;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 首页
@@ -195,6 +190,6 @@ public class HomeFragment extends CommonFragment implements HomeAdapter_release.
 
     @Override
     public void onPageClick(HomeBeanChild info) {  // banner 点击回调
-
+        startActivity(new Intent(context, NotifyActivity.class));
     }
 }

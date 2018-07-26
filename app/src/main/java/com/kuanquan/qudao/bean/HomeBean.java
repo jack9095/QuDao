@@ -29,6 +29,8 @@ public class HomeBean implements Serializable {
 
     public List<HomeBeanChild> lists = new ArrayList<>();   // 直播列表
 
+    public List<HomeBeanChild> tabItems = new ArrayList<>();   // 5个item
+
 //    public HomeBean(int itemType) {
 //        this.itemType = itemType;
 //    }
