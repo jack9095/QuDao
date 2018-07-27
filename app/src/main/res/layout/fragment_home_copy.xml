@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:fitsSystemWindows="true"
     android:animateLayoutChanges="true"
     android:orientation="vertical">
 
@@ -12,13 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:animateLayoutChanges="true"
-        android:fitsSystemWindows="true"
+        android:fitsSystemWindows="false"
         android:background="@android:color/transparent"
         android:orientation="vertical">
 
         <android.support.design.widget.AppBarLayout
             android:id="@+id/home_appbar"
-            android:fitsSystemWindows="true"
+            android:fitsSystemWindows="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/MainAppBar">
@@ -28,7 +27,7 @@
                 android:id="@+id/home_header_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fitsSystemWindows="true"
+                android:fitsSystemWindows="false"
                 android:orientation="vertical"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
@@ -244,7 +243,7 @@
             android:id="@+id/notify_swipeRefreshLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fitsSystemWindows="true"
+            android:fitsSystemWindows="false"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <!--<FrameLayout
@@ -269,7 +268,8 @@
     <TextView
         android:id="@+id/home_im_text"
         android:layout_width="match_parent"
-        android:layout_height="-40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="-41dp"
         android:background="#FCF9CF"
         android:gravity="center"
         android:text="将减少为您推送此类咨询"

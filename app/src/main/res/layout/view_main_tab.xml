@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tab_layout"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:layout_alignParentBottom="true"
+    android:orientation="horizontal"
+    android:background="#27282c"
+    >
+
+    <!--首页-->
+    <RelativeLayout
+        android:id="@+id/homepage"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="4dp"
+        android:layout_weight="1">
+        <RadioButton
+            android:id="@+id/home_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:button="@null"
+            android:background="@null"
+            android:checked="true"
+            android:clickable="false"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/selector_tab_home"
+            android:gravity="center"
+            android:text="首页"
+            android:textColor="@drawable/tab_text_selector"
+            android:textSize="10sp" />
+    </RelativeLayout>
+
+    <!--商品-->
+    <RelativeLayout
+        android:id="@+id/goods_page"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="4dp"
+        android:layout_weight="1"
+        android:focusable="true">
+        <RadioButton
+            android:id="@+id/goods_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@null"
+            android:button="@null"
+            android:clickable="false"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/selector_tab_goods_divide"
+            android:gravity="center"
+            android:text="商品"
+            android:textColor="@drawable/tab_text_selector"
+            android:textSize="10sp" />
+    </RelativeLayout>
+
+    <!--进货单-->
+    <RelativeLayout
+        android:id="@+id/shopping_cart_page"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="4dp"
+        android:layout_weight="1">
+        <RadioButton
+            android:id="@+id/shopping_cart_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@null"
+            android:button="@null"
+            android:clickable="false"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/selector_tab_stock_list"
+            android:gravity="center"
+            android:text="进货单"
+            android:textColor="@drawable/tab_text_selector"
+            android:textSize="10sp" />
+        <TextView
+            android:id="@+id/shopping_cart_num"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignRight="@id/shopping_cart_button"
+            android:layout_alignTop="@id/shopping_cart_button"
+            android:layout_marginTop="-6dp"
+            android:layout_gravity="right"
+            android:background="@drawable/msg_num_shape"
+            android:clickable="false"
+            android:gravity="center"
+            android:text="99+"
+            android:textColor="@color/white"
+            android:textSize="8sp" />
+    </RelativeLayout>
+
+    <!--会员-->
+    <RelativeLayout
+        android:id="@+id/user_page"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="4dp"
+        android:layout_weight="1">
+        <RadioButton
+            android:id="@+id/user_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@null"
+            android:button="@null"
+            android:clickable="false"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/selector_tab_member"
+            android:gravity="center"
+            android:text="会员"
+            android:textColor="@drawable/tab_text_selector"
+            android:textSize="10sp" />
+    </RelativeLayout>
+
+</LinearLayout>

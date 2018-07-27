@@ -1,6 +1,5 @@
 package com.kuanquan.qudao.ui.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,11 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.example.fly.baselibrary.utils.useful.GlideUtil;
 import com.kuanquan.qudao.R;
-import com.kuanquan.qudao.ui.activity.DetailsArticleActivity;
-import com.kuanquan.qudao.ui.activity.NotifyActivity;
 import com.kuanquan.qudao.ui.adapter.LiveAdapter;
 import com.kuanquan.qudao.utils.DataUtils;
 
@@ -31,7 +26,7 @@ public class LiveFragment extends CommonFragment {
 
     @Override
     protected void initView() {
-        mRecyclerView = view.findViewById(R.id.recycler_view);
+        mRecyclerView = view.findViewById(R.id.home_recycler_view);
         LinearLayoutManager manager = new LinearLayoutManager(context);
         mRecyclerView.setLayoutManager(manager);
         DefaultItemAnimator animator = new DefaultItemAnimator();
@@ -63,7 +58,7 @@ public class LiveFragment extends CommonFragment {
 
     @Override
     protected void initData(Bundle savedInstanceState) {
-        mLiveAdapter = new LiveAdapter(this);
+        mLiveAdapter = new LiveAdapter();
         mRecyclerView.setAdapter(mLiveAdapter);
         mLiveAdapter.setData(DataUtils.getData());
     }

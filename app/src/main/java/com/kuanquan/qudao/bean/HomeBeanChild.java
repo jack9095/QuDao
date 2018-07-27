@@ -19,6 +19,6 @@ public class HomeBeanChild implements Serializable {
     public String action_type  ;  // 跳转类型 native h5 weex
     public String action  ;
 
-    public List<HomeBeanChild> tabItems = new ArrayList<>();   // 5个item
+    public List<HomeBeanChild> tabItems = new ArrayList<>();   // 项目的每一个item
 
 }

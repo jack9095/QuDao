@@ -25,11 +25,16 @@ public class HomeBean implements Serializable {
     public String head;  // 头部
     public int position;  // 角标
 
-    public int itemType;   // 0 banner  1 (5个item布局)  2 (直播公开课布局)  3 直播布局 (水平滚动) 4 (发现布局)
+    public int itemType;   // 0 banner  1 (5个item布局)  2 项目item  3 直播布局 (水平滚动) 4 高顿头条 5 (发现布局)
 
-    public List<HomeBeanChild> lists = new ArrayList<>();   // 直播列表
+    public List<HomeBeanChild> lists = new ArrayList<>();   // 直播列表（横向）
+    public List<HomeBeanChild> lives = new ArrayList<>();   // 直播列表（横向）
 
     public List<HomeBeanChild> tabItems = new ArrayList<>();   // 5个item
+
+    public List<HomeBeanChild> banners = new ArrayList<>();   // banner
+
+    public List<HomeBeanChild> projects = new ArrayList<>();   // 项目
 
 //    public HomeBean(int itemType) {
 //        this.itemType = itemType;

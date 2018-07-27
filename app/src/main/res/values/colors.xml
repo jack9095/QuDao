@@ -6,4 +6,11 @@
 
     <color name="transparent">#00000000</color>
     <drawable name="transparent">#00000000</drawable>
+    <color name="black">#000000</color>
+
+    <color name="blue">#1bbfda</color>
+    <color name="gray">#d5d5d5</color>
+
+    <color name="orange">#FF432F</color>
+    <color name="white">#FFFFFF</color>
 </resources>
