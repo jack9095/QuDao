@@ -75,4 +75,9 @@ public class LiveAdapter extends BaseLiveAdapter implements HomeBanner.OnPageCli
 
     }
 
+    @Override
+    public void onPageSelected(int position) {
+
+    }
+
 }

@@ -166,6 +166,11 @@ public class HomeAdapter_Copy extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     }
 
+    @Override
+    public void onPageSelected(int position) {
+
+    }
+
     /**
      * NullHolder的ViewHolder
      */

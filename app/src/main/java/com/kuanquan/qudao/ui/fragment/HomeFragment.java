@@ -192,4 +192,9 @@ public class HomeFragment extends CommonFragment implements HomeAdapter_release.
     public void onPageClick(HomeBeanChild info) {  // banner 点击回调
         startActivity(new Intent(context, NotifyActivity.class));
     }
+
+    @Override
+    public void onPageSelected(int position) {
+
+    }
 }

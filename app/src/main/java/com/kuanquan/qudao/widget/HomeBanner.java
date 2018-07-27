@@ -54,7 +54,7 @@ public class HomeBanner extends ViewPager {
     public void setData(List<HomeBeanChild> bannerList, OnPageClickListener clickListener) {
         if (mAdapter == null || isDataChanged(mAdapter.getData(), bannerList)) {
             mAdapter = new MyAdapter(getContext(), bannerList);
-            mAdapter.onPageClickListener = clickListener;
+            onPageClickListener = clickListener;
             setAdapter(mAdapter);
             setCurrentItem(bannerList.size() * 10000);
         }
@@ -135,6 +135,10 @@ public class HomeBanner extends ViewPager {
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
             @Override
             public void onPageSelected(int position) {
+                if (onPageClickListener != null) {
+
+                    onPageClickListener.onPageSelected(position);
+                }
                 HomeBeanChild bannersBean = mAdapter.getItem(position);
 //                if (bannersBean != null && !TextUtils.isEmpty(bannersBean.h5Url) && isFmVisiable) {
 //                    getLocalVisibleRect(mRect);
@@ -204,7 +208,6 @@ public class HomeBanner extends ViewPager {
     }
 
     public class MyAdapter extends PagerAdapter implements OnClickListener {
-        public OnPageClickListener onPageClickListener;
         private Context mContext;
         private List<HomeBeanChild> mList;
 
@@ -323,8 +326,10 @@ public class HomeBanner extends ViewPager {
 //        }
 //    }
 
+    public OnPageClickListener onPageClickListener;
     public interface OnPageClickListener {
         void onPageClick(HomeBeanChild info);
+        void onPageSelected(int position);
     }
 
 
