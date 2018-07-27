@@ -8,8 +8,6 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import com.example.fly.baselibrary.utils.useful.GlideUtil;
 import com.kuanquan.qudao.R;
 import com.kuanquan.qudao.bean.HomeBeanChild;
 import java.util.List;
@@ -32,16 +30,11 @@ public class ProjectViewpager extends ViewPager {
         init();
     }
 
-    public void setData(List<HomeBeanChild> bannerList) {
+    public void setData(List<HomeBeanChild> bannerList, OnPageItemClickListener clickListener) {
         mAdapter = new MyAdapter(getContext(), bannerList);
+        onPageClickListener = clickListener;
         setAdapter(mAdapter);
     }
-
-//    public void setData(List<HomeBeanChild> bannerList, OnPageClickListener clickListener) {
-//        mAdapter = new MyAdapter(getContext(), bannerList);
-//        mAdapter.onPageClickListener = clickListener;
-//        setAdapter(mAdapter);
-//    }
 
 
     public List getData() {
@@ -60,6 +53,9 @@ public class ProjectViewpager extends ViewPager {
 
             @Override
             public void onPageSelected(int position) {
+                if (onPageClickListener != null) {
+                    onPageClickListener.onTabPageSelected(position);
+                }
             }
 
             @Override
@@ -141,17 +137,18 @@ public class ProjectViewpager extends ViewPager {
         public void onClick(View v) {
             if (v.getTag() instanceof HomeBeanChild) {
                 HomeBeanChild info = (HomeBeanChild) v.getTag();
-//                if (onPageClickListener != null) {
-//                    onPageClickListener.onPageClick(info);
-//                }
+                if (onPageClickListener != null) {
+                    onPageClickListener.onPageClick(info);
+                }
             }
         }
     }
 
 
-//    public OnPageClickListener onPageClickListener;
-//    public interface OnPageClickListener {
-//        void onPageClick(HomeBeanChild info);
-//    }
+    public OnPageItemClickListener onPageClickListener;
+    public interface OnPageItemClickListener {
+        void onPageClick(HomeBeanChild info);
+        void onTabPageSelected(int position);
+    }
 
 }

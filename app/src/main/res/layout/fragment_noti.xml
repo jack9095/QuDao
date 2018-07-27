@@ -18,7 +18,6 @@
             android:id="@+id/home_header_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fitsSystemWindows="true"
             android:orientation="vertical"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
@@ -29,8 +28,7 @@
                     android:id="@+id/home_banner_layout"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/header_home_height"
-                    android:background="#ffffff"
-                    android:fitsSystemWindows="true" />
+                    android:background="#ffffff" />
 
                 <LinearLayout
                     android:id="@+id/ll_view"
@@ -44,11 +42,27 @@
 
             </FrameLayout>
 
-            <com.kuanquan.qudao.widget.ProjectViewpager
-                android:id="@+id/project_view_tab"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#ffffff" />
+                android:layout_height="110dp">
+                <com.kuanquan.qudao.widget.ProjectViewpager
+                    android:id="@+id/project_view_tab"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff" />
+
+                <LinearLayout
+                    android:id="@+id/ll_view_pager"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="15dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal"
+                    />
+
+            </FrameLayout>
+
         </LinearLayout>
         <!--消失头布布局 end-->
 
@@ -58,8 +72,7 @@
             android:layout_height="wrap_content"
             app:layout_scrollFlags="scroll"
             android:background="#ffffff"
-            android:clipChildren="false"
-            android:fitsSystemWindows="true">
+            android:clipChildren="false">
 
             <!--头部tab栏-->
             <com.flyco.tablayout.SlidingTabLayout

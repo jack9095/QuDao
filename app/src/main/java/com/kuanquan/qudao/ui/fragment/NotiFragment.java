@@ -33,7 +33,7 @@ import java.util.ArrayList;
 /**
  * 主页的消息页面
  */
-public class NotiFragment extends CommonFragment implements HomeBanner.OnPageClickListener {
+public class NotiFragment extends CommonFragment implements HomeBanner.OnPageClickListener,ProjectViewpager.OnPageItemClickListener {
     //AppBarLayout
     private AppBarLayout mAppBarLayout;
     //顶部HeaderLayout
@@ -51,10 +51,13 @@ public class NotiFragment extends CommonFragment implements HomeBanner.OnPageCli
     private AFragment mAFragment; // 课程
     private BFragment mBFragment; // 文章
     private ArrayList<Fragment> mFragments = new ArrayList<>();
-    private final String[] mTitles = {"课程", "文章"};
+    private final String[] mTitles = {"课程", "文章","直播","咨询","谷歌"};
     private LinearLayoutManager manager;
     private LinearLayout mLinearLayout; // 小圆点
     private ArrayList<ImageView> dotsList = new ArrayList<ImageView>();
+
+    private LinearLayout ll_view_pager; // 小圆点
+    private ArrayList<ImageView> dotsListF = new ArrayList<ImageView>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,7 +78,8 @@ public class NotiFragment extends CommonFragment implements HomeBanner.OnPageCli
 //        manager = new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false);
 //        mRecyclerView.setLayoutManager(manager);
 
-        project_view_tab.setData(DataUtils.getBannerData());
+        project_view_tab.setData(DataUtils.getBannerData(),this);
+        ll_view_pager = (LinearLayout) view.findViewById(R.id.ll_view_pager);
 
         mHomeBanner = view.findViewById(R.id.home_banner_layout);
         mLinearLayout = (LinearLayout) view.findViewById(R.id.ll_view);
@@ -94,6 +98,22 @@ public class NotiFragment extends CommonFragment implements HomeBanner.OnPageCli
                     params.setMargins(5, 0, 5, 0);
                     mLinearLayout.addView(view, params);
                     dotsList.add(view);
+                }
+
+
+                dotsListF.clear();
+                ll_view_pager.removeAllViews();
+                for (int i = 0; i < DataUtils.getBannerData().size(); i++) {
+                    ImageView view = new ImageView(getContext());
+                    if (i == 0) {
+                        view.setImageResource(R.drawable.dots_focus);
+                    } else {
+                        view.setImageResource(R.drawable.dots_normal_tab);
+                    }
+                    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(18, 18);
+                    params.setMargins(5, 0, 5, 0);
+                    ll_view_pager.addView(view, params);
+                    dotsListF.add(view);
                 }
             }catch (Exception e){
                 LogUtil.e("小圆点异常 = " + e);
@@ -143,15 +163,18 @@ public class NotiFragment extends CommonFragment implements HomeBanner.OnPageCli
     @Override
     protected void initData(Bundle savedInstanceState) {
         mAFragment = new AFragment();
-        mBFragment = new BFragment();
         mFragments.clear();
         mFragments.add(mAFragment);
-        mFragments.add(mBFragment);
+        for (int i = 0; i < 4; i++) {
+            mBFragment = new BFragment();
+            mFragments.add(mBFragment);
+        }
 
 //        mAdapter = new MyPagerAdapter(getSupportFragmentManager());
         mAdapter = new MyPagerAdapter(getFragmentManager());
         mViewPager.setAdapter(mAdapter);
         mSlidingTabLayout.setViewPager(mViewPager);
+        mSlidingTabLayout.setTabSpaceEqual(true);
     }
 
     @Override
@@ -175,6 +198,17 @@ public class NotiFragment extends CommonFragment implements HomeBanner.OnPageCli
                     headerLayout.setLayoutParams(mParams);
                 }
             },300);
+        }
+    }
+
+    @Override
+    public void onTabPageSelected(int position) {
+        for(int i=0;i<dotsListF.size();i++){
+            if(position%dotsListF.size() == i){
+                dotsListF.get(i).setImageResource(R.drawable.dots_focus);
+            }else{
+                dotsListF.get(i).setImageResource(R.drawable.dots_normal_tab);
+            }
         }
     }
 
