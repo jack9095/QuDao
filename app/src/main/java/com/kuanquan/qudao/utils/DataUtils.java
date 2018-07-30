@@ -3,6 +3,7 @@ package com.kuanquan.qudao.utils;
 import com.kuanquan.qudao.bean.HomeBean;
 import com.kuanquan.qudao.bean.HomeBeanChild;
 import com.kuanquan.qudao.bean.HomeData;
+import com.kuanquan.qudao.bean.HomeTab;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,48 @@ import java.util.List;
  * 网络请求或者数据工具类
  */
 public class DataUtils {
+
+    /**
+     * 获取tabItem数据
+     * @return
+     */
+    public static List<HomeBeanChild> getTabItemData(){
+        List<HomeBeanChild> listChilds = new ArrayList<>();
+        HomeBeanChild banner;
+        for (int i = 0; i < 9; i++) {
+            banner = new HomeBeanChild();
+            banner.id = i + "";
+            banner.title = "趣到";
+            banner.image = "http://img5.imgtn.bdimg.com/it/u=3532743473,184108530&fm=200&gp=0.jpg";
+            listChilds.add(banner);
+        }
+        return listChilds;
+    }
+
+    /**
+     * 获取tab数据
+     * @return
+     */
+    public static List<HomeTab> getTabData(List<HomeBeanChild> lists){
+        int count = 0;
+        if (lists != null && lists.size() > 0) {
+            count = lists.size() / 5;
+            if (lists.size() % 5 > 0) {
+                count += 1;
+            }
+        }
+
+        List<HomeTab> listChilds = new ArrayList<>();
+        HomeTab tab;
+        for (int i = 0; i < count; i++) {
+            tab = new HomeTab();
+            for (int j = i*5; j < lists.size(); j++) {
+                tab.lists.add(lists.get(j));
+            }
+            listChilds.add(tab);
+        }
+        return listChilds;
+    }
 
     /**
      * 获取banner数据

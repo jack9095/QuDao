@@ -1,107 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/transparent"
+    android:animateLayoutChanges="true"
+    android:background="#ffffff"
     android:orientation="vertical">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/home_appbar"
-        android:layout_width="match_parent"
+    <com.kuanquan.qudao.widget.HomeTitleView
+        android:id="@+id/home_title_view"
         android:layout_height="wrap_content"
-        android:theme="@style/MainAppBar">
+        android:layout_width="match_parent" />
 
-        <!--头部布局-->
-        <LinearLayout
-            android:id="@+id/home_header_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <com.kuanquan.qudao.widget.HomeBanner
-                    android:id="@+id/home_banner_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/header_home_height"
-                    android:background="#ffffff" />
-
-                <LinearLayout
-                    android:id="@+id/ll_view"
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:layout_marginBottom="15dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_horizontal"
-                    />
-
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="110dp">
-                <com.kuanquan.qudao.widget.ProjectViewpager
-                    android:id="@+id/project_view_tab"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#ffffff" />
-
-                <LinearLayout
-                    android:id="@+id/ll_view_pager"
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:layout_marginBottom="15dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_horizontal"
-                    />
-
-            </FrameLayout>
-
-        </LinearLayout>
-        <!--消失头布布局 end-->
-
-        <!--固定到头部的布局-->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_scrollFlags="scroll"
-            android:background="#ffffff"
-            android:clipChildren="false">
-
-            <!--头部tab栏-->
-            <com.flyco.tablayout.SlidingTabLayout
-                android:id="@+id/activity_collection_tab_layout"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="#ffffff"
-                android:paddingLeft="@dimen/dp_80"
-                android:paddingRight="@dimen/dp_80"
-                app:tl_indicator_color="#00BCA7"
-                app:tl_indicator_height="1.5dp"
-                app:tl_indicator_width="@dimen/dp_60"
-                app:tl_indicator_width_equal_title="true"
-                app:tl_tab_space_equal="true"
-                app:tl_textsize="@dimen/sp_14"
-                app:tl_textSelectColor="@color/black"
-                app:tl_textUnselectColor="@color/black"
-                app:tl_underline_color="#00000000"
-                app:tl_underline_height="1dp"/>
-
-        </RelativeLayout>
-
-    </android.support.design.widget.AppBarLayout>
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/activity_collection_vp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_below="@+id/home_title_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:orientation="vertical">
 
-</android.support.design.widget.CoordinatorLayout>
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/home_appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/MainAppBar">
+
+            <!--头部布局-->
+            <LinearLayout
+                android:id="@+id/home_header_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.kuanquan.qudao.widget.HomeBanner
+                        android:id="@+id/home_banner_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/header_home_height"
+                        android:background="#ffffff" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:layout_marginBottom="15dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal" />
+
+                </FrameLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:background="#ffffff"
+                    android:layout_height="@dimen/header_home_tab_height">
+
+                    <View
+                        android:id="@+id/project_view_show"
+                        android:layout_width="match_parent"
+                        android:visibility="gone"
+                        android:layout_height="8dp"/>
+
+                    <com.kuanquan.qudao.widget.ProjectViewpager
+                        android:id="@+id/project_view_tab"
+                        android:layout_below="@+id/project_view_show"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_view_pager"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal" />
+
+                </RelativeLayout>
+
+                <View
+                    android:background="#f2f4f7"
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"/>
+
+            </LinearLayout>
+            <!--消失头布布局 end-->
+
+            <!--固定到头部的布局-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:clipChildren="false"
+                app:layout_scrollFlags="scroll">
+
+                <!--头部tab栏-->
+                <com.flyco.tablayout.SlidingTabLayout
+                    android:id="@+id/activity_collection_tab_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="#ffffff"
+                    app:tl_indicator_color="#0070f4"
+                    app:tl_indicator_height="4dp"
+                    app:tl_indicator_width="@dimen/dp_18"
+                    app:tl_indicator_width_equal_title="true"
+                    app:tl_tab_space_equal="true"
+                    app:tl_textSelectColor="#424242"
+                    app:tl_textUnselectColor="#424242"
+                    app:tl_textsize="17sp"
+                    app:tl_underline_color="#00000000"
+                    app:tl_indicator_corner_radius="@dimen/dp_8"
+                    app:tl_underline_height="4dp" />
+
+            </RelativeLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/activity_collection_vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    </android.support.design.widget.CoordinatorLayout>
+</RelativeLayout>
 

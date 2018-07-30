@@ -26,7 +26,7 @@ public class HomeItemView extends FrameLayout {
 
     private View stick_view_item;
     private TextView tvOne, tvTwo, tvThree, tvFour, tvFive;
-    private RelativeLayout rlOne, rlTwo, rlThree, rlFour, rlFive, rlOne1, rlTwo1, rlThree1, rlFour1, rlFive1;
+    public RelativeLayout rlOne, rlTwo, rlThree, rlFour, rlFive, rlOne1, rlTwo1, rlThree1, rlFour1, rlFive1;
     private ImageView ivOne, ivTwo, ivThree, ivFour, ivFive, ivOne1, ivTwo1, ivThree1, ivFour1, ivFive1;
 
     public List<View> views = new ArrayList<>();
@@ -92,37 +92,7 @@ public class HomeItemView extends FrameLayout {
         imageViews.add(ivFour);
         imageViews.add(ivFive);
 
-        /*rlOne1 = (RelativeLayout) view.findViewById(R.id.course_item_suspension);
-        rlTwo1 = (RelativeLayout) view.findViewById(R.id.live_item_suspension);
-        rlThree1 = (RelativeLayout) view.findViewById(R.id.bank_item_suspension);
-        rlFour1 = (RelativeLayout) view.findViewById(R.id.answer_item_suspension);
-        rlFive1 = (RelativeLayout) view.findViewById(R.id.member_item_suspension);
-        viewOnes.add(rlOne1);
-        viewOnes.add(rlTwo1);
-        viewOnes.add(rlThree1);
-        viewOnes.add(rlFour1);
-        viewOnes.add(rlFive1);
-
-        ivOne1 = (ImageView) view.findViewById(R.id.elective_course_image_suspension);
-        ivTwo1 = (ImageView) view.findViewById(R.id.live_image_suspension);
-        ivThree1 = (ImageView) view.findViewById(R.id.bank_image_suspension);
-        ivFour1 = (ImageView) view.findViewById(R.id.answer_image_suspension);
-        ivFive1 = (ImageView) view.findViewById(R.id.member_image_suspension);
-        imageViewOnes.add(ivOne1);
-        imageViewOnes.add(ivTwo1);
-        imageViewOnes.add(ivThree1);
-        imageViewOnes.add(ivFour1);
-        imageViewOnes.add(ivFive1);*/
     }
-
-
-//    public ImageView getCollection() {
-//        return collection;
-//    }
-//
-//    public ImageView getShare() {
-//        return share;
-//    }
 
     public void setOnClick(View.OnClickListener listener) {
         rlOne.setOnClickListener(listener);

@@ -198,6 +198,17 @@ public class HomeBanner extends ViewPager {
         return super.onInterceptTouchEvent(ev);
     }
 
+    //暂停轮播
+    public void pauseBanner(){
+        mHandler.removeCallbacksAndMessages(null);
+    }
+
+    //继续轮播
+    public void resumeBanner(){
+        mHandler.removeCallbacksAndMessages(null);
+        mHandler.postDelayed(mRunnable, time);
+    }
+
     public void onDestroy() {
         mHandler.removeCallbacksAndMessages(null);
     }

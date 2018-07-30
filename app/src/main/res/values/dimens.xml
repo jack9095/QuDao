@@ -8,4 +8,6 @@
 
     <dimen name="header_height">300dp</dimen>
     <dimen name="header_home_height">200dp</dimen>
+    <dimen name="header_home_tab_height">100dp</dimen>
+    <dimen name="header_home_height_root">300dp</dimen>
 </resources>

@@ -51,7 +51,7 @@
             android:drawablePadding="5dp"
             android:drawableTop="@drawable/selector_tab_goods_divide"
             android:gravity="center"
-            android:text="商品"
+            android:text="直播"
             android:textColor="@drawable/tab_text_selector"
             android:textSize="10sp" />
     </RelativeLayout>
@@ -74,7 +74,7 @@
             android:drawablePadding="5dp"
             android:drawableTop="@drawable/selector_tab_stock_list"
             android:gravity="center"
-            android:text="进货单"
+            android:text="消息"
             android:textColor="@drawable/tab_text_selector"
             android:textSize="10sp" />
         <TextView
@@ -111,7 +111,7 @@
             android:drawablePadding="5dp"
             android:drawableTop="@drawable/selector_tab_member"
             android:gravity="center"
-            android:text="会员"
+            android:text="我的"
             android:textColor="@drawable/tab_text_selector"
             android:textSize="10sp" />
     </RelativeLayout>

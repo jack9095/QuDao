@@ -35,8 +35,8 @@
 
     <style name="home_item_five_image">
         <item name="android:contentDescription">@string/app_name</item>
-        <item name="android:layout_width">36dp</item>
-        <item name="android:layout_height">36dp</item>
+        <item name="android:layout_width">42dp</item>
+        <item name="android:layout_height">42dp</item>
         <item name="android:layout_centerHorizontal">true</item>
     </style>
 
@@ -44,7 +44,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">12sp</item>
-        <item name="android:textColor">#899099</item>
+        <item name="android:textColor">#424242</item>
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:layout_marginTop">8dp</item>
     </style>

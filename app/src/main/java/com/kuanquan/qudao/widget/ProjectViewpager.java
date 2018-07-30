@@ -8,8 +8,13 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.fly.baselibrary.utils.useful.GlideUtil;
 import com.kuanquan.qudao.R;
 import com.kuanquan.qudao.bean.HomeBeanChild;
+import com.kuanquan.qudao.bean.HomeTab;
+import com.kuanquan.qudao.utils.CollectionsUtil;
+
 import java.util.List;
 
 /**
@@ -30,7 +35,7 @@ public class ProjectViewpager extends ViewPager {
         init();
     }
 
-    public void setData(List<HomeBeanChild> bannerList, OnPageItemClickListener clickListener) {
+    public void setData(List<HomeTab> bannerList, OnPageItemClickListener clickListener) {
         mAdapter = new MyAdapter(getContext(), bannerList);
         onPageClickListener = clickListener;
         setAdapter(mAdapter);
@@ -89,11 +94,11 @@ public class ProjectViewpager extends ViewPager {
         super.setCurrentItem(item, true);
     }
 
-    public class MyAdapter extends PagerAdapter implements OnClickListener {
+    public class MyAdapter extends PagerAdapter {
         private Context mContext;
-        private List<HomeBeanChild> mList;
+        private List<HomeTab> mList;
 
-        public MyAdapter(Context context, List<HomeBeanChild> list) {
+        public MyAdapter(Context context, List<HomeTab> list) {
             mList = list;
             mContext = context;
         }
@@ -114,12 +119,44 @@ public class ProjectViewpager extends ViewPager {
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
-            HomeBeanChild info = mList.get(position);
+            HomeTab info = mList.get(position);
             View view = LayoutInflater.from(mContext).inflate(R.layout.new_home_banner_item_f, container, false);
             view.setTag(info);
-            view.setOnClickListener(this);
+//            view.setOnClickListener(this);
             HomeItemView mHomeItemView = view.findViewById(R.id.project_view_pager_layout);
-//            GlideUtil.setImageUrl(getContext(), info.image, banner_image);
+            if (info.lists != null && info.lists.size() > 0) {
+                if (mList.size() == 1) {
+                    for (int i = 0; i < 5; i++) {
+                        mHomeItemView.views.get(i).setVisibility(View.GONE);
+                    }
+
+                    if (onPageClickListener != null) {
+                        onPageClickListener.onTabOther(1);
+                    }
+                }else{
+                    if (onPageClickListener != null) {
+                        onPageClickListener.onTabOther(2);
+                    }
+                }
+                for (int i = 0; i < info.lists.size(); i++) {
+                    if (i < 5) {
+                        mHomeItemView.views.get(i).setVisibility(View.VISIBLE);
+                        mHomeItemView.views.get(i).setOnClickListener(new MyClick(info.lists.get(i)));
+                        CollectionsUtil.setTextView(mHomeItemView.textViews.get(i), info.lists.get(i).title);
+                        GlideUtil.setImageCircle(getContext(), info.lists.get(i).image, mHomeItemView.imageViews.get(i));
+                    }
+                }
+//                }else {
+//                    for (int i = 0; i < info.lists.size(); i++) {
+//                        if (i < 5) {
+//                            mHomeItemView.views.get(i).setVisibility(View.VISIBLE);
+//                            mHomeItemView.views.get(i).setOnClickListener(new MyClick(info.lists.get(i)));
+//                            CollectionsUtil.setTextView(mHomeItemView.textViews.get(i), info.lists.get(i).title);
+//                            GlideUtil.setImage(getContext(), info.lists.get(i).image, mHomeItemView.imageViews.get(i));
+//                        }
+//                    }
+//                }
+            }
             container.addView(view);
             return view;
         }
@@ -129,16 +166,21 @@ public class ProjectViewpager extends ViewPager {
             container.removeView((View) object);
         }
 
-        public List<HomeBeanChild> getData() {
+        public List<HomeTab> getData() {
             return mList;
         }
 
-        @Override
-        public void onClick(View v) {
-            if (v.getTag() instanceof HomeBeanChild) {
-                HomeBeanChild info = (HomeBeanChild) v.getTag();
+        class MyClick implements OnClickListener {
+            HomeBeanChild info;
+
+            public MyClick(HomeBeanChild info) {
+                this.info = info;
+            }
+
+            @Override
+            public void onClick(View view) {
                 if (onPageClickListener != null) {
-                    onPageClickListener.onPageClick(info);
+                    onPageClickListener.onPageItemClick(info);
                 }
             }
         }
@@ -146,9 +188,12 @@ public class ProjectViewpager extends ViewPager {
 
 
     public OnPageItemClickListener onPageClickListener;
+
     public interface OnPageItemClickListener {
-        void onPageClick(HomeBeanChild info);
+        void onPageItemClick(HomeBeanChild info);
+
         void onTabPageSelected(int position);
+        void onTabOther(int type);  // 1 隐藏  2 显示
     }
 
 }

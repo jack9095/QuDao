@@ -9,13 +9,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.fly.baselibrary.mvpEeventBus.EventCenter;
 import com.kuanquan.qudao.R;
-import com.kuanquan.qudao.ui.adapter.HomeAdapter_release;
+import com.kuanquan.qudao.ui.adapter.HomeAdapter;
 import com.kuanquan.qudao.utils.DataUtils;
 
-public class AFragment extends CommonFragment implements HomeAdapter_release.OnHomeListener{
+import org.greenrobot.eventbus.Subscribe;
 
-    private HomeAdapter_release mHomeAdapter;
+public class AFragment extends CommonFragment implements HomeAdapter.OnHomeListener{
+
+    private HomeAdapter mHomeAdapter;
     private RecyclerView mRecyclerView;
     private SwipeRefreshLayout mSwipeRefreshLayout;
 
@@ -33,7 +36,7 @@ public class AFragment extends CommonFragment implements HomeAdapter_release.OnH
 
     @Override
     protected void initData(Bundle savedInstanceState) {
-        mHomeAdapter = new HomeAdapter_release(this);
+        mHomeAdapter = new HomeAdapter(this);
         mRecyclerView.setAdapter(mHomeAdapter);
         mHomeAdapter.setData(DataUtils.getFindData());
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -52,7 +55,19 @@ public class AFragment extends CommonFragment implements HomeAdapter_release.OnH
 
     @Override
     protected boolean isBindEventBusHere() {
-        return false;
+        return true;
+    }
+
+    @Subscribe
+    public void onEventMainThread(EventCenter event){
+        switch (event.getEventCode()){
+            case "recycler_unFocus":
+                if (mRecyclerView != null) {
+                    mRecyclerView.setFocusable(false);
+                    mRecyclerView.scrollToPosition(0);
+                }
+                break;
+        }
     }
 
     @Override
