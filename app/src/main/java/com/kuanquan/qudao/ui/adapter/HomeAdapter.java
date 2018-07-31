@@ -16,10 +16,11 @@ import java.util.List;
 
 /**
  * Created by fei.wang on 2018/6/11.
+ *
  */
 public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final int ONE = 0;
-    private final int THREE = 2;
+    private final int THREE = 1;
     private List<HomeData> lists;
     private ViewGroup parentF;
 
@@ -43,8 +44,8 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 holder = new HomeAdapter_release.LiveHolder(view);
                 return holder;
             case THREE:
-                view = View.inflate(parent.getContext(), R.layout.adapter_discover_layout, null);
-                holder = new HomeAdapter_release.DiscoverHolder(view);
+                view = View.inflate(parent.getContext(), R.layout.adapter_discover_layout_home, null);
+                holder = new DiscoverHolder(view);
                 return holder;
             default:
                 return null;
@@ -59,7 +60,6 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             GlideUtil.setImageCircle(parentF.getContext(), homeBean.image, mLiveHolder.live_open_head_image);
             mLiveHolder.live_open_title.setText(homeBean.title);
             mLiveHolder.live_open_content.setText(homeBean.content);
-//            mLiveHolder.itemView.setContentDescription("直播");
         } else if (holder instanceof DiscoverHolder) {  // 发现
             DiscoverHolder mDiscoverHolder = (DiscoverHolder) holder;
             if (homeBean != null) {
@@ -68,11 +68,6 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 GlideUtil.setImage(parentF.getContext(), homeBean.image, mDiscoverHolder.image);
             }
             mDiscoverHolder.colse.setOnClickListener(new CloseOnClick(position, mDiscoverHolder.colse));
-            if (position == 0) {
-                mDiscoverHolder.text_discover_title_stick.setVisibility(View.VISIBLE);
-            }else{
-                mDiscoverHolder.text_discover_title_stick.setVisibility(View.GONE);
-            }
         }
     }
 
@@ -86,7 +81,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         int itemType = lists.get(position).itemType;
         if (itemType == 0) {        //是直播布局
             return ONE;
-        } else if (itemType == 2) { //是发现布局
+        } else if (itemType == 1) { //是发现布局
             return THREE;
         } else {//其他位置返回正常的布局
             return THREE;
@@ -114,7 +109,6 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static class DiscoverHolder extends RecyclerView.ViewHolder {
         TextView title, content;
         ImageView image, colse;
-        RelativeLayout text_discover_title_stick;
 
         public DiscoverHolder(View itemView) {
             super(itemView);
@@ -122,7 +116,6 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             content = itemView.findViewById(R.id.text_discover_bottom_content);
             image = itemView.findViewById(R.id.text_discover_image);
             colse = itemView.findViewById(R.id.text_discover_image_close);
-            text_discover_title_stick = itemView.findViewById(R.id.text_discover_title_stick);
         }
     }
 

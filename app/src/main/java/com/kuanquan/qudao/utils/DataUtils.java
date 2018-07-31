@@ -91,7 +91,7 @@ public class DataUtils {
             mHomeBean = new HomeData();
             mHomeBean.head = "发现";   // 表示发现
             mHomeBean.isDiscover = "1";   // 表示发现
-            mHomeBean.itemType = 2;
+            mHomeBean.itemType = 1;
             mHomeBean.title = i + "《经济学动态》是中国社会科学院经济研究所主办的向国内外发行的经济类月刊";
             mHomeBean.content = i + "《经济学动态》 · 3211阅读";
             mHomeBean.image = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528784678961&di=3d8861c62ef509d7eecf123b99c74dad&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fdcc451da81cb39dbd7c13dcbda160924ab18302d.jpg";
