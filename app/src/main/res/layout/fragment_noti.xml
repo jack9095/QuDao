@@ -14,10 +14,10 @@
         android:layout_width="match_parent" />
 
     <android.support.design.widget.CoordinatorLayout
-        android:layout_below="@+id/home_title_view"
+        android:layout_marginTop="48dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/transparent"
+        android:background="#ffffff"
         android:orientation="vertical">
 
         <android.support.design.widget.AppBarLayout
@@ -105,6 +105,7 @@
                 <!--头部tab栏-->
                 <com.flyco.tablayout.SlidingTabLayout
                     android:id="@+id/activity_collection_tab_layout"
+                    android:layout_toLeftOf="@+id/activity_collection_tab_layout_image_button"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="#ffffff"
@@ -115,10 +116,20 @@
                     app:tl_tab_space_equal="true"
                     app:tl_textSelectColor="#424242"
                     app:tl_textUnselectColor="#424242"
+                    android:layout_marginRight="10dp"
                     app:tl_textsize="17sp"
                     app:tl_underline_color="#00000000"
                     app:tl_indicator_corner_radius="@dimen/dp_8"
                     app:tl_underline_height="4dp" />
+
+                <ImageButton
+                    android:id="@+id/activity_collection_tab_layout_image_button"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_launcher"/>
 
             </RelativeLayout>
 

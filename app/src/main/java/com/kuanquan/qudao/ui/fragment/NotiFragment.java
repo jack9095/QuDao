@@ -15,6 +15,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -60,6 +61,7 @@ public class NotiFragment extends CommonFragment implements HomeBanner.OnPageCli
     private LinearLayout ll_view_pager; // 小圆点
     private ArrayList<ImageView> dotsListF = new ArrayList<ImageView>();
     private View project_view_show;
+    private ImageButton image_button;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,6 +75,8 @@ public class NotiFragment extends CommonFragment implements HomeBanner.OnPageCli
 
     @Override
     protected void initView() {
+        image_button = view.findViewById(R.id.activity_collection_tab_layout_image_button);
+        image_button.setOnClickListener(this);
         project_view_show = view.findViewById(R.id.project_view_show);
         headerLayout = (LinearLayout) view.findViewById(R.id.home_header_layout);  // 隐藏的头部布局
         mViewPager = (ViewPager) view.findViewById(R.id.activity_collection_vp);
@@ -313,6 +317,22 @@ public class NotiFragment extends CommonFragment implements HomeBanner.OnPageCli
                 break;
             case R.id.home_title_rl_right_image: // 通知
                 startActivity(new Intent(context, NotifyActivity.class));
+                break;
+            case R.id.activity_collection_tab_layout_image_button:
+                isHideHeaderLayout = true;
+                LogUtil.e("移出屏幕了");
+                //当偏移量超过顶部layout的高度时，我们认为他已经完全移动出屏幕了
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        AppBarLayout.LayoutParams mParams = (AppBarLayout.LayoutParams) headerLayout.getLayoutParams();
+                        mParams.setScrollFlags(0);
+                        headerLayout.setLayoutParams(mParams);
+                        headerLayout.setVisibility(View.GONE);
+                        mHomeTitleView.changeState(true);
+                        mHomeBanner.pauseBanner();
+                    }
+                },100);
                 break;
         }
     }

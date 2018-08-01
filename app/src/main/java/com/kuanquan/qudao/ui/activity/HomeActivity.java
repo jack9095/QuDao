@@ -1,12 +1,15 @@
 package com.kuanquan.qudao.ui.activity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
 
 import com.kuanquan.qudao.R;
 import com.kuanquan.qudao.ui.fragment.HomeFragment;
@@ -19,16 +22,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
+public class HomeActivity extends FragmentActivity implements View.OnClickListener {
     private BottomTabView mBottomTabView;
     private FragmentManager fragmentManager;
     private List<Fragment> fragmentList = new ArrayList<>();
     private int currentIndex = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().hide();
-        }
+//        if (getSupportActionBar() != null) {
+//            getSupportActionBar().hide();
+//        }
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         fragmentList.add(new HomeFragment());
