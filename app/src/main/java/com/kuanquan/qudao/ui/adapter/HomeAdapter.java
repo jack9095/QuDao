@@ -1,9 +1,11 @@
 package com.kuanquan.qudao.ui.adapter;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.example.fly.baselibrary.utils.base.GsonUtils;
@@ -20,9 +22,13 @@ import java.util.List;
  */
 public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final int ONE = 0;
-    private final int THREE = 1;
+    private final int TWO = 1;
+    private final int THREE = 2;
     private List<HomeData> lists;
     private ViewGroup parentF;
+    public RelativeLayout loadLayout;
+    public TextView loadText;
+    public ProgressBar loadProgress;
 
     public HomeAdapter(OnHomeListener mOnHomeListener) {
         this.mOnHomeListener = mOnHomeListener;
@@ -43,10 +49,19 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 view = View.inflate(parent.getContext(), R.layout.adapter_live_open_layout, null);
                 holder = new HomeAdapter_release.LiveHolder(view);
                 return holder;
-            case THREE:
+            case TWO:
                 view = View.inflate(parent.getContext(), R.layout.adapter_discover_layout_home, null);
                 holder = new DiscoverHolder(view);
                 return holder;
+            case THREE:
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_footer, parent, false);
+                loadLayout = (RelativeLayout) view.findViewById(R.id.load_layout);
+                loadText = (TextView) view.findViewById(R.id.listview_foot_text);
+                loadText.setText("正在加载...");
+                loadText.setVisibility(View.GONE);
+                loadProgress = (ProgressBar) view.findViewById(R.id.listview_foot_progress);
+                loadProgress.setVisibility(View.GONE);
+                return new FootViewHolder(view);
             default:
                 return null;
         }
@@ -54,6 +69,9 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        if (position >= lists.size()) {
+            return;
+        }
         HomeData homeBean = lists.get(position);
         if (holder instanceof LiveHolder) {  // live
             LiveHolder mLiveHolder = (LiveHolder) holder;
@@ -73,18 +91,34 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return lists == null ? 0 : lists.size();
+        return lists == null ? 0 : lists.size() + 1;
     }
 
     @Override
     public int getItemViewType(int position) {
-        int itemType = lists.get(position).itemType;
+//        int itemType = lists.get(position).itemType;
+        int itemType;
+        if (position < lists.size()) {
+            itemType = lists.get(position).itemType;
+        } else {
+            itemType = THREE;
+        }
         if (itemType == 0) {        //是直播布局
             return ONE;
         } else if (itemType == 1) { //是发现布局
+            return TWO;
+        } else if (itemType == 2) { //是脚步
             return THREE;
         } else {//其他位置返回正常的布局
-            return THREE;
+            return TWO;
+        }
+    }
+
+    public static class FootViewHolder extends RecyclerView.ViewHolder {
+        TextView text;
+        public FootViewHolder(View itemView) {
+            super(itemView);
+            text = (TextView) itemView.findViewById(R.id.listview_foot_text);
         }
     }
 

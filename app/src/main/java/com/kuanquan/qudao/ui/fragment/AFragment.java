@@ -21,6 +21,7 @@ public class AFragment extends CommonFragment implements HomeAdapter.OnHomeListe
     private HomeAdapter mHomeAdapter;
     private RecyclerView mRecyclerView;
     private SwipeRefreshLayout mSwipeRefreshLayout;
+    private LinearLayoutManager linearLayoutManager;
 
     @Override
     protected View initLayout(LayoutInflater inflater, ViewGroup container) {
@@ -31,6 +32,7 @@ public class AFragment extends CommonFragment implements HomeAdapter.OnHomeListe
     protected void initView() {
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_layout);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
+        linearLayoutManager = new LinearLayoutManager(context);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
     }
 
@@ -74,4 +76,33 @@ public class AFragment extends CommonFragment implements HomeAdapter.OnHomeListe
     public void onNotify() {
 
     }
+
+    private int lastVisibleItem;
+    private boolean isRefresh;  // true 是刷新
+    private boolean isLoad; // true 是加载到数据可以继续加载数据（网络请求）
+    private class RvScrollListener extends RecyclerView.OnScrollListener {
+        @Override
+        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            super.onScrolled(recyclerView, dx, dy);
+            lastVisibleItem = linearLayoutManager.findLastVisibleItemPosition();  // 滑动到最后一个
+        }
+
+        @Override
+        public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            super.onScrollStateChanged(recyclerView, newState);
+
+            if (newState == RecyclerView.SCROLL_STATE_IDLE
+                    && lastVisibleItem + 1 == mHomeAdapter.getItemCount()) {
+                if (DataUtils.getFindData() != null && DataUtils.getFindData().size() >= 5) {
+                    if (isLoad) {
+                        mHomeAdapter.loadProgress.setVisibility(View.VISIBLE);
+                        mHomeAdapter.loadText.setVisibility(View.VISIBLE);
+                        isRefresh = false;
+                        // 网络请求
+                    }
+                }
+            }
+        }
+    }
+
 }
