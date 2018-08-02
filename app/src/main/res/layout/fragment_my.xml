@@ -1,13 +1,7 @@
-<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.kuanquan.qudao.widget.SwipeRefreshLayoutRecycler xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/swipe_refresh_layout"
+    android:id="@+id/swipe_refresh_layout_recycler"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ffffff" />
-
-</android.support.v4.widget.SwipeRefreshLayout>
+</com.kuanquan.qudao.widget.SwipeRefreshLayoutRecycler>
