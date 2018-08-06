@@ -28,24 +28,26 @@
                 android:layout_height="@dimen/header_height"
                 android:background="@color/colorPrimaryDark" />
 
-            <!--头部tab栏-->
-            <com.flyco.tablayout.SlidingTabLayout
-                android:id="@+id/tabs"
-                app:layout_scrollFlags="scroll"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="#ffffff"
-                app:tl_indicator_color="#0070f4"
-                app:tl_indicator_height="4dp"
-                app:tl_indicator_width="20dp"
-                app:tl_indicator_width_equal_title="true"
-                app:tl_tab_space_equal="true"
-                app:tl_textSelectColor="#424242"
-                app:tl_textUnselectColor="#424242"
-                app:tl_textsize="17sp"
-                app:tl_underline_color="#00000000"
-                app:tl_indicator_corner_radius="@dimen/dp_8"
-                app:tl_underline_height="4dp" />
+            <!--<com.ogaclejapan.smarttablayout.SmartTabLayout-->
+                <!--android:id="@+id/tabs"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="35dp"-->
+                <!--android:background="@android:color/white"-->
+                <!--app:layout_scrollFlags="scroll"-->
+                <!--app:stl_customTabTextLayoutId="@layout/custom_tab"-->
+                <!--app:stl_customTabTextViewId="@+id/custom_text"-->
+                <!--app:stl_distributeEvenly="true"-->
+                <!--app:stl_dividerColor="@color/colorPrimary"-->
+                <!--app:stl_dividerThickness="0dp"-->
+                <!--app:stl_indicatorColor="@color/colorPrimary"-->
+                <!--app:stl_indicatorCornerRadius="0dp"-->
+                <!--app:stl_indicatorGravity="bottom"-->
+                <!--app:stl_indicatorInterpolation="linear"-->
+                <!--app:stl_indicatorThickness="2.5dp"-->
+                <!--app:stl_indicatorWithoutPadding="true"-->
+                <!--app:stl_underlineColor="@android:color/transparent"-->
+                <!--app:stl_underlineThickness="0dp" />-->
+
 
         </android.support.design.widget.AppBarLayout>
 

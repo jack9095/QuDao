@@ -11,7 +11,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.ogaclejapan.smarttablayout.SmartTabLayout;
+import com.flyco.tablayout.SlidingTabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     //顶部HeaderLayout
     private LinearLayout headerLayout;
 
-    private SmartTabLayout mTabs;
+    private SlidingTabLayout mTabs;
 
     //是否隐藏了头部
     private boolean isHideHeaderLayout = false;
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     //初始化方法
     private void init(){
-        mTabs = (SmartTabLayout) findViewById(R.id.tabs);
+        mTabs = (SlidingTabLayout) findViewById(R.id.tabs);
         mainTabFragmentAdapter = new MainTabFragmentAdapter(getSupportFragmentManager(),this);
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mViewPager.setAdapter(mainTabFragmentAdapter);
