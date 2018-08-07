@@ -17,15 +17,15 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         // 创建两张表出来
-        db.execSQL(DbConfig.CREATE_EVENT_SET_TABLE_SQL);
-        db.execSQL(DbConfig.CREATE_SCHEDULE_TABLE_SQL);
+        db.execSQL(DbConfig.CREATE_TABLE_SQL);
+//        db.execSQL(DbConfig.CREATE_SCHEDULE_TABLE_SQL);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         if (oldVersion != newVersion) {
-            db.execSQL(DbConfig.DROP_EVENT_SET_TABLE_SQL);
-            db.execSQL(DbConfig.DROP_SCHEDULE_TABLE_SQL);
+            db.execSQL(DbConfig.DROP_TABLE_SQL);
+//            db.execSQL(DbConfig.DROP_SCHEDULE_TABLE_SQL);
             onCreate(db);
         }
     }

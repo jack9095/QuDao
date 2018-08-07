@@ -5,25 +5,35 @@ package com.example.db.data;
  * 数据库配置
  */
 public interface DbConfig {
-    int DATABASE_VERSION = 3;
+    int DATABASE_VERSION = 1;  // 数据库版本
 
-    String DATABASE_NAME = "FlyDB";
+    String DATABASE_NAME = "FlyDB";  // 数据库名称
 
-    String EVENT_SET_ID = "id";
-    String EVENT_SET_NAME = "name";
-    String EVENT_SET_COLOR = "color";
-    String EVENT_SET_ICON = "icon";
+    // 创建一张表
+    String KE_ID = "id";         // 主键
+    String ITEM_ID = "item_id";       // 这条内容对应的id
+    String TITLE = "title";      // 标题
+    String CONTENT = "content";  // 内容
+    String IMAGE = "image";      // 图片
+    String NUM = "num";          // 阅读素
+    String TIME = "time";        // 时间
 
-    String EVENT_SET_TABLE_NAME = "EventSet";
+    String TABLE_NAME = "Recommend";  // 表名
 
-    String CREATE_EVENT_SET_TABLE_SQL = "CREATE TABLE " + EVENT_SET_TABLE_NAME + "("
-            + EVENT_SET_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + EVENT_SET_NAME + " VARCHAR(32), "
-            + EVENT_SET_COLOR + " INTEGER, "
-            + EVENT_SET_ICON + " INTEGER" + ")";
+    String CREATE_TABLE_SQL = "CREATE TABLE " + TABLE_NAME + "("
+            + KE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + ITEM_ID + " VARCHAR(256), "
+            + TITLE + " VARCHAR(128), "
+            + CONTENT + " VARCHAR(256), "
+            + IMAGE + " VARCHAR(128), "
+            + NUM + " VARCHAR(128), "
+            + TIME + " VARCHAR(256)"
+            + ")";
 
-    String DROP_EVENT_SET_TABLE_SQL = "DROP TABLE " + EVENT_SET_TABLE_NAME;
+    String DROP_TABLE_SQL = "DROP TABLE " + TABLE_NAME;  // 删除表
 
+
+    // 另外一张表
     String SCHEDULE_ID = "id";
     String SCHEDULE_COLOR = "color";
     String SCHEDULE_TITLE = "title";
