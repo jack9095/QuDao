@@ -2,6 +2,8 @@ package com.example.fly.baselibrary.mvpExample.base;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
+import android.view.View;
 
 import com.example.fly.baselibrary.mvpEeventBus.EventCenter;
 
@@ -32,6 +34,14 @@ public abstract  class BaseActivity<V,T extends BasePresenter<V>> extends Activi
         mPresent.deleteAttach();
         super.onDestroy();
 
+    }
+
+    protected void addOnClickListeners(View.OnClickListener listener, @IdRes int... ids) {
+        if (ids != null) {
+            for (@IdRes int id : ids) {
+                findViewById(id).setOnClickListener(listener);
+            }
+        }
     }
 
     /**

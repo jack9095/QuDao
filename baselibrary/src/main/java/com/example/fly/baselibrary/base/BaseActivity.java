@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
@@ -16,6 +17,7 @@ import android.support.v4.util.ArrayMap;
 import android.support.v7.app.AppCompatActivity;
 import android.transition.Fade;
 import android.transition.Transition;
+import android.view.View;
 
 import com.example.fly.baselibrary.R;
 import com.example.fly.baselibrary.utils.useful.PermissionManager;
@@ -365,5 +367,13 @@ public abstract class BaseActivity<T extends BasePresenter>
     public void finish() {
         super.finish();
         ActivityCollector.finishActivity(this);
+    }
+
+    protected void addOnClickListeners(View.OnClickListener listener, @IdRes int... ids) {
+        if (ids != null) {
+            for (@IdRes int id : ids) {
+                view.findViewById(id).setOnClickListener(listener);
+            }
+        }
     }
 }

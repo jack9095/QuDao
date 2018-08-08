@@ -9,14 +9,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/CoordinatorLayoutDemo" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/baselibrary" />
-            <option value="$PROJECT_DIR$/db" />
-            <option value="$PROJECT_DIR$/recycler_animator" />
+            <option value="$PROJECT_DIR$/permission" />
+            <option value="$PROJECT_DIR$/permission_library" />
             <option value="$PROJECT_DIR$/test" />
-            <option value="$PROJECT_DIR$/webview" />
-            <option value="$PROJECT_DIR$/weibo_find" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CoordinatorLayoutDemo/CoordinatorLayoutDemo.iml" filepath="$PROJECT_DIR$/CoordinatorLayoutDemo/CoordinatorLayoutDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/QuDao.iml" filepath="$PROJECT_DIR$/QuDao.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/baselibrary/baselibrary.iml" filepath="$PROJECT_DIR$/baselibrary/baselibrary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/db/db.iml" filepath="$PROJECT_DIR$/db/db.iml" />
-      <module fileurl="file://$PROJECT_DIR$/recycler_animator/recycler_animator.iml" filepath="$PROJECT_DIR$/recycler_animator/recycler_animator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/permission/permission.iml" filepath="$PROJECT_DIR$/permission/permission.iml" />
+      <module fileurl="file://$PROJECT_DIR$/permission_library/permission_library.iml" filepath="$PROJECT_DIR$/permission_library/permission_library.iml" />
       <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/webview/webview.iml" filepath="$PROJECT_DIR$/webview/webview.iml" />
-      <module fileurl="file://$PROJECT_DIR$/weibo_find/weibo_find.iml" filepath="$PROJECT_DIR$/weibo_find/weibo_find.iml" />
     </modules>
   </component>
 </project>

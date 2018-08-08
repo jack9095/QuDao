@@ -1,0 +1,44 @@
+
+// 请求权限
+public void requestPermission() {
+        CallPermissions.with(this)
+                .permission("", "")  // 这里写入需要授权的权限例如相机(android.permission.CAMERA)、日历等等
+                .request(new OnPermission() {
+
+                    @Override
+                    public void hasPermission(List<String> granted, boolean isAll) {
+                        if (isAll) {
+                            Toast.makeText(MainActivity.this, "获取权限成功", Toast.LENGTH_SHORT).show();
+                        }else {
+                            Toast.makeText(MainActivity.this, "获取权限成功，部分权限未正常授予", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void errorPermission(List<String> denied, boolean quick) {
+                        if(quick) {
+                            Toast.makeText(MainActivity.this, "被永久拒绝授权，请手动授予权限", Toast.LENGTH_SHORT).show();
+                            //如果是被永久拒绝就跳转到应用权限系统设置页面
+                            CallPermissions.gotoPermissionSettings(MainActivity.this);
+                        }else {
+                            Toast.makeText(MainActivity.this, "获取权限失败", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+
+    // 判断是否获取到权限
+    public void isPermission() {
+            if (CallPermissions.isHasPermission(MainActivity.this, "android.permission.CAMERA", "android.permission.WRITE_CALENDAR")) {
+                Toast.makeText(MainActivity.this, "已经获取到权限，不需要再次申请了", Toast.LENGTH_SHORT).show();
+            }else {
+                Toast.makeText(MainActivity.this, "还没有获取到权限或者部分权限未授予", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+    // 跳转设置权限页面
+
+    public void gotoPermissionSettings() {
+                CallPermissions.gotoPermissionSettings(MainActivity.this);
+            }

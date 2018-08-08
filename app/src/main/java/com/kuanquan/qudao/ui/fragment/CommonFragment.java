@@ -2,6 +2,7 @@ package com.kuanquan.qudao.ui.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -95,5 +96,13 @@ public abstract  class CommonFragment extends Fragment {
 
     public void postEventBus(String code, Object obj) {
         EventBus.getDefault().post(new EventCenter<Object>(code, obj));
+    }
+
+    protected void addOnClickListeners(View.OnClickListener listener,@IdRes int... ids) {
+        if (ids != null) {
+            for (@IdRes int id : ids) {
+                view.findViewById(id).setOnClickListener(listener);
+            }
+        }
     }
 }
