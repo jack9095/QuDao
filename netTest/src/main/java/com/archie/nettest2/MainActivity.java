@@ -18,6 +18,9 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+/**
+ * https://blog.csdn.net/jarchie520/article/details/78794115
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -26,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         final TextView textView = (TextView) findViewById(R.id.text);
         //测试网络框架
-        RequestCenter.requestRecommandData(new DisposeDataListener() {
+        RequestCenter.requestGetRecommandData(new DisposeDataListener() {
             @Override
             public void onSuccess(Object responseObj) {
                 TestModel model = (TestModel) responseObj;

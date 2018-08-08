@@ -27,8 +27,24 @@ public class RequestCenter {
                 new DisposeDataHandle(listener,clazz));
     }
 
-    public static void requestRecommandData(DisposeDataListener listener){
-        RequestCenter.getRequest(HttpConstant.HOME_RECOMMAND,null,listener, TestModel.class);
+    //根据参数发送post请求
+    private static void postRequest(String url, RequestParams params,
+                                   DisposeDataListener listener,
+                                   Class<?> clazz){
+        CommonOkHttpClient.post(CommonRequest.createGetRequest(url, params),
+                new DisposeDataHandle(listener,clazz));
+    }
+
+    public static void requestGetRecommandData(DisposeDataListener listener){
+        RequestParams params = new RequestParams();
+        params.put("username","北京");
+        RequestCenter.getRequest(HttpConstant.HOME_RECOMMAND,params,listener, TestModel.class);
+    }
+
+    public static void requestPostRecommandData(DisposeDataListener listener){
+        RequestParams params = new RequestParams();
+        params.put("username","北京");
+        RequestCenter.postRequest(HttpConstant.HOME_RECOMMAND,params,listener, TestModel.class);
     }
 
 }
