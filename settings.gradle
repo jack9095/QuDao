@@ -1,4 +1,6 @@
-include ':app', ':permission_library', ':permission'
+include ':app'
+include ':permission_library'
+include ':permission'
 //include ':db'
 //include ':recycler_animator'
 //include ':library', ':top_bottom_scroll'
