@@ -30,7 +30,7 @@ import okhttp3.Response;
 public class CommonJsonCallback implements Callback {
 
     //与服务器的字段的一个对应关系
-    protected final String RESULT_CODE = "ecode"; //有返回则对于http请求来说是成功的，但还有可能是业务逻辑上的错误
+//    protected final String RESULT_CODE = "ecode"; //有返回则对于http请求来说是成功的，但还有可能是业务逻辑上的错误
     protected final int RESULT_CODE_VALUE = 0;
     protected final String ERROR_MSG = "emsg";
     protected final String EMPTY_MSG = "";
@@ -82,9 +82,9 @@ public class CommonJsonCallback implements Callback {
         }
         try {
             JSONObject result = new JSONObject(responseObj.toString());
-            if (result.has(RESULT_CODE)) {
-                //从JSON对象中取出我们的响应码，如果为0，则是正确的响应
-                if (result.getInt(RESULT_CODE) == RESULT_CODE_VALUE) {
+//            if (result.has(RESULT_CODE)) {
+//                //从JSON对象中取出我们的响应码，如果为0，则是正确的响应
+//                if (result.getInt(RESULT_CODE) == RESULT_CODE_VALUE) {
                     if (mClass == null) {
                         mListener.onSuccess(responseObj);
                     } else { //需要转化为实体对象
@@ -95,10 +95,10 @@ public class CommonJsonCallback implements Callback {
                             mListener.onFailure(new OkHttpException(JSON_ERROR, EMPTY_MSG));
                         }
                     }
-                } else { //将服务端返回的异常回调到应用层去处理
-                    mListener.onFailure(new OkHttpException(OTHER_ERROR, result.get(RESULT_CODE)));
-                }
-            }
+//                } else { //将服务端返回的异常回调到应用层去处理
+//                    mListener.onFailure(new OkHttpException(OTHER_ERROR, result.get(RESULT_CODE)));
+//                }
+//            }
         } catch (Exception e) {
             e.printStackTrace();
             mListener.onFailure(new OkHttpException(OTHER_ERROR, e.getMessage()));
