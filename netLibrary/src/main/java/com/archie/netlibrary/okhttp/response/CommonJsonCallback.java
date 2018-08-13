@@ -80,8 +80,8 @@ public class CommonJsonCallback implements Callback {
             mListener.onFailure(new OkHttpException(NETWORK_ERROR, EMPTY_MSG));
             return;
         }
-        try {
-            JSONObject result = new JSONObject(responseObj.toString());
+//        try {
+//            JSONObject result = new JSONObject(responseObj.toString());
 //            if (result.has(RESULT_CODE)) {
 //                //从JSON对象中取出我们的响应码，如果为0，则是正确的响应
 //                if (result.getInt(RESULT_CODE) == RESULT_CODE_VALUE) {
@@ -99,10 +99,10 @@ public class CommonJsonCallback implements Callback {
 //                    mListener.onFailure(new OkHttpException(OTHER_ERROR, result.get(RESULT_CODE)));
 //                }
 //            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            mListener.onFailure(new OkHttpException(OTHER_ERROR, e.getMessage()));
-        }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            mListener.onFailure(new OkHttpException(OTHER_ERROR, e.getMessage()));
+//        }
     }
 
 }
