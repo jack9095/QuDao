@@ -1,4 +1,4 @@
-include ':app'
+include ':app', ':download'
 include ':netTest'
 include ':netLibrary'
 //include ':permission_library'
