@@ -17,8 +17,20 @@
         android:layout_height="wrap_content"
         android:text="FINGER DRAWING BUTTON" />
 
-    <com.example.androiderasure.ScratchTextView
-        android:layout_width="200dp"
-        android:layout_height="200dp"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <com.example.androiderasure.ScratchTextView
+            android:id="@+id/tv_Scratch"
+            android:layout_width="470dp"
+            android:layout_height="170dp"
+            android:background="#ffffff"
+            android:text="再来一瓶"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:layout_centerInParent="true"
+            android:gravity="center"/>
+    </RelativeLayout>
+
     
 </LinearLayout>

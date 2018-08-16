@@ -87,11 +87,11 @@ public class ScratchTextView extends TextView {
         mCanvas.drawColor(bgColor);//背景色
 
         //.从资源文件中获取图片
-        Bitmap photo = BitmapFactory.decodeResource(this.getResources(), R.drawable.maojin_ic);
+        Bitmap photo = BitmapFactory.decodeResource(this.getResources(), R.mipmap.ggbg);
         mCanvas.drawBitmap(photo, 0, 1, paint);//设置遮盖层的图片。比如说，衣服
 
         //设置外层的文字。
-        mCanvas.drawText("不要嘛！！", getLayoutParams().width / 4, getLayoutParams().height / 2 + 15, paint);
+        mCanvas.drawText("快点刮", getLayoutParams().width / 4, getLayoutParams().height / 2 + 15, paint);
         isInited = true;
 
     }

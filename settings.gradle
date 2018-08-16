@@ -1,4 +1,7 @@
-include ':app', ':download', ':androiderasure', ':scratchTextView'
+//include ':app'
+//include ':download'
+//include ':androiderasure'
+include ':scratchTextView'
 include ':netTest'
 include ':netLibrary'
 //include ':permission_library'

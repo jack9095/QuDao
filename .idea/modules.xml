@@ -3,10 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/QuDao.iml" filepath="$PROJECT_DIR$/QuDao.iml" />
-      <module fileurl="file://$PROJECT_DIR$/androiderasure/androiderasure.iml" filepath="$PROJECT_DIR$/androiderasure/androiderasure.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/baselibrary/baselibrary.iml" filepath="$PROJECT_DIR$/baselibrary/baselibrary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/download/download.iml" filepath="$PROJECT_DIR$/download/download.iml" />
       <module fileurl="file://$PROJECT_DIR$/netLibrary/netLibrary.iml" filepath="$PROJECT_DIR$/netLibrary/netLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/netTest/netTest.iml" filepath="$PROJECT_DIR$/netTest/netTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/scratchTextView/scratchTextView.iml" filepath="$PROJECT_DIR$/scratchTextView/scratchTextView.iml" />

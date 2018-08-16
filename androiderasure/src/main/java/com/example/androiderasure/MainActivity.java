@@ -17,7 +17,10 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
+        ScratchTextView mStv = (ScratchTextView) findViewById(R.id.tv_Scratch);
+        String[] str_reward = {"谢谢惠顾", "一等奖", "再买一瓶"};
+        mStv.setText(str_reward[1]);
+        mStv.initScratchCard(0xFFCECED1, 50, 0f);//调用方法，初始化scartchTextView
         initEvent();
     }
     
