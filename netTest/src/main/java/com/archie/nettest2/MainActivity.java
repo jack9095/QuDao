@@ -32,9 +32,8 @@ public class MainActivity extends AppCompatActivity {
         RequestCenter.requestGetRecommandData(new DisposeDataListener() {
             @Override
             public void onSuccess(Object responseObj) {
-                TestModel model = (TestModel) responseObj;
                 //设置名称字段显示到TextView上
-                textView.setText(model.getData().getList().get(0).getUname());
+                textView.setText(responseObj.toString());
             }
 
             @Override

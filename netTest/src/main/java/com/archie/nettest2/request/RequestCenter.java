@@ -37,8 +37,9 @@ public class RequestCenter {
 
     public static void requestGetRecommandData(DisposeDataListener listener){
         RequestParams params = new RequestParams();
-        params.put("username","北京");
-        RequestCenter.getRequest(HttpConstant.HOME_RECOMMAND,params,listener, TestModel.class);
+        params.put("id","2");
+        params.put("name","北京");
+        RequestCenter.getRequest(HttpConstant.HOME_RECOMMAND,params,listener, null);
     }
 
     public static void requestPostRecommandData(DisposeDataListener listener){

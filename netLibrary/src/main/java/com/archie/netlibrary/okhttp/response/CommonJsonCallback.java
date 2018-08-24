@@ -3,6 +3,7 @@ package com.archie.netlibrary.okhttp.response;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.archie.netlibrary.okhttp.exception.OkHttpException;
 import com.archie.netlibrary.okhttp.listener.DisposeDataHandle;
@@ -56,6 +57,7 @@ public class CommonJsonCallback implements Callback {
         mDeliveryHandler.post(new Runnable() {
             @Override
             public void run() {
+                Log.e("CommonJsonCallback 异常 ",e.getMessage());
                 mListener.onFailure(new OkHttpException(NETWORK_ERROR, e));
             }
         });
