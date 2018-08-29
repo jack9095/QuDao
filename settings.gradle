@@ -1,7 +1,7 @@
 //include ':app'
 //include ':download'
 //include ':androiderasure'
-include ':scratchTextView'
+include ':scratchTextView', ':jetpack'
 include ':netTest'
 include ':netLibrary'
 //include ':permission_library'
