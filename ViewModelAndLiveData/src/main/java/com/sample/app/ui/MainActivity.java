@@ -19,6 +19,8 @@ import com.sample.app.model.AccountModel;
  *
  * Android框架组件--LiveData的使用及与ViewModel的结合
  * https://blog.csdn.net/u011810352/article/details/81334339
+ * http://shymanzhu.com/2017/12/23/Android%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94LiveData/
+ * https://blog.csdn.net/z979451341/article/details/81185356
  */
 public class MainActivity extends AppCompatActivity {
 
