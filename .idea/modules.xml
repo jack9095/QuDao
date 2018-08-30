@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DraggerLiveDataviewModle/LiveDataviewModle.iml" filepath="$PROJECT_DIR$/DraggerLiveDataviewModle/LiveDataviewModle.iml" />
       <module fileurl="file://$PROJECT_DIR$/QuDao.iml" filepath="$PROJECT_DIR$/QuDao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ViewModelAndLiveData/ViewModelAndLiveData.iml" filepath="$PROJECT_DIR$/ViewModelAndLiveData/ViewModelAndLiveData.iml" />
       <module fileurl="file://$PROJECT_DIR$/baselibrary/baselibrary.iml" filepath="$PROJECT_DIR$/baselibrary/baselibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/jetpack/jetpack.iml" filepath="$PROJECT_DIR$/jetpack/jetpack.iml" />
       <module fileurl="file://$PROJECT_DIR$/netLibrary/netLibrary.iml" filepath="$PROJECT_DIR$/netLibrary/netLibrary.iml" />

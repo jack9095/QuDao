@@ -1,7 +1,7 @@
 //include ':app'
 //include ':download'
 //include ':androiderasure'
-include ':scratchTextView', ':jetpack', ':DraggerLiveDataviewModle'
+include ':scratchTextView', ':jetpack', ':DraggerLiveDataviewModle', ':ViewModelAndLiveData'
 include ':netTest'
 include ':netLibrary'
 //include ':permission_library'

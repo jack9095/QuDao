@@ -372,7 +372,7 @@ public abstract class BaseActivity<T extends BasePresenter>
     protected void addOnClickListeners(View.OnClickListener listener, @IdRes int... ids) {
         if (ids != null) {
             for (@IdRes int id : ids) {
-                view.findViewById(id).setOnClickListener(listener);
+                findViewById(id).setOnClickListener(listener);
             }
         }
     }

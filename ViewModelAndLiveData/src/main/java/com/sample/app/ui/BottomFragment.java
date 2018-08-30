@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.sample.app.R;
 import com.sample.app.bean.AccountBean;
+import com.sample.app.lifeCycle.TestLifeCycle;
 import com.sample.app.model.AccountModel;
 
 
@@ -20,6 +21,13 @@ public class BottomFragment extends Fragment {
 
     private AccountModel mModel;
     private TextView mText;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // Fragment中添加观察者 监听Fragment的生命周期
+        getLifecycle().addObserver(new TestLifeCycle());
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/DraggerLiveDataviewModle" />
+            <option value="$PROJECT_DIR$/ViewModelAndLiveData" />
             <option value="$PROJECT_DIR$/baselibrary" />
             <option value="$PROJECT_DIR$/jetpack" />
             <option value="$PROJECT_DIR$/netLibrary" />

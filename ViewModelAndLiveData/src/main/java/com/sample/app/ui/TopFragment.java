@@ -34,7 +34,7 @@ public class TopFragment extends Fragment {
         view.findViewById(R.id.fragment_set_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mModel.getAccount().postValue(new AccountBean("秦川小将", "182*****008", "这段数据是从Fragment中Post出来的"));
+                mModel.getAccount().postValue(new AccountBean("bai du 百度", "182*****008", "这段数据是从Fragment中Post出来的"));
             }
         });
         mModel.getAccount().observe(this, new Observer<AccountBean>() {
