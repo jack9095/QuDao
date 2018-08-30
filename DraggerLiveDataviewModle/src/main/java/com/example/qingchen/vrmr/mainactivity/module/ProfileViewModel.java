@@ -14,11 +14,13 @@ import javax.inject.Inject;
 
 
 public class ProfileViewModel extends ViewModel {
+
     private InfoRepository infoRepository;
     @Inject
     public ProfileViewModel(InfoRepository infoRepository){
         this.infoRepository= infoRepository;
     }
+
     public LiveData<List<NewsBean>> getInfos(){
         if (infoRepository==null){
             Log.e("---->","isNull");
