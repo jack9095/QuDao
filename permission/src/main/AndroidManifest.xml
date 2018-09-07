@@ -41,6 +41,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <!-- qr -->
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:icon="@mipmap/ic_launcher"
