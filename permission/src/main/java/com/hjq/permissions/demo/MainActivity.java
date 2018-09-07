@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    // 请求权限
     public void requestPermission(View view) {
         CallPermissions.with(this)
                 .permission(Permission.CALL_PHONE, Permission.CAMERA) // 检查通话和相机权限
