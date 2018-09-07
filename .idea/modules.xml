@@ -11,6 +11,8 @@
       <module fileurl="file://$PROJECT_DIR$/navigation/navigation.iml" filepath="$PROJECT_DIR$/navigation/navigation.iml" />
       <module fileurl="file://$PROJECT_DIR$/netLibrary/netLibrary.iml" filepath="$PROJECT_DIR$/netLibrary/netLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/netTest/netTest.iml" filepath="$PROJECT_DIR$/netTest/netTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/permission/permission.iml" filepath="$PROJECT_DIR$/permission/permission.iml" />
+      <module fileurl="file://$PROJECT_DIR$/permission_library/permission_library.iml" filepath="$PROJECT_DIR$/permission_library/permission_library.iml" />
       <module fileurl="file://$PROJECT_DIR$/scratchTextView/scratchTextView.iml" filepath="$PROJECT_DIR$/scratchTextView/scratchTextView.iml" />
     </modules>
   </component>

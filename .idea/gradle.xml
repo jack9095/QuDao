@@ -16,6 +16,8 @@
             <option value="$PROJECT_DIR$/navigation" />
             <option value="$PROJECT_DIR$/netLibrary" />
             <option value="$PROJECT_DIR$/netTest" />
+            <option value="$PROJECT_DIR$/permission" />
+            <option value="$PROJECT_DIR$/permission_library" />
             <option value="$PROJECT_DIR$/scratchTextView" />
           </set>
         </option>

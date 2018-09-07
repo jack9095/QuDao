@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void requestPermission(View view) {
         CallPermissions.with(this)
-                .permission(Permission.CALL_PHONE, Permission.CAMERA)
+                .permission(Permission.CALL_PHONE, Permission.CAMERA) // 检查通话和相机权限
                 .request(new OnPermissionListener() {
 
                     @Override
@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    // 判断是否获得权限
     public void isHasPermission(View view) {
         if (CallPermissions.isPermission(MainActivity.this, Permission.CALL_PHONE, Permission.CAMERA)) {
             Toast.makeText(MainActivity.this, "已经获取到权限，不需要再次申请了", Toast.LENGTH_SHORT).show();
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // 跳转修改权限的设置页面 （安卓手机众多，有的可能不能跳转）
     public void gotoPermissionSettings(View view) {
         CallPermissions.gotoPermissionSettings(MainActivity.this);
     }
