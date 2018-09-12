@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.kuanquan.qudao.R;
 
+/**
+ * 我的页面
+ */
 public class MyFragment extends CommonFragment {
 
     @Override

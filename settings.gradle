@@ -1,4 +1,4 @@
-//include ':app'
+include ':app', ':wheelviewdemo'
 //include ':download'
 //include ':androiderasure'
 include ':scratchTextView', ':jetpack', ':DraggerLiveDataviewModle', ':ViewModelAndLiveData', ':navigation'

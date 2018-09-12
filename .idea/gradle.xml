@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/DraggerLiveDataviewModle" />
             <option value="$PROJECT_DIR$/ViewModelAndLiveData" />
+            <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/baselibrary" />
             <option value="$PROJECT_DIR$/jetpack" />
             <option value="$PROJECT_DIR$/navigation" />
@@ -19,6 +20,7 @@
             <option value="$PROJECT_DIR$/permission" />
             <option value="$PROJECT_DIR$/permission_library" />
             <option value="$PROJECT_DIR$/scratchTextView" />
+            <option value="$PROJECT_DIR$/wheelviewdemo" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

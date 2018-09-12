@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/DraggerLiveDataviewModle/LiveDataviewModle.iml" filepath="$PROJECT_DIR$/DraggerLiveDataviewModle/LiveDataviewModle.iml" />
       <module fileurl="file://$PROJECT_DIR$/QuDao.iml" filepath="$PROJECT_DIR$/QuDao.iml" />
       <module fileurl="file://$PROJECT_DIR$/ViewModelAndLiveData/ViewModelAndLiveData.iml" filepath="$PROJECT_DIR$/ViewModelAndLiveData/ViewModelAndLiveData.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/baselibrary/baselibrary.iml" filepath="$PROJECT_DIR$/baselibrary/baselibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/jetpack/jetpack.iml" filepath="$PROJECT_DIR$/jetpack/jetpack.iml" />
       <module fileurl="file://$PROJECT_DIR$/navigation/navigation.iml" filepath="$PROJECT_DIR$/navigation/navigation.iml" />
@@ -14,6 +15,7 @@
       <module fileurl="file://$PROJECT_DIR$/permission/permission.iml" filepath="$PROJECT_DIR$/permission/permission.iml" />
       <module fileurl="file://$PROJECT_DIR$/permission_library/permission_library.iml" filepath="$PROJECT_DIR$/permission_library/permission_library.iml" />
       <module fileurl="file://$PROJECT_DIR$/scratchTextView/scratchTextView.iml" filepath="$PROJECT_DIR$/scratchTextView/scratchTextView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wheelviewdemo/wheelviewdemo.iml" filepath="$PROJECT_DIR$/wheelviewdemo/wheelviewdemo.iml" />
     </modules>
   </component>
 </project>
