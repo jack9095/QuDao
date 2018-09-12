@@ -340,8 +340,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Log.i("pvTime", "onTimeSelectChanged");
                     }
                 })
-                .setType(new boolean[]{true, true, true, true, true, true})
+                .setType(new boolean[]{true, true, true, false, false, false})
                 .isDialog(true) //默认设置false ，内部实现将DecorView 作为它的父控件。
+                .setContentTextSize(22) // 设置滚轮文字大小
+                .setType(new boolean[]{true, true, true, false, false, false})
+                .setLabel("", "", "", "", "", "")
+//                .setLabel("年", "月", "日", "时", "分", "秒")
+                .setLineSpacingMultiplier(2.1f)
+                .setTextXOffset(0, 0, 0, 40, 0, -40)
+                .isCenterLabel(true) //是否只显示中间选中项的label文字，false则每项item全部都带有label。
+                .setDividerColor(0xFF24AD9D)
+//                .setSubmitColor(Color.WHITE)
+                .setCancelColor(Color.parseColor("#393E4B"))
                 .build();
 
         Dialog mDialog = pvTime.getDialog();
