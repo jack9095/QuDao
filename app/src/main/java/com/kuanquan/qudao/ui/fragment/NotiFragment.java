@@ -147,7 +147,7 @@ public class NotiFragment extends CommonFragment implements HomeBanner.OnPageCli
                 setDuration(mTransition.getDuration(LayoutTransition.APPEARING));
         mTransition.setAnimator(LayoutTransition.APPEARING, addAnimator);
 
-        //header layout height
+        //header view_tsnackbar_layout height
         final int headerHeight = getResources().getDimensionPixelOffset(R.dimen.header_home_height_root);
         mAppBarLayout = (AppBarLayout) view.findViewById(R.id.home_appbar);
         mAppBarLayout.setLayoutTransition(mTransition);

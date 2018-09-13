@@ -28,7 +28,7 @@
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_move);
+//        setContentView(R.view_tsnackbar_layout.activity_move);
 //        final TextView tv  = findViewById(R.id.tv);
 //        Button btn  = findViewById(R.id.btn);
 //

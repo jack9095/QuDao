@@ -15,7 +15,7 @@
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_complex);
+//        setContentView(R.view_tsnackbar_layout.activity_complex);
 //        viewById = findViewById(R.id.image);
 //    }
 //

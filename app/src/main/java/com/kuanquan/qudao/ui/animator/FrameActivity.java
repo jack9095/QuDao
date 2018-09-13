@@ -18,7 +18,7 @@
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_frame);
+//        setContentView(R.view_tsnackbar_layout.activity_frame);
 //        viewById = findViewById(R.id.image);
 //        animationDrawable = new AnimationDrawable();
 //

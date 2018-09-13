@@ -27,7 +27,7 @@ package com.kuanquan.qudao.utils;//package com.example.fly.myapplication.util;
 //	}
 //
 //	private void init() {
-//		View v = View.inflate(getContext(), R.layout.fly_progressdialog, null);
+//		View v = View.inflate(getContext(), R.view_tsnackbar_layout.fly_progressdialog, null);
 //		tvMsg = (TextView) v.findViewById(R.id.tv_loadingmsg);
 //		ProgressBar progressBar = (ProgressBar) v.findViewById(R.id.pb);
 //		if (Build.VERSION.SDK_INT > 22) {//android 6.0替换clip的加载动画

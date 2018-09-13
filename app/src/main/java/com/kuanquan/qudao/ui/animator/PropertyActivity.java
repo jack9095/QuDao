@@ -40,7 +40,7 @@
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_property);
+//        setContentView(R.view_tsnackbar_layout.activity_property);
 //        viewById = findViewById(R.id.image);
 //        myImageView = findViewById(R.id.pointview);
 //        intrinsicHeight = viewById.getDrawable().getIntrinsicHeight(); // 图片的高度

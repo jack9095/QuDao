@@ -3,11 +3,15 @@ package com.kuanquan.qudao.ui.fragment;
 import android.animation.LayoutTransition;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,15 +20,21 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.fly.baselibrary.mvpEeventBus.EventCenter;
 import com.example.fly.baselibrary.utils.useful.GlideUtil;
 import com.example.fly.baselibrary.utils.useful.LogUtil;
 import com.kuanquan.qudao.R;
 import com.kuanquan.qudao.bean.HomeBeanChild;
+import com.kuanquan.qudao.ui.activity.MainActivity;
 import com.kuanquan.qudao.ui.activity.NotifyActivity;
+import com.kuanquan.qudao.ui.activity.SnackBarActivity;
 import com.kuanquan.qudao.ui.adapter.HomeAdapter_release;
 import com.kuanquan.qudao.utils.DataUtils;
 import com.kuanquan.qudao.widget.HomeBanner;
 import com.kuanquan.qudao.widget.Sticklayout;
+
+import org.greenrobot.eventbus.EventBus;
 
 /**
  * 首页
@@ -86,7 +96,7 @@ public class HomeFragment extends CommonFragment implements HomeAdapter_release.
                 setDuration(mTransition.getDuration(LayoutTransition.APPEARING));
         mTransition.setAnimator(LayoutTransition.APPEARING, addAnimator);
 
-        //header layout height
+        //header view_tsnackbar_layout height
         final int headerHeight = getResources().getDimensionPixelOffset(R.dimen.header_home_height);
         mAppBarLayout = (AppBarLayout) view.findViewById(R.id.home_appbar);
         mAppBarLayout.setLayoutTransition(mTransition);
@@ -190,11 +200,49 @@ public class HomeFragment extends CommonFragment implements HomeAdapter_release.
 
     @Override
     public void onPageClick(HomeBeanChild info) {  // banner 点击回调
-        startActivity(new Intent(context, NotifyActivity.class));
+//        startActivity(new Intent(context, NotifyActivity.class));
+        startActivity(new Intent(context, SnackBarActivity.class));
+//        setBar();
+//        EventBus.getDefault().post(new EventCenter<Object>("show_snack_bar"));
     }
 
     @Override
     public void onPageSelected(int position) {
+
+    }
+
+    /**
+     * 自定义Snackbar
+     */
+    private void setBar(){
+        Snackbar mSnackbar = Snackbar.make(view.findViewById(R.id.fragment_coordinator_layout), "it is Snackbar", Snackbar.LENGTH_LONG);
+        View v = mSnackbar.getView();
+        ViewGroup.LayoutParams vl = v.getLayoutParams();
+        CoordinatorLayout.LayoutParams cl = new CoordinatorLayout.LayoutParams(vl.width,vl.height);
+        //设置字体为红色
+        ((TextView) v.findViewById(R.id.snackbar_text)).setTextColor(Color.RED);
+        //设置显示位置居中
+//        cl.gravity = Gravity.BOTTOM;
+        cl.gravity = Gravity.TOP;
+        v.setLayoutParams(cl);
+        //设置背景色为绿色
+        v.setBackgroundColor(Color.GREEN);
+        //自定义动画
+//        v.setAnimation();
+        //设置按钮为蓝色
+        mSnackbar.setActionTextColor(Color.BLUE).setAction("点我", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),"哈哈",Toast.LENGTH_SHORT).show();
+            }
+        }).show();
+        //设置icon
+        ImageView iconImage = new ImageView(getContext());
+        iconImage.setImageResource(R.mipmap.ic_launcher);
+        //icon插入布局
+        Snackbar.SnackbarLayout snackbarLayout = (Snackbar.SnackbarLayout) v;
+        snackbarLayout.addView(iconImage,0);
+        mSnackbar.show();
 
     }
 }

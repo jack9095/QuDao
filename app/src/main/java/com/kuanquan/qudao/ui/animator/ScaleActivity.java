@@ -21,7 +21,7 @@
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_scale);
+//        setContentView(R.view_tsnackbar_layout.activity_scale);
 //        viewById = findViewById(R.id.image);
 //        intrinsicWidth = viewById.getDrawable().getIntrinsicWidth();  // 图片真实宽度
 //        intrinsicHeight = viewById.getDrawable().getIntrinsicHeight();// 图片真实高度

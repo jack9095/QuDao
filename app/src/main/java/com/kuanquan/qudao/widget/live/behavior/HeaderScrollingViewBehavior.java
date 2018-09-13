@@ -48,7 +48,7 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
                     ViewCompat.setFitsSystemWindows(child, true);
 
                     if (ViewCompat.getFitsSystemWindows(child)) {
-                        // If the set succeeded, trigger a new layout and return true
+                        // If the set succeeded, trigger a new view_tsnackbar_layout and return true
                         child.requestLayout();
                         return true;
                     }
@@ -124,7 +124,7 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
     }
 
     /**
-     * The gap between the top of the scrolling view and the bottom of the header layout in pixels.
+     * The gap between the top of the scrolling view and the bottom of the header view_tsnackbar_layout in pixels.
      */
     final int getVerticalLayoutGap() {
         return mVerticalLayoutGap;

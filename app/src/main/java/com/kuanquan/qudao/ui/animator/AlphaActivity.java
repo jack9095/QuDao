@@ -20,7 +20,7 @@
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_tween_view_animation);
+//        setContentView(R.view_tsnackbar_layout.activity_tween_view_animation);
 //        viewById = findViewById(R.id.image);
 //    }
 //

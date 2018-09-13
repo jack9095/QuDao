@@ -29,12 +29,14 @@
             android:name=".ui.webview.WebViewActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="nosensor"
-            android:windowSoftInputMode="stateAlwaysHidden" >
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+            android:windowSoftInputMode="stateAlwaysHidden">
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".ui.activity.MessageActivity"
@@ -61,12 +63,17 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="nosensor"
             android:windowSoftInputMode="stateAlwaysHidden">
-            <!--<intent-filter>
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
+        <activity android:name=".ui.activity.SnackBarActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

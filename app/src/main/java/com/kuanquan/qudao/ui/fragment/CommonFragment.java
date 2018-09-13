@@ -62,9 +62,9 @@ public abstract  class CommonFragment extends Fragment {
     }
 
     /**
-     * bind layout resource file
+     * bind view_tsnackbar_layout resource file
      *
-     * @return id of layout resource
+     * @return id of view_tsnackbar_layout resource
      */
     protected abstract View initLayout(LayoutInflater inflater, ViewGroup container);
 

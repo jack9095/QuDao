@@ -14,7 +14,7 @@
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_animation_and_animator);
+//        setContentView(R.view_tsnackbar_layout.activity_animation_and_animator);
 //        findViewById(R.id.button).setOnClickListener(this);
 //        findViewById(R.id.button2).setOnClickListener(this);
 //        findViewById(R.id.button3).setOnClickListener(this);
