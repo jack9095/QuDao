@@ -1,6 +1,9 @@
 package com.kuanquan.qudao.ui.activity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -15,15 +18,26 @@ import com.kuanquan.qudao.R;
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
 
 /**
  * Created by fei.wang on 2018/9/13.
+ * https://blog.csdn.net/yunyuliunian/article/details/50523307
+ * android 顶部状态栏遮盖
  */
 
 public class SnackBarActivity extends AppCompatActivity implements View.OnClickListener{
+
+    private WindowManager wManager;// 窗口管理者
+    private WindowManager.LayoutParams mParams;// 窗口的属性
+    private boolean flag = true;
+    private View view;
+
 
     RelativeLayout mRr;
 
@@ -54,6 +68,40 @@ public class SnackBarActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
+        wManager = (WindowManager) getApplicationContext().getSystemService(
+                Context.WINDOW_SERVICE);
+
+        mParams = new WindowManager.LayoutParams();
+        mParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+        mParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+                | WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
+                | WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR
+                | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
+                | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
+
+        mParams.gravity = Gravity.LEFT | Gravity.TOP;
+        mParams.x = 0;
+        mParams.y = 0;
+
+        mParams.width = WindowManager.LayoutParams.MATCH_PARENT;
+        mParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        mParams.format = PixelFormat.RGBA_8888;
+
+        view = LayoutInflater.from(SnackBarActivity.this).inflate(R.layout.contacts_bar, null);
+        wManager.addView(view, mParams);//添加窗口
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent intent = new Intent();
+//                intent.setClass(SnackBarActivity.this, TestActivity.class);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(intent);
+//                stopSelf();
+
+            }
+        });
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_snack);
         findViewById(R.id.one).setOnClickListener(this);
@@ -65,6 +113,12 @@ public class SnackBarActivity extends AppCompatActivity implements View.OnClickL
         findViewById(R.id.show_snack_bar).setOnClickListener(this);
 
         mRr = findViewById(R.id.rr);
+    }
+
+    @Override
+    public void onDestroy() {
+        wManager.removeView(view);//移除窗口
+        super.onDestroy();
     }
 
     @Override
@@ -126,7 +180,7 @@ public class SnackBarActivity extends AppCompatActivity implements View.OnClickL
                 suSnackbar.show();
                 break;
             case R.id.show_top_snack_bar:  // 顶部显示
-                TopSnackBar.make(getWindow().getDecorView(), "我是顶部SnackBar", BaseTransientBottomBar.LENGTH_SHORT).show();
+                TopSnackBar.make(view, "我是顶部SnackBar", BaseTransientBottomBar.LENGTH_LONG).show();
                 break;
             case R.id.show_snack_bar:  // 显示源版SnackBar
                 Snackbar.make(view, "我是源版SnackBar", BaseTransientBottomBar.LENGTH_SHORT).show();

@@ -256,8 +256,8 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                                                                   WindowInsetsCompat insets) {
                         // Copy over the bottom inset as padding so that we're displayed
                         // above the navigation bar
-                        v.setPadding(v.getPaddingLeft(), v.getPaddingTop(),
-                                v.getPaddingRight(), insets.getSystemWindowInsetBottom());
+//                        v.setPadding(v.getPaddingLeft(), v.getPaddingTop(),
+//                                v.getPaddingRight(), insets.getSystemWindowInsetBottom());
                         return insets;
                     }
                 });

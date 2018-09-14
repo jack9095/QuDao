@@ -4,6 +4,11 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
+
+import com.example.fly.baselibrary.mvpEeventBus.EventCenter;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.lang.ref.WeakReference;
 
@@ -96,9 +101,10 @@ class SnackbarManager {
     }
 
     /**
-     * Snackbar不再显示，退出动画完成。
+     * TODO Snackbar不再显示，退出动画完成。
      */
     public void onDismissed(Callback callback) {
+        Log.e("SnackbarManager","消失");
         synchronized (mLock) {
             if (isCurrentSnackbarLocked(callback)) {
                 // If the callback is from a Snackbar currently show, remove it and show a new one
@@ -111,9 +117,10 @@ class SnackbarManager {
     }
 
     /**
-     * Snackbar被显示。这是在任何入口动画完成。
+     * TODO Snackbar被显示。这是在任何入口动画完成。
      */
     public void onShown(Callback callback) {
+        Log.e("SnackbarManager","显示");
         synchronized (mLock) {
             if (isCurrentSnackbarLocked(callback)) {
                 scheduleTimeoutLocked(mCurrentSnackbar);

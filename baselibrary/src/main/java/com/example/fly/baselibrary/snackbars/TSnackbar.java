@@ -23,6 +23,7 @@ import android.support.design.widget.SwipeDismissBehavior;
 import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -96,7 +97,6 @@ public final class TSnackbar {
          * TSnackbar是可见的.
          */
         public void onShown(TSnackbar TSnackbar) {
-
         }
     }
 
@@ -202,25 +202,25 @@ public final class TSnackbar {
      * 设置TSnackbar最小的高度
      */
     public TSnackbar setMinHeight(int stateBarHeight, int actionBarHeight) {
-        if (appearDirection == APPEAR_FROM_TOP_TO_DOWN) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                if (stateBarHeight > 0 || actionBarHeight > 0) {
-                    mView.setPadding(0, stateBarHeight, 0, 0);
-                    mView.setMinimumHeight(stateBarHeight + actionBarHeight);
-                } else {
-                    mView.setPadding(0, ScreenUtil.getStatusHeight(mContext), 0, 0);
-                    mView.setMinimumHeight(ScreenUtil.getActionBarHeight(mContext) + ScreenUtil.getStatusHeight(mContext));
-                }
-            } else {
-                if (stateBarHeight > 0 || actionBarHeight > 0) {
-                    mView.setMinimumHeight(actionBarHeight);
-                    ScreenUtil.setMargins(mView, 0, stateBarHeight, 0, 0);
-                } else {
-                    mView.setMinimumHeight(ScreenUtil.getActionBarHeight(mContext));
-                    ScreenUtil.setMargins(mView, 0, ScreenUtil.getStatusHeight(mContext), 0, 0);
-                }
-            }
-        }
+//        if (appearDirection == APPEAR_FROM_TOP_TO_DOWN) {
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//                if (stateBarHeight > 0 || actionBarHeight > 0) {
+//                    mView.setPadding(0, stateBarHeight, 0, 0);
+//                    mView.setMinimumHeight(stateBarHeight + actionBarHeight);
+//                } else {
+//                    mView.setPadding(0, ScreenUtil.getStatusHeight(mContext), 0, 0);
+//                    mView.setMinimumHeight(ScreenUtil.getActionBarHeight(mContext) + ScreenUtil.getStatusHeight(mContext));
+//                }
+//            } else {
+//                if (stateBarHeight > 0 || actionBarHeight > 0) {
+//                    mView.setMinimumHeight(actionBarHeight);
+//                    ScreenUtil.setMargins(mView, 0, stateBarHeight, 0, 0);
+//                } else {
+//                    mView.setMinimumHeight(ScreenUtil.getActionBarHeight(mContext));
+//                    ScreenUtil.setMargins(mView, 0, ScreenUtil.getStatusHeight(mContext), 0, 0);
+//                }
+//            }
+//        }
         return this;
     }
 

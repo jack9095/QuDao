@@ -38,9 +38,9 @@ public class SnackbarContentLayout extends LinearLayout implements
     public SnackbarContentLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SnackbarLayout);
-        mMaxWidth = a.getDimensionPixelSize(R.styleable.SnackbarLayout_android_maxWidth, -1);
-        mMaxInlineActionWidth = a.getDimensionPixelSize(
-                R.styleable.SnackbarLayout_maxActionInlineWidth, -1);
+//        mMaxWidth = a.getDimensionPixelSize(R.styleable.SnackbarLayout_android_maxWidth, -1);
+//        mMaxInlineActionWidth = a.getDimensionPixelSize(
+//                R.styleable.SnackbarLayout_maxActionInlineWidth, -1);
         a.recycle();
     }
 
@@ -63,34 +63,34 @@ public class SnackbarContentLayout extends LinearLayout implements
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
-        if (mMaxWidth > 0 && getMeasuredWidth() > mMaxWidth) {
-            widthMeasureSpec = MeasureSpec.makeMeasureSpec(mMaxWidth, MeasureSpec.EXACTLY);
-            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        }
+//        if (mMaxWidth > 0 && getMeasuredWidth() > mMaxWidth) {
+//            widthMeasureSpec = MeasureSpec.makeMeasureSpec(mMaxWidth, MeasureSpec.EXACTLY);
+//            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+//        }
+//
+//        final int multiLineVPadding = getResources().getDimensionPixelSize(R.dimen.design_snackbar_padding_vertical_2lines);
+////        final int multiLineVPadding = 0;
+//        final int singleLineVPadding = getResources().getDimensionPixelSize(R.dimen.design_snackbar_padding_vertical);
+////        final int singleLineVPadding = 0;
+//        final boolean isMultiLine = mMessageView.getLayout().getLineCount() > 1;
+//
+//        boolean remeasure = false;
+//        if (isMultiLine && mMaxInlineActionWidth > 0
+//                && mActionView.getMeasuredWidth() > mMaxInlineActionWidth) {
+//            if (updateViewsWithinLayout(VERTICAL, multiLineVPadding,
+//                    multiLineVPadding - singleLineVPadding)) {
+//                remeasure = true;
+//            }
+//        } else {
+//            final int messagePadding = isMultiLine ? multiLineVPadding : singleLineVPadding;
+//            if (updateViewsWithinLayout(HORIZONTAL, messagePadding, messagePadding)) {
+//                remeasure = true;
+//            }
+//        }
 
-        final int multiLineVPadding = getResources().getDimensionPixelSize(
-                R.dimen.design_snackbar_padding_vertical_2lines);
-        final int singleLineVPadding = getResources().getDimensionPixelSize(
-                R.dimen.design_snackbar_padding_vertical);
-        final boolean isMultiLine = mMessageView.getLayout().getLineCount() > 1;
-
-        boolean remeasure = false;
-        if (isMultiLine && mMaxInlineActionWidth > 0
-                && mActionView.getMeasuredWidth() > mMaxInlineActionWidth) {
-            if (updateViewsWithinLayout(VERTICAL, multiLineVPadding,
-                    multiLineVPadding - singleLineVPadding)) {
-                remeasure = true;
-            }
-        } else {
-            final int messagePadding = isMultiLine ? multiLineVPadding : singleLineVPadding;
-            if (updateViewsWithinLayout(HORIZONTAL, messagePadding, messagePadding)) {
-                remeasure = true;
-            }
-        }
-
-        if (remeasure) {
-            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        }
+//        if (remeasure) {
+//            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+//        }
     }
 
     private boolean updateViewsWithinLayout(final int orientation,
@@ -109,14 +109,14 @@ public class SnackbarContentLayout extends LinearLayout implements
     }
 
     private static void updateTopBottomPadding(View view, int topPadding, int bottomPadding) {
-        if (ViewCompat.isPaddingRelative(view)) {
-            ViewCompat.setPaddingRelative(view,
-                    ViewCompat.getPaddingStart(view), topPadding,
-                    ViewCompat.getPaddingEnd(view), bottomPadding);
-        } else {
-            view.setPadding(view.getPaddingLeft(), topPadding,
-                    view.getPaddingRight(), bottomPadding);
-        }
+//        if (ViewCompat.isPaddingRelative(view)) {
+//            ViewCompat.setPaddingRelative(view,
+//                    ViewCompat.getPaddingStart(view), topPadding,
+//                    ViewCompat.getPaddingEnd(view), bottomPadding);
+//        } else {
+//            view.setPadding(view.getPaddingLeft(), topPadding,
+//                    view.getPaddingRight(), bottomPadding);
+//        }
     }
 
     @Override

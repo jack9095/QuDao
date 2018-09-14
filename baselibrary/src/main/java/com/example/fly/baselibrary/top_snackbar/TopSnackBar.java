@@ -340,16 +340,16 @@ public final class TopSnackBar extends BaseTransientBottomBar<TopSnackBar> {
             // being inflated against snackbar's parent (instead of against the snackbar itself).
             // Every child that is width=MATCH_PARENT is remeasured again and given the full width
             // minus the paddings.
-            int childCount = getChildCount();
-            int availableWidth = getMeasuredWidth() - getPaddingLeft() - getPaddingRight();
-            for (int i = 0; i < childCount; i++) {
-                View child = getChildAt(i);
-                if (child.getLayoutParams().width == ViewGroup.LayoutParams.MATCH_PARENT) {
-                    child.measure(View.MeasureSpec.makeMeasureSpec(availableWidth, View.MeasureSpec.EXACTLY),
-                            View.MeasureSpec.makeMeasureSpec(child.getMeasuredHeight(),
-                                    View.MeasureSpec.EXACTLY));
-                }
-            }
+//            int childCount = getChildCount();
+//            int availableWidth = getMeasuredWidth() - getPaddingLeft() - getPaddingRight();
+//            for (int i = 0; i < childCount; i++) {
+//                View child = getChildAt(i);
+//                if (child.getLayoutParams().width == ViewGroup.LayoutParams.MATCH_PARENT) {
+//                    child.measure(View.MeasureSpec.makeMeasureSpec(availableWidth, View.MeasureSpec.EXACTLY),
+//                            View.MeasureSpec.makeMeasureSpec(child.getMeasuredHeight(),
+//                                    View.MeasureSpec.EXACTLY));
+//                }
+//            }
         }
     }
 }
