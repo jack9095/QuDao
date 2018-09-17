@@ -14,11 +14,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 
 /**
- * 项目名:   NetTest2
- * 包名:     com.archie.netlibrary.okhttp
  * 文件名:   CommonOkHttpClient
- * 创建者:   Jarchie
- * 创建时间: 17/12/13 上午10:25
  * 描述:     请求的发送，请求参数的配置，https支持
  */
 

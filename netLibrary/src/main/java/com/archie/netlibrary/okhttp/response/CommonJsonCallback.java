@@ -19,11 +19,7 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 /**
- * 项目名:   NetTest2
- * 包名:     com.archie.netlibrary.okhttp.callback
  * 文件名:   CommonJsonCallback
- * 创建者:   Jarchie
- * 创建时间: 17/12/13 下午12:24
  * 描述:     专门处理JSON数据的回调响应
  */
 
@@ -78,7 +74,7 @@ public class CommonJsonCallback implements Callback {
     //处理成功的响应
     private void handleResponse(Object responseObj) {
         //为了保证代码的健壮性
-        if (responseObj == null && responseObj.toString().trim().equals("")) {
+        if (responseObj == null || responseObj.toString().trim().equals("")) {
             mListener.onFailure(new OkHttpException(NETWORK_ERROR, EMPTY_MSG));
             return;
         }

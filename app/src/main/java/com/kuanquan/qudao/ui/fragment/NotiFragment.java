@@ -25,6 +25,8 @@ import com.flyco.tablayout.SlidingTabLayout;
 import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.kuanquan.qudao.R;
 import com.kuanquan.qudao.bean.HomeBeanChild;
+import com.kuanquan.qudao.statusbar.StatuBarActivity;
+import com.kuanquan.qudao.ui.activity.HideStatuBarActivity;
 import com.kuanquan.qudao.ui.activity.NotifyActivity;
 import com.kuanquan.qudao.utils.DataUtils;
 import com.kuanquan.qudao.widget.HomeBanner;
@@ -245,12 +247,13 @@ public class NotiFragment extends CommonFragment implements HomeBanner.OnPageCli
 
     @Override
     public void onPageClick(HomeBeanChild info) {
-
+        startActivity(new Intent(getContext(), StatuBarActivity.class));
     }
 
     @Override
     public void onPageItemClick(HomeBeanChild info) {
-        ToastUtils.showShort(info.id);
+//        ToastUtils.showShort(info.id);
+        startActivity(new Intent(getContext(), HideStatuBarActivity.class));
     }
 
     @Override

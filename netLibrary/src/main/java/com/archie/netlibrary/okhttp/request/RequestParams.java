@@ -6,11 +6,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * 项目名:   NetTest2
- * 包名:     com.archie.netlibrary.okhttp.request
  * 文件名:   RequestParams
- * 创建者:   Jarchie
- * 创建时间: 17/12/13 上午10:28
  * 描述:     封装所有的请求参数到HashMap中
  * 此类是仿照AsyncHttpClient中的请求参数写的
  */

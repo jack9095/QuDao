@@ -6,11 +6,7 @@ import okhttp3.FormBody;
 import okhttp3.Request;
 
 /**
- * 项目名:   NetTest2
- * 包名:     com.archie.netlibrary.okhttp.request
  * 文件名:   CommonRequest
- * 创建者:   Jarchie
- * 创建时间: 17/12/13 上午10:31
  * 描述:     接收请求参数，为我们生成Request对象
  */
 

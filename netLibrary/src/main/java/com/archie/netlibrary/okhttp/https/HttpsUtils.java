@@ -21,11 +21,7 @@ import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 
 /**
- * 项目名:   NetTest2
- * 包名:     com.archie.netlibrary.okhttp.https
  * 文件名:   HttpsUtils
- * 创建者:   Jarchie
- * 创建时间: 17/12/13 上午10:53
  * 描述:     ssl支持
  */
 
