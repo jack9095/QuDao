@@ -28,7 +28,7 @@ public class AFragment extends CommonFragment implements HomeAdapter.OnHomeListe
 
     @Override
     protected View initLayout(LayoutInflater inflater, ViewGroup container) {
-        return inflater.inflate(R.layout.fragment_my, container, false);
+        return inflater.inflate(R.layout.fragment_my_a, container, false);
     }
 
     @Override

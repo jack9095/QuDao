@@ -84,6 +84,7 @@
             android:screenOrientation="nosensor"/>
         <activity android:name=".ui.activity.HideStatuBarActivity"
             android:screenOrientation="nosensor"/>
+        <activity android:name=".ui.webview.ProgressWebViewActivity" />
     </application>
 
 </manifest>

@@ -28,6 +28,7 @@ import com.kuanquan.qudao.bean.HomeBeanChild;
 import com.kuanquan.qudao.statusbar.StatuBarActivity;
 import com.kuanquan.qudao.ui.activity.HideStatuBarActivity;
 import com.kuanquan.qudao.ui.activity.NotifyActivity;
+import com.kuanquan.qudao.ui.webview.ProgressWebViewActivity;
 import com.kuanquan.qudao.utils.DataUtils;
 import com.kuanquan.qudao.widget.HomeBanner;
 import com.kuanquan.qudao.widget.HomeTitleView;
@@ -247,7 +248,8 @@ public class NotiFragment extends CommonFragment implements HomeBanner.OnPageCli
 
     @Override
     public void onPageClick(HomeBeanChild info) {
-        startActivity(new Intent(getContext(), StatuBarActivity.class));
+//        startActivity(new Intent(getContext(), StatuBarActivity.class));
+        startActivity(new Intent(getContext(), ProgressWebViewActivity.class));
     }
 
     @Override

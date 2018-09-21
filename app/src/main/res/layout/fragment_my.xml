@@ -1,7 +1,394 @@
-<com.kuanquan.qudao.widget.SwipeRefreshLayoutRecycler xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/swipe_refresh_layout_recycler"
+    android:id="@+id/activity_root_data"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
-</com.kuanquan.qudao.widget.SwipeRefreshLayoutRecycler>
+    <RelativeLayout
+        android:id="@+id/activity_details_article_title_rl"
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:animateLayoutChanges="true"
+        android:layout_height="@dimen/dp_44">
+
+        <RelativeLayout
+            android:id="@+id/activity_details_article_back"
+            android:layout_width="45dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:src="@mipmap/wz_detail_back"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/activity_details_article_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="@dimen/dp_70"
+            android:layout_marginLeft="@dimen/dp_70"
+            android:textColor="#393E4B"
+            android:textSize="18sp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="个人资料" />
+
+        <View
+            android:background="#f0f0f0"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"/>
+    </RelativeLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/dp_44"
+        android:scrollbarStyle="outsideOverlay"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/rl_changeAvatar"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@drawable/sel_btnbg_op_course"
+                android:paddingBottom="5dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="头像"
+                    android:textColor="@color/gen_app_text_black"
+                    android:textSize="14dp" />
+
+                <com.example.fly.baselibrary.widget.RoundImageViewM
+                    android:id="@+id/iv_avatar"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/iv_nextstep_one"
+                    android:padding="1dp"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/iv_nextstep_one"
+                    android:layout_width="7dp"
+                    android:layout_height="11dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_security_right" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/btn_nickName"
+                style="@style/personal_data_activity_rl">
+
+                <View
+                    style="@style/personal_data_activity_view" />
+
+                <TextView
+                    android:text="昵称"
+                    style="@style/personal_data_activity_rl_text" />
+
+                <TextView
+                    android:id="@+id/tv_nickName"
+                    android:layout_toLeftOf="@+id/iv_nickName"
+                    style="@style/personal_data_activity_rl_text_one" />
+
+                <ImageView
+                    android:id="@+id/iv_nickName"
+                    style="@style/personal_data_activity_rl_image" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/btn_sex"
+                style="@style/personal_data_activity_rl">
+
+                <View
+                    style="@style/personal_data_activity_view" />
+
+                <TextView
+                    android:text="性别"
+                    style="@style/personal_data_activity_rl_text" />
+
+                <TextView
+                    android:id="@+id/tv_sex"
+                    android:layout_toLeftOf="@+id/iv_sex"
+                    style="@style/personal_data_activity_rl_text_one" />
+
+                <ImageView
+                    android:id="@+id/iv_sex"
+                    style="@style/personal_data_activity_rl_image" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/btn_birthday"
+                style="@style/personal_data_activity_rl">
+
+                <View
+                    style="@style/personal_data_activity_view" />
+
+                <TextView
+                    android:text="生日"
+                    style="@style/personal_data_activity_rl_text" />
+
+                <TextView
+                    android:id="@+id/tv_birthday"
+                    android:layout_toLeftOf="@+id/iv_birthday"
+                    style="@style/personal_data_activity_rl_text_one" />
+
+                <ImageView
+                    android:id="@+id/iv_birthday"
+                    style="@style/personal_data_activity_rl_image" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/btn_location"
+                style="@style/personal_data_activity_rl">
+
+                <View
+                    style="@style/personal_data_activity_view" />
+
+                <TextView
+                    android:text="所在地"
+                    style="@style/personal_data_activity_rl_text" />
+
+                <TextView
+                    android:id="@+id/tv_location"
+                    android:layout_toLeftOf="@+id/iv_location"
+                    style="@style/personal_data_activity_rl_text_one" />
+
+                <ImageView
+                    android:id="@+id/iv_location"
+                    style="@style/personal_data_activity_rl_image" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/btn_currentState"
+                style="@style/personal_data_activity_rl">
+
+                <View
+                    style="@style/personal_data_activity_view" />
+
+                <TextView
+                    android:text="当前状态"
+                    style="@style/personal_data_activity_rl_text" />
+
+                <TextView
+                    android:id="@+id/tv_currentState"
+                    android:layout_toLeftOf="@+id/iv_currentState"
+                    style="@style/personal_data_activity_rl_text_one" />
+
+                <ImageView
+                    android:id="@+id/iv_currentState"
+                    style="@style/personal_data_activity_rl_image" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="#F1F3F7"/>
+
+            <RelativeLayout
+                android:id="@+id/btn_school"
+                style="@style/personal_data_activity_rl">
+
+                <TextView
+                    android:text="学校"
+                    style="@style/personal_data_activity_rl_text" />
+
+                <TextView
+                    android:id="@+id/tv_school"
+                    android:layout_toLeftOf="@+id/iv_school"
+                    style="@style/personal_data_activity_rl_text_one" />
+
+                <ImageView
+                    android:id="@+id/iv_school"
+                    style="@style/personal_data_activity_rl_image" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/btn_major"
+                style="@style/personal_data_activity_rl">
+
+                <View
+                    style="@style/personal_data_activity_view" />
+
+                <TextView
+                    android:text="专业"
+                    style="@style/personal_data_activity_rl_text" />
+
+                <TextView
+                    android:id="@+id/tv_major"
+                    android:layout_toLeftOf="@+id/iv_major"
+                    style="@style/personal_data_activity_rl_text_one" />
+
+                <ImageView
+                    android:id="@+id/iv_major"
+                    style="@style/personal_data_activity_rl_image" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/btn_Education"
+                style="@style/personal_data_activity_rl">
+
+                <View
+                    style="@style/personal_data_activity_view" />
+
+                <TextView
+                    android:text="学历"
+                    style="@style/personal_data_activity_rl_text" />
+
+                <TextView
+                    android:id="@+id/tv_Education"
+                    android:layout_toLeftOf="@+id/iv_Education"
+                    style="@style/personal_data_activity_rl_text_one" />
+
+                <ImageView
+                    android:id="@+id/iv_Education"
+                    style="@style/personal_data_activity_rl_image" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/btn_Enrollment_Year"
+                style="@style/personal_data_activity_rl">
+
+                <View
+                    style="@style/personal_data_activity_view" />
+
+                <TextView
+                    android:text="入学年份"
+                    style="@style/personal_data_activity_rl_text" />
+
+                <TextView
+                    android:id="@+id/tv_Enrollment_Year"
+                    android:layout_toLeftOf="@+id/iv_Enrollment_Year"
+                    style="@style/personal_data_activity_rl_text_one" />
+
+                <ImageView
+                    android:id="@+id/iv_Enrollment_Year"
+                    style="@style/personal_data_activity_rl_image" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/btn_Graduation_Year"
+                style="@style/personal_data_activity_rl">
+
+                <View
+                    style="@style/personal_data_activity_view" />
+
+                <TextView
+                    android:text="毕业年份"
+                    style="@style/personal_data_activity_rl_text" />
+
+                <TextView
+                    android:id="@+id/tv_Graduation_Year"
+                    android:layout_toLeftOf="@+id/iv_Graduation_Year"
+                    style="@style/personal_data_activity_rl_text_one" />
+
+                <ImageView
+                    android:id="@+id/iv_Graduation_Year"
+                    style="@style/personal_data_activity_rl_image" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="#F1F3F7"/>
+
+            <RelativeLayout
+                android:id="@+id/btn_Occupation"
+                style="@style/personal_data_activity_rl">
+
+                <TextView
+                    android:text="职业"
+                    style="@style/personal_data_activity_rl_text" />
+
+                <TextView
+                    android:id="@+id/tv_Occupation"
+                    android:layout_toLeftOf="@+id/iv_Occupation"
+                    style="@style/personal_data_activity_rl_text_one" />
+
+                <ImageView
+                    android:id="@+id/iv_Occupation"
+                    style="@style/personal_data_activity_rl_image" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/btn_company"
+                style="@style/personal_data_activity_rl">
+
+                <View
+                    style="@style/personal_data_activity_view" />
+
+                <TextView
+                    android:text="公司"
+                    style="@style/personal_data_activity_rl_text" />
+
+                <TextView
+                    android:id="@+id/tv_company"
+                    android:layout_toLeftOf="@+id/iv_company"
+                    style="@style/personal_data_activity_rl_text_one" />
+
+                <ImageView
+                    android:id="@+id/iv_company"
+                    style="@style/personal_data_activity_rl_image" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/btn_position"
+                style="@style/personal_data_activity_rl">
+
+                <View
+                    style="@style/personal_data_activity_view" />
+
+                <TextView
+                    android:text="职位"
+                    style="@style/personal_data_activity_rl_text" />
+
+                <TextView
+                    android:id="@+id/tv_position"
+                    android:layout_toLeftOf="@+id/iv_position"
+                    style="@style/personal_data_activity_rl_text_one" />
+
+                <ImageView
+                    android:id="@+id/iv_position"
+                    style="@style/personal_data_activity_rl_image" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</RelativeLayout>
+

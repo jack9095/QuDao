@@ -37,8 +37,8 @@ public class RequestCenter {
 
     public static void requestGetRecommandData(DisposeDataListener listener){
         RequestParams params = new RequestParams();
-        params.put("id","2");
-        params.put("name","北京");
+        params.put("uid","54");
+        params.put("token","abcd");
         RequestCenter.getRequest(HttpConstant.HOME_RECOMMAND,params,listener, null);
     }
 

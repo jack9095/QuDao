@@ -21,6 +21,7 @@
             <option value="$PROJECT_DIR$/permission_library" />
             <option value="$PROJECT_DIR$/pickerview" />
             <option value="$PROJECT_DIR$/scratchTextView" />
+            <option value="$PROJECT_DIR$/webview" />
             <option value="$PROJECT_DIR$/wheelview" />
             <option value="$PROJECT_DIR$/wheelviewdemo" />
           </set>
