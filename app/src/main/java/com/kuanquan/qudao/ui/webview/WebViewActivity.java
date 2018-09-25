@@ -59,4 +59,14 @@ public class WebViewActivity extends AppCompatActivity implements JavaScriptObje
     public void goTitle(String title) {
 
     }
+
+    @Override
+    public void onBackPressed() {
+//        super.onBackPressed();
+        if (myWebView.canGoBack()){  // 表示webview二级页面还有没关闭的
+            myWebView.goBack();
+        }else{
+            finish();
+        }
+    }
 }
