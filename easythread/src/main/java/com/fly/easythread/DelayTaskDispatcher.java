@@ -1,4 +1,4 @@
-package com.lzh.easythread;
+package com.fly.easythread;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * The class to launch the delay-task with a core Scheduled pool.
- * @author haoge on 2018/3/29.
+ * @https://github.com/yjfnypeu/EasyThread
  */
 final class DelayTaskDispatcher {
     private ScheduledExecutorService dispatcher;

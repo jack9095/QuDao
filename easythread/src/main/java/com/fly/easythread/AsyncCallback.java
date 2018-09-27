@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.lzh.easythread;
+package com.fly.easythread;
 
 /**
  * Async callback interface.
- * @author haoge on 2018/2/9.
+ * https://github.com/yjfnypeu/EasyThread
  */
 public interface AsyncCallback<T> {
     void onSuccess(T t);

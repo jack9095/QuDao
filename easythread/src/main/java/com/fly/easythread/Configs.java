@@ -1,10 +1,10 @@
-package com.lzh.easythread;
+package com.fly.easythread;
 
 import java.util.concurrent.Executor;
 
 /**
  * Store some configurations for current task.
- * @author haoge on 2018/3/27.
+ * https://github.com/yjfnypeu/EasyThread
  */
 final class Configs {
     String name;// thread name

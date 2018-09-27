@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.lzh.easythread;
+package com.fly.easythread;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executor;
@@ -224,8 +224,9 @@ public final class EasyThread implements Executor{
         }
 
         /**
+         * 创建线程池
          * Create thread pool by <b>Executors.newScheduledThreadPool()</b>
-         * @param size thread size
+         * @param size thread size 线程大小
          * @return Builder itself
          */
         public static Builder createScheduled(int size) {
@@ -254,6 +255,7 @@ public final class EasyThread implements Executor{
         }
 
         /**
+         * 设置要使用的默认线程优先级。
          * Set default thread priority to used.
          * @param priority thread priority
          * @return  itself

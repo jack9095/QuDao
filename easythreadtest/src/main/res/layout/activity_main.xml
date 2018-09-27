@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="com.example.easythreadtest.MainActivity">
+
+    <Button
+        android:onClick="runnableTask"
+        android:text="启动普通Runnable任务"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:onClick="callableTask"
+        android:text="启动普通Callable任务"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:onClick="multiThreadTask"
+        android:text="多线程并发启动"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:onClick="asyncTask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动异步回调任务" />
+
+    <Button
+        android:onClick="onExceptionClick"
+        android:text="启动抛出异常的任务"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:onClick="delayTask"
+        android:text="启动延迟任务(延迟3秒启动)"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:onClick="switchThread"
+        android:text="指定回调执行线程"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

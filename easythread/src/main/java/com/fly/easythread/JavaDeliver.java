@@ -13,13 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.lzh.easythread;
+package com.fly.easythread;
 
 import java.util.concurrent.Executor;
 
 /**
  * The deliver for <b>Java Platform</b> by default.
- * @author haoge
+ * 消息派发器 java
+ * https://github.com/yjfnypeu/EasyThread
  */
 final class JavaDeliver implements Executor {
 

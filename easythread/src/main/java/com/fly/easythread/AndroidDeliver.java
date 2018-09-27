@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.lzh.easythread;
+package com.fly.easythread;
 
 import android.os.Handler;
 import android.os.Looper;
@@ -22,13 +22,13 @@ import java.util.concurrent.Executor;
 
 /**
  * The deliver for <b>Android Platform</b> by default.
- *
- * @author haoge
+ * 安卓消息派发器
+ * https://github.com/yjfnypeu/EasyThread
  */
 final class AndroidDeliver implements Executor {
 
     private static AndroidDeliver instance = new AndroidDeliver();
-    private Handler main = new Handler(Looper.getMainLooper());
+    private Handler main = new Handler(Looper.getMainLooper());  // 主线程
 
     static AndroidDeliver getInstance() {
         return instance;
