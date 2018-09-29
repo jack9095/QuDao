@@ -11,6 +11,7 @@ import com.fly.easythread.AsyncCallback;
 import com.fly.easythread.Callback;
 import com.fly.easythread.EasyThread;
 
+import java.util.Objects;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -33,6 +34,39 @@ public class MainActivity extends AppCompatActivity {
                 .setPriority(Thread.MAX_PRIORITY)  // 设置优先级
                 .setCallback(new ToastCallback())  // 设置回调
                 .build();
+        ThreadManager.getCalculator().setDelay(5000,TimeUnit.MILLISECONDS)
+                .setCallback(new Callback() {
+                    @Override
+                    public void onError(String threadName, Throwable t) {
+                        LogUtil.e("线程任务执行异常");
+                    }
+
+                    @Override
+                    public void onCompleted(String threadName) {
+                        LogUtil.e("线程任务执行完成");
+                    }
+
+                    @Override
+                    public void onStart(String threadName) {
+                        LogUtil.e("线程任务开始执行");
+                    }
+                })
+                .execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        LogUtil.e("延时5秒");
+                    }
+                });
+
+        User aa;
+                aa = new User("","");
+        User bb = new User("","");
+
+        if (Objects.equals(aa,bb)) {
+            LogUtil.e("这两个对象相等");
+        }else{
+            LogUtil.e("这两个对象不相等");
+        }
     }
 
     // 启动普通Runnable任务
@@ -47,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 .submit(new NormalTask());
 
         try {
-            User user = submit.get(3, TimeUnit.SECONDS);
+            User user = submit.get(3, TimeUnit.SECONDS); // 延时3秒执行
             toast("获取到任务返回信息：%s", user);
         } catch (Exception e) {
             toast("获取Callable任务信息失败");

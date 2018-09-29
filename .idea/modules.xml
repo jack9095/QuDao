@@ -8,16 +8,20 @@
       <module fileurl="file://$PROJECT_DIR$/ViewModelAndLiveData/ViewModelAndLiveData.iml" filepath="$PROJECT_DIR$/ViewModelAndLiveData/ViewModelAndLiveData.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/baselibrary/baselibrary.iml" filepath="$PROJECT_DIR$/baselibrary/baselibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/db/db.iml" filepath="$PROJECT_DIR$/db/db.iml" />
       <module fileurl="file://$PROJECT_DIR$/easythread/easythread.iml" filepath="$PROJECT_DIR$/easythread/easythread.iml" />
       <module fileurl="file://$PROJECT_DIR$/easythreadtest/easythreadtest.iml" filepath="$PROJECT_DIR$/easythreadtest/easythreadtest.iml" />
       <module fileurl="file://$PROJECT_DIR$/jetpack/jetpack.iml" filepath="$PROJECT_DIR$/jetpack/jetpack.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/navigation/navigation.iml" filepath="$PROJECT_DIR$/navigation/navigation.iml" />
       <module fileurl="file://$PROJECT_DIR$/netLibrary/netLibrary.iml" filepath="$PROJECT_DIR$/netLibrary/netLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/netTest/netTest.iml" filepath="$PROJECT_DIR$/netTest/netTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/permission/permission.iml" filepath="$PROJECT_DIR$/permission/permission.iml" />
       <module fileurl="file://$PROJECT_DIR$/permission_library/permission_library.iml" filepath="$PROJECT_DIR$/permission_library/permission_library.iml" />
       <module fileurl="file://$PROJECT_DIR$/pickerview/pickerview.iml" filepath="$PROJECT_DIR$/pickerview/pickerview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recycler_animator/recycler_animator.iml" filepath="$PROJECT_DIR$/recycler_animator/recycler_animator.iml" />
       <module fileurl="file://$PROJECT_DIR$/scratchTextView/scratchTextView.iml" filepath="$PROJECT_DIR$/scratchTextView/scratchTextView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/top_bottom_scroll/top_bottom_scroll.iml" filepath="$PROJECT_DIR$/top_bottom_scroll/top_bottom_scroll.iml" />
       <module fileurl="file://$PROJECT_DIR$/webview/webview.iml" filepath="$PROJECT_DIR$/webview/webview.iml" />
       <module fileurl="file://$PROJECT_DIR$/wheelview/wheelview.iml" filepath="$PROJECT_DIR$/wheelview/wheelview.iml" />
       <module fileurl="file://$PROJECT_DIR$/wheelviewdemo/wheelviewdemo.iml" filepath="$PROJECT_DIR$/wheelviewdemo/wheelviewdemo.iml" />
