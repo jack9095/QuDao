@@ -1,19 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <attr name="borderRadius" format="dimension" />
-    <attr name="type">
-        <enum name="circle" value="0" />
-        <enum name="round" value="1" />
-    </attr>
-    <attr name="src" format="reference"></attr>
-
-    <declare-styleable name="CustomImageView">
-        <attr name="borderRadius" />
-        <attr name="type" />
-        <attr name="src" />
-    </declare-styleable>
-
     <!--实现任意一个角为圆角的图片-->
     <declare-styleable name="RoundImageView">
         <attr name="type" />
@@ -24,11 +11,11 @@
         <attr name="bottom_left" />
         <attr name="bottom_right" />
     </declare-styleable>
-    <!--<attr name="borderRadius" format="dimension" />-->
-    <!--<attr name="type">-->
-        <!--<enum name="circle" value="0" />-->
-        <!--<enum name="round" value="1" />-->
-    <!--</attr>-->
+    <attr name="borderRadius" format="dimension" />
+    <attr name="type">
+        <enum name="circle" value="0" />
+        <enum name="round" value="1" />
+    </attr>
     <attr name="scale">
         <enum name="crop" value="0" />
         <enum name="fit" value="1" />

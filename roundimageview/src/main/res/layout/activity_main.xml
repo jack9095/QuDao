@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.fly.roundimageview.MainActivity">
+
+    <com.example.fly.roundimageview.RoundImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/test" />
+
+    <com.example.fly.roundimageview.RoundImageView
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/test"
+        app:type="round" />
+
+    <com.example.fly.roundimageview.RoundImageView
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/test"
+        app:scale="crop"
+        app:type="round" />
+
+    <com.example.fly.roundimageview.RoundImageView
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/test"
+        app:borderRadius="30dp"
+        app:bottom_left="false"
+        app:bottom_right="false"
+        app:top_left="false"
+        app:top_right="false"
+        app:type="round" />
+
+    <com.example.fly.roundimageview.RoundImageView
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/test"
+        app:borderRadius="30dp"
+        app:bottom_right="false"
+        app:top_right="false"
+        app:type="round" />
+
+    <com.example.fly.roundimageview.RoundImageView
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/test"
+        app:borderRadius="30dp"
+        app:bottom_left="false"
+        app:top_right="false"
+        app:type="round" />
+
+
+</LinearLayout>

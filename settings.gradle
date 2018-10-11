@@ -1,4 +1,4 @@
-include ':app', ':bottomnavigationbar', ':tablayout'
+include ':app', ':bottomnavigationbar', ':tablayout', ':roundimageview'
 include ':wheelviewdemo', ':wheelview', ':pickerview'
 include ':easythread', ':easythreadtest'
 include ':scratchTextView', ':jetpack', ':DraggerLiveDataviewModle', ':ViewModelAndLiveData'

@@ -3,12 +3,14 @@ package com.kuanquan.qudao.utils;
 import android.text.TextUtils;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 /**
- * Created by on 2017/3/20.
+ *
  */
 
 public class CollectionsUtil {
@@ -45,5 +47,19 @@ public class CollectionsUtil {
                 mTextView.setText("");
             }
         }
+    }
+
+    /**
+     * 时间格式转换
+     *
+     * @param ltime  - 相对于1970年1月1日零时的毫秒数  MM-dd HH:mm
+     * @param format - 格式字符串
+     * @return String - 带格式的时间字符串
+     */
+    public static String getTimeWithFormat(long ltime, String format) {
+//        Date dateTemp = new Date(ltime * 1000);
+        Date dateTemp = new Date(ltime);
+        SimpleDateFormat formatter = new SimpleDateFormat(format);
+        return formatter.format(dateTemp);
     }
 }

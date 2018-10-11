@@ -2,11 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kuanquan.qudao">
 
-    <!--网络-->
+    <!-- 网络 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <!--指示灯和震动-->
+    <!-- 指示灯和震动 -->
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
 
@@ -80,11 +80,14 @@
         <activity
             android:name=".ui.activity.SnackBarActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".statusbar.StatuBarActivity"
-            android:screenOrientation="nosensor"/>
-        <activity android:name=".ui.activity.HideStatuBarActivity"
-            android:screenOrientation="nosensor"/>
+        <activity
+            android:name=".statusbar.StatuBarActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.activity.HideStatuBarActivity"
+            android:screenOrientation="nosensor" />
         <activity android:name=".ui.webview.ProgressWebViewActivity" />
+        <activity android:name=".ui.activity.LiveActivity"></activity>
     </application>
 
 </manifest>
