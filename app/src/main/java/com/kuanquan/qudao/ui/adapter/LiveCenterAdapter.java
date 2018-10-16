@@ -21,6 +21,7 @@ import com.makeramen.roundedimageview.RoundedImageView;
 import java.util.List;
 
 /**
+ * 直播适配器
  */
 public class LiveCenterAdapter extends RecyclerView.Adapter {
     private static final int ITEM_TYPE_ONE = 0;

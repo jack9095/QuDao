@@ -86,10 +86,13 @@
         <activity
             android:name=".ui.activity.HideStatuBarActivity"
             android:screenOrientation="nosensor" />
-        <activity android:name=".ui.webview.ProgressWebViewActivity"
-            android:screenOrientation="nosensor"/>
-        <activity android:name=".ui.activity.LiveActivity"
-            android:screenOrientation="nosensor"/>
+        <activity
+            android:name=".ui.webview.ProgressWebViewActivity"
+            android:screenOrientation="nosensor" />
+        <activity
+            android:name=".ui.activity.LiveActivity"
+            android:screenOrientation="nosensor" />
+        <activity android:name=".ui.activity.SpecialActivity"></activity>
     </application>
 
 </manifest>
