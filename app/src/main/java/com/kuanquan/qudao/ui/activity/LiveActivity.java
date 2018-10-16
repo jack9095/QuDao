@@ -19,6 +19,9 @@ import com.kuanquan.qudao.widget.Constance;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 直播中心页面
+ */
 public class LiveActivity extends AppCompatActivity implements LiveCenterAdapter.OnShareListener {
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
