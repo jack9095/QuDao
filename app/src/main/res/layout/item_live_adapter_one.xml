@@ -4,25 +4,31 @@
     android:layout_width="match_parent"
     android:layout_height="67dp"
     android:background="#ffffff"
+    android:paddingLeft="16dp"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/item_live_adapter_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:textColor="#333333"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="8dp"
-        android:text="今日直播"/>
+        android:text=""/>
 
     <TextView
         android:id="@+id/item_live_adapter_content"
-        android:layout_below="@+id/item_live_adapter_left"
+        android:layout_toRightOf="@+id/item_live_adapter_left"
         android:layout_width="wrap_content"
+        android:layout_marginLeft="6dp"
         android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="#999999"
         android:layout_alignParentBottom="true"
-        android:visibility="gone"
+        android:visibility="visible"
         android:layout_marginBottom="8dp"
-        android:text="今日直播"/>
+        android:text=""/>
 
     <TextView
         android:id="@+id/item_live_adapter_right"

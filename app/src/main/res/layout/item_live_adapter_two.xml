@@ -8,36 +8,37 @@
 
     <LinearLayout
         android:id="@+id/item_layout_root"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
         android:background="@drawable/round_layout_w"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
-        <com.example.fly.roundimageview.RoundImageView
+        <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/round_image"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:src="@drawable/test"
-            app:borderRadius="30dp"
-            app:bottom_left="false"
-            app:bottom_right="false"
-            app:scale="crop"
-            app:type="round" />
+            android:layout_height="257dp"
+            android:scaleType="centerCrop"
+            app:riv_border_color="#333333"
+            app:riv_corner_radius="4dp"
+            app:riv_mutate_background="true"
+            app:riv_oval="false"
+            app:riv_tile_mode="clamp" />
 
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.example.fly.roundimageview.RoundImageView
+            <ImageView
                 android:id="@+id/circle_round_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/test"
-                app:scale="crop"/>
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:scaleType="centerCrop"
+                android:layout_centerVertical="true"
+                />
 
             <LinearLayout
                 android:layout_toRightOf="@+id/circle_round_image"
@@ -51,8 +52,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=""
-                    android:textColor="#4D4D4D"
-                    android:textSize="16sp" />
+                    android:textColor="#333333"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/left_text_view"
@@ -60,8 +61,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="9dp"
                     android:text=""
-                    android:textColor="#FF8B0D"
-                    android:textSize="18sp" />
+                    android:textColor="#999999"
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -71,29 +72,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:id="@+id/right_text_view_number"
+                    android:id="@+id/right_text_view_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="123"
-                    android:textColor="#4D4D4D"
-                    android:textSize="16sp" />
+                    android:textColor="#999999"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/right_text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="9dp"
                     android:text="预约"
-                    android:textColor="#FF8B0D"
-                    android:textSize="18sp" />
+                    android:textColor="#F39C13"
+                    android:textSize="12sp" />
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
 
-    <View
-        android:id="@+id/item_intergral_two_view_bottom"
-        android:layout_below="@+id/item_layout_root"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="12dp"/>
 </RelativeLayout>

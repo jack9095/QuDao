@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide;
 import com.example.fly.baselibrary.utils.useful.GlideUtil;
 import com.example.fly.baselibrary.utils.useful.LogUtil;
 import com.kuanquan.qudao.R;
-import com.kuanquan.qudao.bean.HomeBeanChild;
+import com.kuanquan.qudao.bean.LiveBean;
 import com.kuanquan.qudao.utils.glide.GlideRoundTransform;
 
 import java.util.List;
@@ -22,9 +22,9 @@ import java.util.List;
  */
 public class HomeAdapterChild extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private List<HomeBeanChild> lists;
+    private List<LiveBean> lists;
     private ViewGroup parentF;
-    public void setData(List<HomeBeanChild> homeBeans){
+    public void setData(List<LiveBean> homeBeans){
         this.lists = homeBeans;
         notifyDataSetChanged();
     }
@@ -45,28 +45,28 @@ public class HomeAdapterChild extends RecyclerView.Adapter<RecyclerView.ViewHold
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof RecyclerHolder) {
-            HomeBeanChild homeBeanChild = lists.get(position);
+            LiveBean mLiveBean = lists.get(position);
             RecyclerHolder mRecyclerHolder = (RecyclerHolder) holder;
-            if (homeBeanChild != null) {
-                if (!TextUtils.isEmpty(homeBeanChild.content)) {
-                    mRecyclerHolder.content.setText(homeBeanChild.content);
+            if (mLiveBean != null) {
+//                if (!TextUtils.isEmpty(mLiveBean.content)) {
+//                    mRecyclerHolder.content.setText(mLiveBean.content);
+//                }
+                if (!TextUtils.isEmpty(mLiveBean.title)) {
+                    mRecyclerHolder.title.setText(mLiveBean.title);
                 }
-                if (!TextUtils.isEmpty(homeBeanChild.title)) {
-                    mRecyclerHolder.title.setText(homeBeanChild.title);
-                }
-                if (!TextUtils.isEmpty(homeBeanChild.image)) {
+                if (!TextUtils.isEmpty(mLiveBean.imageUrl)) {
                     Glide.with(parentF.getContext())
-                            .load(homeBeanChild.image)
+                            .load(mLiveBean.imageUrl)
                             .asBitmap()
-                            .transform(new GlideRoundTransform(parentF.getContext(),10))
+                            .transform(new GlideRoundTransform(parentF.getContext(),2))
                             .into(mRecyclerHolder.image);
                 }
 
-                if (TextUtils.equals(homeBeanChild.type,"1")) {
-                    LogUtil.e(homeBeanChild.type);
+                if (mLiveBean.type == 3) {
+                    LogUtil.e(mLiveBean.type);
                     mRecyclerHolder.view.setVisibility(View.VISIBLE);
                 }else{
-                    LogUtil.e(homeBeanChild.type);
+                    LogUtil.e(mLiveBean.type);
                     mRecyclerHolder.view.setVisibility(View.GONE);
                 }
             }

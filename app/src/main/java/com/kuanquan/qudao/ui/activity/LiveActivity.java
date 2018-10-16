@@ -12,6 +12,7 @@ import com.kuanquan.qudao.R;
 import com.kuanquan.qudao.bean.LiveBean;
 import com.kuanquan.qudao.ui.adapter.LiveAdapter;
 import com.kuanquan.qudao.ui.adapter.LiveCenterAdapter;
+import com.kuanquan.qudao.utils.LiveDataUtil;
 import com.kuanquan.qudao.utils.TimeUtils;
 import com.kuanquan.qudao.widget.Constance;
 
@@ -39,6 +40,9 @@ public class LiveActivity extends AppCompatActivity implements LiveCenterAdapter
     private void initData() {
         adapter = new LiveCenterAdapter(this, lists);
         mRecyclerView.setAdapter(adapter);
+        lists.clear();
+        lists.addAll(LiveDataUtil.getData());
+        adapter.setData(lists);
     }
 
     private void initView() {

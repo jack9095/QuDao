@@ -26,6 +26,7 @@ import com.example.fly.baselibrary.utils.useful.GlideUtil;
 import com.example.fly.baselibrary.utils.useful.LogUtil;
 import com.kuanquan.qudao.R;
 import com.kuanquan.qudao.bean.HomeBeanChild;
+import com.kuanquan.qudao.ui.activity.LiveActivity;
 import com.kuanquan.qudao.ui.activity.MainActivity;
 import com.kuanquan.qudao.ui.activity.NotifyActivity;
 import com.kuanquan.qudao.ui.activity.SnackBarActivity;
@@ -201,7 +202,8 @@ public class HomeFragment extends CommonFragment implements HomeAdapter_release.
     @Override
     public void onPageClick(HomeBeanChild info) {  // banner 点击回调
 //        startActivity(new Intent(context, NotifyActivity.class));
-        startActivity(new Intent(context, SnackBarActivity.class));
+//        startActivity(new Intent(context, SnackBarActivity.class));
+        startActivity(new Intent(context, LiveActivity.class));
 //        setBar();
 //        EventBus.getDefault().post(new EventCenter<Object>("show_snack_bar"));
     }
