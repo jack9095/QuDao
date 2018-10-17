@@ -20,7 +20,8 @@
             android:name=".FullScreenActivity"
             android:theme="@style/Theme.imgFullScreen" />
         <activity android:name=".ImmersionActivity" />
-        <activity android:name=".BaseActivity"></activity>
+        <activity android:name=".BaseActivity" />
+        <activity android:name=".FullTwoActivity"></activity>
     </application>
 
 </manifest>

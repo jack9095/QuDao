@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected Toolbar toolbarImg;
     protected Button button;
     protected Button button2;
+    protected Button button3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button.setOnClickListener(MainActivity.this);
         button2 = (Button) findViewById(R.id.button2);
         button2.setOnClickListener(MainActivity.this);
+        button3 = (Button) findViewById(R.id.button3);
+        button3.setOnClickListener(MainActivity.this);
     }
 
     @Override
@@ -59,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, FullScreenActivity.class));
         } else if (view.getId() == R.id.button2) {
             startActivity(new Intent(this, ImmersionActivity.class));
+        } else if (view.getId() == R.id.button3) {
+            startActivity(new Intent(this, FullTwoActivity.class));
 
         }
     }
