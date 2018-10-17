@@ -2,8 +2,10 @@ package com.kuanquan.qudao.ui.activity;
 
 import android.graphics.Color;
 import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -46,11 +48,7 @@ public class SpecialActivity extends AppCompatActivity implements SpecialAdapter
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_special);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            setStatusBarUpperAPI21();
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            setStatusBarUpperAPI19();
-        }
+        fullScreen();
         initView();
         initData();
     }
@@ -106,6 +104,7 @@ public class SpecialActivity extends AppCompatActivity implements SpecialAdapter
     }
 
     private class RvScrollListener extends RecyclerView.OnScrollListener {
+        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         @Override
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
             super.onScrolled(recyclerView, dx, dy);
@@ -113,11 +112,25 @@ public class SpecialActivity extends AppCompatActivity implements SpecialAdapter
 
             if (!recyclerView.canScrollVertically(-1)) {
                 isVisi = false;
-                titleView.setVisibility(View.GONE);
-                titleLayout.setBackgroundColor(Color.parseColor("#00000000"));
+                titleLayout.setVisibility(View.GONE);
+//                titleLayout.setBackgroundColor(Color.parseColor("#00000000"));
+                getWindow().setStatusBarColor(Color.TRANSPARENT);
+            }
+
+
+            try {
+                if (!isVisi && getScollYDistance() >= 40) {
+//                    titleLayout.setBackgroundColor(Color.parseColor("#ffffff"));
+                    titleLayout.setVisibility(View.VISIBLE);
+                    getWindow().setStatusBarColor(Color.BLACK);
+                    isVisi = true;
+                }
+            }catch (Exception e){
+
             }
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         @Override
         public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
             super.onScrollStateChanged(recyclerView, newState);
@@ -144,15 +157,16 @@ public class SpecialActivity extends AppCompatActivity implements SpecialAdapter
 //                LogUtil.e("lastVisibleItem + 1 = ",lastVisibleItem + 1);
             }
 
-            try {
-                if (!isVisi && getScollYDistance() >= 40) {
-                    titleLayout.setBackgroundColor(Color.parseColor("#ffffff"));
-                    titleView.setVisibility(View.VISIBLE);
-                    isVisi = true;
-                }
-            }catch (Exception e){
-
-            }
+//            try {
+//                if (!isVisi && getScollYDistance() >= 40) {
+////                    titleLayout.setBackgroundColor(Color.parseColor("#ffffff"));
+//                    titleLayout.setVisibility(View.VISIBLE);
+//                    getWindow().setStatusBarColor(Color.BLACK);
+//                    isVisi = true;
+//                }
+//            }catch (Exception e){
+//
+//            }
         }
     }
 
@@ -168,19 +182,25 @@ public class SpecialActivity extends AppCompatActivity implements SpecialAdapter
         return (position) * itemHeight - firstVisiableChildView.getTop();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void setStatusBarUpperAPI21() {
-        Window window = getWindow();
-        //设置透明状态栏,这样才能让 ContentView 向上
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN|
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE|
+                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
+        getWindow().getDecorView().setSystemUiVisibility(option);
+        getWindow().setStatusBarColor(Color.TRANSPARENT);
+        getWindow().setNavigationBarColor(Color.TRANSPARENT);
+    }
 
-        //需要设置这个 flag 才能调用 setStatusBarColor 来设置状态栏颜色
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+    private void cancleFullScreen(){
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    }
 
-        ViewGroup mContentView = (ViewGroup) findViewById(Window.ID_ANDROID_CONTENT);
-        View mChildView = mContentView.getChildAt(0);
-        if (mChildView != null) {
-            //注意不是设置 ContentView 的 FitsSystemWindows, 而是设置 ContentView 的第一个子 View . 使其不为系统 View 预留空间.
-            ViewCompat.setFitsSystemWindows(mChildView, false);
+    private void fullScreen(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            setStatusBarUpperAPI21();
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            setStatusBarUpperAPI19();
         }
     }
 

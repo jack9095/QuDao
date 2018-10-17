@@ -5,30 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:animateLayoutChanges="true"
     tools:context="com.kuanquan.qudao.ui.activity.SpecialActivity">
 
     <include
         layout="@layout/refresh_layout"/>
 
+
     <RelativeLayout
         android:id="@+id/activity_special_rl"
         android:background="#ffffff"
+        android:layout_marginTop="22dp"
         android:layout_width="match_parent"
         android:animateLayoutChanges="true"
         android:layout_height="45dp">
-
-        <RelativeLayout
-            android:id="@+id/activity_special_back"
-            android:layout_width="45dp"
-            android:layout_height="match_parent">
-            <ImageView
-                android:src="@mipmap/wz_detail_back"
-                android:layout_marginLeft="16dp"
-                android:layout_centerVertical="true"
-                android:contentDescription="@string/app_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </RelativeLayout>
 
 
         <TextView
@@ -43,23 +33,21 @@
             android:textColor="#393E4B"
             android:maxLines="1"
             android:text="金融专区" />
+    </RelativeLayout>
 
-        <!--<TextView
-            android:id="@+id/activity_special_right"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="15dp"
+    <RelativeLayout
+        android:id="@+id/activity_special_back"
+        android:layout_marginTop="22dp"
+        android:background="#00000000"
+        android:layout_width="45dp"
+        android:layout_height="45dp">
+        <ImageView
+            android:src="@mipmap/wz_detail_back"
+            android:layout_marginLeft="16dp"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/app_name"
             android:layout_width="wrap_content"
-            android:textSize="14sp"
-            android:textColor="#393E4B"
-            android:gravity="center"
-            android:text="积分说明"
-            android:layout_height="match_parent" />-->
-
-        <!--<View-->
-            <!--android:background="#f0f0f0"-->
-            <!--android:layout_alignParentBottom="true"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="0.5dp"/>-->
+            android:layout_height="wrap_content" />
     </RelativeLayout>
 
 </RelativeLayout>
