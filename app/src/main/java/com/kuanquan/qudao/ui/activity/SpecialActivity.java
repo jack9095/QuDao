@@ -136,7 +136,7 @@ public class SpecialActivity extends AppCompatActivity implements SpecialAdapter
             super.onScrollStateChanged(recyclerView, newState);
 
             if (newState == RecyclerView.SCROLL_STATE_IDLE && lastVisibleItem + 1 == adapter.getItemCount()) {
-                if (lists != null && lists.size() >= 15) {
+                if (lists != null && lists.size() >= 5) {
                     if (isLoad) { // 有数据可加载
                         try {
                             adapter.loadProgress.setVisibility(View.VISIBLE);
