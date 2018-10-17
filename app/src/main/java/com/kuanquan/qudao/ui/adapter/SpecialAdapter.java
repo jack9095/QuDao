@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -82,16 +81,14 @@ public class SpecialAdapter extends RecyclerView.Adapter {
         }
         if (holder instanceof TitleHolder) {   // 第一个item
             TitleHolder titleHolder = (TitleHolder) holder;
+            GlideUtil.loadPicture(parentF.getContext(),integralBean.imageUrl,titleHolder.imageview);
             CollectionsUtil.setTextView(titleHolder.titleTextView,integralBean.title);
             CollectionsUtil.setTextView(titleHolder.contentTextView,integralBean.content);
 //            mShareHolder.title_view_text.setText(Html.fromHtml("<strong><font color= '#ffffff'><big><big><big>" + integralBean.score + "</big></big></big></font></strong>" + "   积分"));
         } else if (holder instanceof LiveHolder) {  //
             LiveHolder liveHolder = (LiveHolder) holder;
-            GlideUtil.setImageCircle(parentF.getContext(),integralBean.headTeacherImage,liveHolder.smallCircle);
-            GlideUtil.loadPicture(parentF.getContext(),integralBean.imageUrl,liveHolder.bigRound);
+            GlideUtil.loadPicture  (parentF.getContext(),integralBean.imageUrl,liveHolder.imageView);
             CollectionsUtil.setTextView(liveHolder.title_view,integralBean.title);
-            CollectionsUtil.setTextView(liveHolder.content_text_view,integralBean.content);
-            CollectionsUtil.setTextView(liveHolder.time,integralBean.time);
             CollectionsUtil.setTextView(liveHolder.number,integralBean.number);
             liveHolder.item_layout_root.setOnClickListener(new MyOnClick(integralBean,position,1));
         }
@@ -144,19 +141,15 @@ public class SpecialAdapter extends RecyclerView.Adapter {
      * two
      */
     public static class LiveHolder extends RecyclerView.ViewHolder {
-        TextView title_view, content_text_view, time,number;
-        RoundedImageView bigRound;
-        ImageView smallCircle;
-        LinearLayout item_layout_root;
+        TextView title_view, time,number;
+        RoundedImageView imageView;
+        RelativeLayout item_layout_root;
         public LiveHolder(View itemView) {
             super(itemView);
-            item_layout_root = (LinearLayout) itemView.findViewById(R.id.item_layout_root);
-            bigRound = (RoundedImageView) itemView.findViewById(R.id.round_image);
-            smallCircle = (ImageView) itemView.findViewById(R.id.circle_round_image);
-            title_view = (TextView) itemView.findViewById(R.id.left_text_view_title);
-            content_text_view = (TextView) itemView.findViewById(R.id.left_text_view);
-            time = (TextView) itemView.findViewById(R.id.right_text_view_time);
-            number = (TextView) itemView.findViewById(R.id.right_text_view);
+            item_layout_root = (RelativeLayout) itemView.findViewById(R.id.item_special_adapter_two_root);
+            imageView = (RoundedImageView) itemView.findViewById(R.id.item_special_adapter_two_round_image);
+            title_view = (TextView) itemView.findViewById(R.id.item_special_adapter_two_title);
+            number = (TextView) itemView.findViewById(R.id.item_special_adapter_two_number);
         }
     }
 

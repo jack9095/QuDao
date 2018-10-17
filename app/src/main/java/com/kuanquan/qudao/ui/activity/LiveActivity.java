@@ -1,5 +1,6 @@
 package com.kuanquan.qudao.ui.activity;
 
+import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -44,7 +45,7 @@ public class LiveActivity extends AppCompatActivity implements LiveCenterAdapter
         adapter = new LiveCenterAdapter(this, lists);
         mRecyclerView.setAdapter(adapter);
         lists.clear();
-        lists.addAll(LiveDataUtil.getData());
+        lists.addAll(LiveDataUtil.getliveData());
         adapter.setData(lists);
     }
 
@@ -52,7 +53,8 @@ public class LiveActivity extends AppCompatActivity implements LiveCenterAdapter
         findViewById(R.id.activity_integral_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+//                finish();
+                startActivity(new Intent(LiveActivity.this,SpecialActivity.class));
             }
         });
         mRecyclerView = findViewById(R.id.recycler_view);

@@ -92,7 +92,8 @@
         <activity
             android:name=".ui.activity.LiveActivity"
             android:screenOrientation="nosensor" />
-        <activity android:name=".ui.activity.SpecialActivity"></activity>
+        <activity android:name=".ui.activity.SpecialActivity"
+            android:screenOrientation="nosensor"/>
     </application>
 
 </manifest>

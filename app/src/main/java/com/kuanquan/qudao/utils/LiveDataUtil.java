@@ -13,7 +13,7 @@ import java.util.List;
 public class LiveDataUtil {
 
 
-    public static List<LiveBean> getData() {
+    public static List<LiveBean> getliveData() {
         List<LiveBean> lists = new ArrayList<>();
         lists.clear();
 //        List<LiveBean> listChilds = new ArrayList<>();
@@ -164,4 +164,31 @@ public class LiveDataUtil {
         return lists;
     }
 
+
+    public static List<LiveBean> getSpecialData() {
+        List<LiveBean> lists = new ArrayList<>();
+        lists.clear();
+
+        LiveBean liveBean;
+
+        liveBean = new LiveBean();
+        liveBean.itemType = 0;
+        liveBean.title = "离离原上草，一岁一枯荣";
+        liveBean.content = "锄禾日当午 汗滴禾下土  谁知盘中餐 粒粒皆辛苦 专题";
+        liveBean.imageUrl = "http://img5.imgtn.bdimg.com/it/u=3532743473,184108530&fm=200&gp=0.jpg";
+        liveBean.id = "";
+        lists.add(liveBean);
+
+        for (int i = 0; i < 20; i++) {
+            liveBean = new LiveBean();
+            liveBean.itemType = 1;
+            liveBean.title = "会当凌绝顶，一览众山小 谁知盘中餐 粒粒皆辛苦";
+            liveBean.content = "锄禾日当午 汗滴禾下土  谁知盘中餐 粒粒皆辛苦 专题";
+            liveBean.imageUrl = "http://img5.imgtn.bdimg.com/it/u=3532743473,184108530&fm=200&gp=0.jpg";
+            liveBean.number = "145 人阅读";
+            liveBean.id = "";
+            lists.add(liveBean);
+        }
+        return lists;
+    }
 }
