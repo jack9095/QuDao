@@ -19,6 +19,7 @@
             <option value="$PROJECT_DIR$/easythreadtest" />
             <option value="$PROJECT_DIR$/fullscreenImage" />
             <option value="$PROJECT_DIR$/jetpack" />
+            <option value="$PROJECT_DIR$/library_taglayout" />
             <option value="$PROJECT_DIR$/netLibrary" />
             <option value="$PROJECT_DIR$/netTest" />
             <option value="$PROJECT_DIR$/permission" />
@@ -28,6 +29,7 @@
             <option value="$PROJECT_DIR$/roundimageview" />
             <option value="$PROJECT_DIR$/scratchTextView" />
             <option value="$PROJECT_DIR$/tablayout" />
+            <option value="$PROJECT_DIR$/tagLayout" />
             <option value="$PROJECT_DIR$/topBottomLibrary" />
             <option value="$PROJECT_DIR$/top_bottom_scroll" />
             <option value="$PROJECT_DIR$/webview" />

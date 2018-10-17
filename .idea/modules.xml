@@ -15,6 +15,7 @@
       <module fileurl="file://$PROJECT_DIR$/fullscreenImage/fullscreenImage.iml" filepath="$PROJECT_DIR$/fullscreenImage/fullscreenImage.iml" />
       <module fileurl="file://$PROJECT_DIR$/jetpack/jetpack.iml" filepath="$PROJECT_DIR$/jetpack/jetpack.iml" />
       <module fileurl="file://$PROJECT_DIR$/topBottomLibrary/library.iml" filepath="$PROJECT_DIR$/topBottomLibrary/library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library_taglayout/library_taglayout.iml" filepath="$PROJECT_DIR$/library_taglayout/library_taglayout.iml" />
       <module fileurl="file://$PROJECT_DIR$/mvvmlibrary/mvvmlibrary.iml" filepath="$PROJECT_DIR$/mvvmlibrary/mvvmlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/netLibrary/netLibrary.iml" filepath="$PROJECT_DIR$/netLibrary/netLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/netTest/netTest.iml" filepath="$PROJECT_DIR$/netTest/netTest.iml" />
@@ -25,6 +26,7 @@
       <module fileurl="file://$PROJECT_DIR$/roundimageview/roundimageview.iml" filepath="$PROJECT_DIR$/roundimageview/roundimageview.iml" />
       <module fileurl="file://$PROJECT_DIR$/scratchTextView/scratchTextView.iml" filepath="$PROJECT_DIR$/scratchTextView/scratchTextView.iml" />
       <module fileurl="file://$PROJECT_DIR$/tablayout/tablayout.iml" filepath="$PROJECT_DIR$/tablayout/tablayout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tagLayout/tagLayout.iml" filepath="$PROJECT_DIR$/tagLayout/tagLayout.iml" />
       <module fileurl="file://$PROJECT_DIR$/topBottomLibrary/topBottomLibrary.iml" filepath="$PROJECT_DIR$/topBottomLibrary/topBottomLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/top_bottom_scroll/top_bottom_scroll.iml" filepath="$PROJECT_DIR$/top_bottom_scroll/top_bottom_scroll.iml" />
       <module fileurl="file://$PROJECT_DIR$/webview/webview.iml" filepath="$PROJECT_DIR$/webview/webview.iml" />
