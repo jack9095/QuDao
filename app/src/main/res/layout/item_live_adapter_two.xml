@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingBottom="16dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
@@ -10,7 +11,6 @@
         android:id="@+id/item_layout_root"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="20dp"
         android:orientation="vertical"
         android:background="@drawable/round_layout_w"
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/round_image"
             android:layout_width="match_parent"
-            android:layout_height="257dp"
+            android:layout_height="193dp"
             android:scaleType="centerCrop"
             app:riv_border_color="#333333"
             app:riv_corner_radius="4dp"
@@ -29,6 +29,7 @@
 
 
         <RelativeLayout
+            android:layout_marginTop="9dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -59,7 +60,6 @@
                     android:id="@+id/left_text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="9dp"
                     android:text=""
                     android:textColor="#999999"
                     android:textSize="14sp" />

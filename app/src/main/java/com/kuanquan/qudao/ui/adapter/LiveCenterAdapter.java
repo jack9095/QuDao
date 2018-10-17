@@ -237,8 +237,10 @@ public class LiveCenterAdapter extends RecyclerView.Adapter {
         TextView title_left, title_right, left_date,right_date,left_number, right_number;
         RoundedImageView imageViewLeft,imageViewRight;
         LinearLayout left_root,right_root;
+        View item_live_adapter_three_view;
         public GridHolder(View itemView) {
             super(itemView);
+            item_live_adapter_three_view = itemView.findViewById(R.id.item_live_adapter_three_view);
             imageViewLeft = (RoundedImageView) itemView.findViewById(R.id.item_live_adapter_three_image_view);
             imageViewRight = (RoundedImageView) itemView.findViewById(R.id.item_live_adapter_three_image_view_one);
             title_left = (TextView) itemView.findViewById(R.id.item_live_adapter_three_text_view);
