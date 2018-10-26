@@ -15,7 +15,7 @@ public class LiveResponseData implements Serializable  {
     public class Data implements Serializable  {
         public List<ProjectList> projectList;  // 直播分类
         public class ProjectList implements Serializable  {
-            public String pname  ;
+            public String pname  ;  // 名称
             public String pCourseStatus  ;
             public String pTkStatus  ;
             public String pid  ;

@@ -8,6 +8,8 @@ import com.archie.netlibrary.okhttp.request.RequestParams;
 import com.archie.nettest2.bean.TestModel;
 import com.archie.nettest2.constant.HttpConstant;
 
+import java.io.FileNotFoundException;
+
 /**
  * 项目名:   NetTest2
  * 包名:     com.archie.nettest2.request
@@ -23,7 +25,7 @@ public class RequestCenter {
     private static void getRequest(String url, RequestParams params,
                                    DisposeDataListener listener,
                                    Class<?> clazz){
-        CommonOkHttpClient.get(CommonRequest.createGetRequest(url, params),
+        CommonOkHttpClient.get(CommonRequest.createGetRequest(url, params,"token",true),
                 new DisposeDataHandle(listener,clazz));
     }
 
@@ -31,13 +33,17 @@ public class RequestCenter {
     private static void postRequest(String url, RequestParams params,
                                    DisposeDataListener listener,
                                    Class<?> clazz){
-        CommonOkHttpClient.post(CommonRequest.createGetRequest(url, params),
+        CommonOkHttpClient.post(CommonRequest.createGetRequest(url, params,"token",true),
                 new DisposeDataHandle(listener,clazz));
     }
 
     public static void requestGetRecommandData(DisposeDataListener listener){
         RequestParams params = new RequestParams();
-        params.put("uid","54");
+        try {
+            params.put("uid",54);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         params.put("token","abcd");
         RequestCenter.getRequest(HttpConstant.HOME_RECOMMAND,params,listener, null);
     }

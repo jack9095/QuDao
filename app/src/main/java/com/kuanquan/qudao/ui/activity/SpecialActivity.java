@@ -62,7 +62,7 @@ public class SpecialActivity extends AppCompatActivity implements SpecialAdapter
     }
 
     private void initView() {
-        findViewById(R.id.activity_special_rl).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.activity_special_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
