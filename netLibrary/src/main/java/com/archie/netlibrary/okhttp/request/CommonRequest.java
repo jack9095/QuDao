@@ -37,7 +37,7 @@ public class CommonRequest {
         Request.Builder builder = new Request.Builder();
         builder.url(urlBuilder.substring(0, urlBuilder.length() - 1));
         if (isHead) {
-            builder.header("Authentication", "Basic " + token);
+            builder.header("Authentication", "Basic" + token.trim());
         }
         return builder.get().build();
     }

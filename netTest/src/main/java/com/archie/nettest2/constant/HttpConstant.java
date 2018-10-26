@@ -9,8 +9,7 @@ package com.archie.nettest2.constant;
  * 描述:     统一管理接口地址
  */
 public class HttpConstant {
-    private static final String URL = "http://t-integral.gaodun.com/";
-//    private static final String URL = "http://127.0.0.1:8080/demo/person/";
+    private static final String URL = " http://ccccc.ggg.com/";
 
-    public static String HOME_RECOMMAND = URL + "api/v1/consume/shopurl";
+    public static String HOME_RECOMMAND = URL + "f/idea/v/dd";
 }
