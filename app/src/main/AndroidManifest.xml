@@ -92,8 +92,10 @@
         <activity
             android:name=".ui.activity.LiveActivity"
             android:screenOrientation="nosensor" />
-        <activity android:name=".ui.activity.SpecialActivity"
-            android:screenOrientation="nosensor"/>
+        <activity
+            android:name=".ui.activity.SpecialActivity"
+            android:screenOrientation="nosensor" />
+        <activity android:name=".ui.activity.RecyclerViewActivity"></activity>
     </application>
 
 </manifest>
