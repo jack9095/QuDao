@@ -44,7 +44,7 @@ public class RecyclerViewActivity extends AppCompatActivity implements SwipeRefr
 
     @Override
     public void onLoadListener(int newState, int lastVisibleItem) {
-        if (newState == RecyclerView.SCROLL_STATE_IDLE && lastVisibleItem == mRecyclerFAdapter.getItemCount()) {
+        if (newState == RecyclerView.SCROLL_STATE_IDLE && lastVisibleItem + 1 == mRecyclerFAdapter.getItemCount()) {
 
             for(int i = 0; i < 10; i++){
                 lists.add("" + i);
