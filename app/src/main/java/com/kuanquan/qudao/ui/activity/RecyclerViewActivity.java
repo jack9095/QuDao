@@ -12,6 +12,7 @@ import com.kuanquan.qudao.ui.adapter.RecyclerFAdapter;
 import com.kuanquan.qudao.widget.SwipeRefreshLayoutRecycler;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -21,6 +22,7 @@ public class RecyclerViewActivity extends AppCompatActivity implements SwipeRefr
     SwipeRefreshLayoutRecycler mSwipeRefreshLayoutRecycler;
     RecyclerFAdapter mRecyclerFAdapter;
     List<String> lists = new ArrayList<>();
+    HashMap<String,String> maps = new HashMap<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
