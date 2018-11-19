@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.retrofit.wangfei.viewpagertablayout.R;
+import com.retrofit.wangfei.viewpagertablayout.fragment.BlankFragment;
 import com.retrofit.wangfei.viewpagertablayout.fragment.HomeFragment;
 import com.retrofit.wangfei.viewpagertablayout.fragment.MessageFragment;
 import com.retrofit.wangfei.viewpagertablayout.fragment.PicturesFragment;
@@ -36,6 +37,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 return PicturesFragment.newInstance();
             case 2:
                 return MessageFragment.newInstance();
+            case 3:
+                return BlankFragment.newInstance();
             default:
                 return HomeFragment.newInstance();
         }
@@ -43,7 +46,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 4;
     }
 
     @Override
@@ -55,6 +58,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 return context.getResources().getString(R.string.main_tab_picture);
             case 2:
                 return context.getResources().getString(R.string.main_tab_weather);
+            case 3:
+                return "自定义布局";
         }
         return null;
     }

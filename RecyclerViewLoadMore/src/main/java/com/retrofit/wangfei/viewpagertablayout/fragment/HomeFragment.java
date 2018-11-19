@@ -85,6 +85,7 @@ public class HomeFragment extends Fragment implements MyRecyclerView.RecyclerVie
                 progress_loading_main.setVisibility(View.GONE);
             }
         }, 2000);
+
     }
 
     /**RecyclerView每个item的点击事件*/
