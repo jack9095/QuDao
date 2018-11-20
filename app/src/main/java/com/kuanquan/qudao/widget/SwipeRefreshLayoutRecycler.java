@@ -17,7 +17,7 @@ import com.kuanquan.qudao.utils.DataUtils;
 
 /**
  * Created by fei.wang on 2018/8/1.
- *
+ * 简单封装recyclerView的刷新和加载
  */
 public class SwipeRefreshLayoutRecycler extends FrameLayout {
 
