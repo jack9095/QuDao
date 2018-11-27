@@ -20,7 +20,14 @@
 
     <com.kuanquan.qudao.widget.MyImageView
         android:id="@+id/pointview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         />
+
+
+
+    <Button
+        android:onClick="onClick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>
