@@ -96,6 +96,15 @@
             android:name=".ui.activity.SpecialActivity"
             android:screenOrientation="nosensor" />
         <activity android:name=".ui.activity.RecyclerViewActivity"></activity>
+        <activity android:name=".ui.animator.FrameActivity" />
+        <activity android:name=".ui.animator.ComplexActivity" />
+        <activity android:name=".ui.animator.CombinationActivity" />
+        <activity android:name=".ui.animator.PropertyActivity" />
+        <activity android:name=".ui.animator.RotateActivity" />
+        <activity android:name=".ui.animator.ScaleActivity" />
+        <activity android:name=".ui.animator.TranslateActivity" />
+        <activity android:name=".ui.animator.AnimationAndAnimatorActivity" />
+        <activity android:name=".ui.animator.AlphaActivity" />
     </application>
 
 </manifest>

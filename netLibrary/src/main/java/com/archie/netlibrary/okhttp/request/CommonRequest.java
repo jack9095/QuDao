@@ -67,6 +67,7 @@ public class CommonRequest {
         builder.url(url);
         if (isHead) {
             builder.header("Authentication", "Basic " + token);
+            builder.header("Content-type", "Basic " + token);
         }
         return builder.post(mFormBody).build();
     }

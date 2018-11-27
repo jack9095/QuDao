@@ -31,6 +31,7 @@ import com.kuanquan.qudao.ui.activity.MainActivity;
 import com.kuanquan.qudao.ui.activity.NotifyActivity;
 import com.kuanquan.qudao.ui.activity.SnackBarActivity;
 import com.kuanquan.qudao.ui.adapter.HomeAdapter_release;
+import com.kuanquan.qudao.ui.animator.AnimationAndAnimatorActivity;
 import com.kuanquan.qudao.utils.DataUtils;
 import com.kuanquan.qudao.widget.HomeBanner;
 import com.kuanquan.qudao.widget.Sticklayout;
@@ -203,7 +204,8 @@ public class HomeFragment extends CommonFragment implements HomeAdapter_release.
     public void onPageClick(HomeBeanChild info) {  // banner 点击回调
 //        startActivity(new Intent(context, NotifyActivity.class));
 //        startActivity(new Intent(context, SnackBarActivity.class));
-        startActivity(new Intent(context, LiveActivity.class));
+//        startActivity(new Intent(context, LiveActivity.class));
+        startActivity(new Intent(context, AnimationAndAnimatorActivity.class));
 //        setBar();
 //        EventBus.getDefault().post(new EventCenter<Object>("show_snack_bar"));
     }
