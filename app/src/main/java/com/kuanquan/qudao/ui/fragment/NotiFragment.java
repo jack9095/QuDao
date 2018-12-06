@@ -18,15 +18,18 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.example.fly.baselibrary.utils.base.ToastUtils;
 import com.example.fly.baselibrary.utils.useful.LogUtil;
 import com.flyco.tablayout.SlidingTabLayout;
 import com.flyco.tablayout.listener.OnTabSelectListener;
+import com.flyco.tablayout.widget.MsgView;
 import com.kuanquan.qudao.R;
 import com.kuanquan.qudao.bean.HomeBeanChild;
 import com.kuanquan.qudao.statusbar.StatuBarActivity;
 import com.kuanquan.qudao.ui.activity.HideStatuBarActivity;
+import com.kuanquan.qudao.ui.activity.MainActivity;
 import com.kuanquan.qudao.ui.activity.NotifyActivity;
 import com.kuanquan.qudao.ui.webview.ProgressWebViewActivity;
 import com.kuanquan.qudao.utils.DataUtils;
@@ -34,6 +37,9 @@ import com.kuanquan.qudao.widget.HomeBanner;
 import com.kuanquan.qudao.widget.HomeTitleView;
 import com.kuanquan.qudao.widget.ProjectViewpager;
 import java.util.ArrayList;
+
+import q.rorbin.badgeview.Badge;
+import q.rorbin.badgeview.QBadgeView;
 
 /**
  * 主页的消息页面
@@ -88,6 +94,7 @@ public class NotiFragment extends CommonFragment implements HomeBanner.OnPageCli
         project_view_tab = (ProjectViewpager) view.findViewById(R.id.project_view_tab);
         mHomeTitleView = view.findViewById(R.id.home_title_view);
         mHomeTitleView.setOnClick(this);
+
 
         project_view_tab.setData(DataUtils.getTabData(DataUtils.getTabItemData()),this);
         ll_view_pager = (LinearLayout) view.findViewById(R.id.ll_view_pager);
@@ -223,6 +230,26 @@ public class NotiFragment extends CommonFragment implements HomeBanner.OnPageCli
 
             }
         });
+
+//        TextView titleViewF = mSlidingTabLayout.getTitleView(0);
+//        Badge badge = new QBadgeView(getActivity());
+//        badge.bindTarget(titleViewF);
+//        badge.setGravityOffset(15,0,true);  // 设置外边距
+
+        mSlidingTabLayout.showMsg(0,0);
+        mSlidingTabLayout.setMsgMargin(0,20,5);
+        MsgView msgView = mSlidingTabLayout.getMsgView(0);
+//        msgView.setIsRadiusHalfHeight(false);
+//        msgView.setIsWidthHeightEqual(false);
+//        msgView.setCornerRadius(600);
+//        msgView.setStrokeWidth(10);
+        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) msgView.getLayoutParams();
+        params.height = 30;
+        params.width = 30;
+        msgView.setLayoutParams(params);
+//        mSlidingTabLayout.showMsg(0,0);
+//        mSlidingTabLayout.setMsgMargin(0,20,0);
+//        mSlidingTabLayout.showDot(0);
     }
 
     private void setSelected(int position){

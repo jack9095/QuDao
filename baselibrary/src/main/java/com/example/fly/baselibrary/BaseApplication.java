@@ -34,7 +34,7 @@ public class BaseApplication extends Application {
         SPManager.init(mAppContext);
 
         initLog();
-        //初始化内存泄漏检测工具
+        // 初始化内存泄漏检测工具
         if (LeakCanary.isInAnalyzerProcess(this)) {
             return;
         }
