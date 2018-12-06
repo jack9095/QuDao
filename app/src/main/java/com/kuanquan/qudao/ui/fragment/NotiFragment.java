@@ -62,7 +62,7 @@ public class NotiFragment extends CommonFragment implements HomeBanner.OnPageCli
     private AFragment mAFragment; // 课程
     private BFragment mBFragment; // 文章
     private ArrayList<Fragment> mFragments = new ArrayList<>();
-    private final String[] mTitles = {"课程", "文章","直播","咨询","谷歌"};
+    private final String[] mTitles = {"课程\n大众化", "文章\n 大众化","直播\n 大众化","咨询\n 大众化","谷歌\n 大众化"};
     private LinearLayoutManager manager;
     private LinearLayout mLinearLayout; // 小圆点
     private ArrayList<ImageView> dotsList = new ArrayList<ImageView>();
@@ -231,7 +231,13 @@ public class NotiFragment extends CommonFragment implements HomeBanner.OnPageCli
             }
         });
 
-//        TextView titleViewF = mSlidingTabLayout.getTitleView(0);
+        TextView titleViewF = mSlidingTabLayout.getTitleView(0);
+        titleViewF.setSingleLine(false);
+        titleViewF.setText("10\n中国");
+//        RelativeLayout.LayoutParams paramsf = (RelativeLayout.LayoutParams) titleViewF.getLayoutParams();
+//        paramsf.height = 100;
+//        paramsf.width = 100;
+//        titleViewF.setLayoutParams(paramsf);
 //        Badge badge = new QBadgeView(getActivity());
 //        badge.bindTarget(titleViewF);
 //        badge.setGravityOffset(15,0,true);  // 设置外边距
